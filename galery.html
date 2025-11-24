@@ -295,6 +295,22 @@
         #mobile-language-options.show {
             display: block;
         }
+                /* Gallery Image Styles */
+        .grid img {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        .row-span-2 img {
+            min-height: 600px;
+        }
+        .bg-white.rounded-3xl img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body class="relative">
@@ -460,7 +476,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-min">
                 <!-- Gallery Item 1 -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="images/aitbenhaddou.jpg" 
                          alt="Kasbah Ait Benhaddou">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -470,17 +486,17 @@
                 </div>
                 <!-- Gallery Item 2 (taller) -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow row-span-2">
-                    <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73516?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="images/Essaouira.webp" 
                          alt="Dunes de Merzouga">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                        <h3 class="text-lg font-bold" data-translate="img_title2">Dunes de Merzouga</h3>
-                        <p class="text-sm" data-translate="img_desc2">Sahara Adventure</p>
+                        <h3 class="text-lg font-bold" data-translate="img_title2">Essaouira</h3>
+                        <p class="text-sm" data-translate="img_desc2">Atlantic Breeze</p>
                     </div>
                 </div>
                 <!-- Gallery Item 3 -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="images/Merzouga.jpg" 
                          alt="Coucher de soleil au désert">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -490,7 +506,7 @@
                 </div>
                 <!-- Gallery Item 4 -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="images/fez.jpg" 
                          alt="Gorges du Todra">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -500,7 +516,7 @@
                 </div>
                 <!-- Gallery Item 5 (taller) -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow row-span-2">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="images/merzouga night.jpg" 
                          alt="Campement nomade">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -509,7 +525,7 @@
                     </div>
                 </div>
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="images/daraa valley.jpg" 
                          alt="Vallée du Drâa">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -536,7 +552,7 @@
             <div class="grid lg:grid-cols-3 gap-12">
                 <!-- Sahara Adventures -->
                 <div class="bg-white rounded-3xl shadow-xl overflow-hidden relative group hover:shadow-2xl transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73516?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sahara Adventures">
+                    <img src="images/Merzouga.jpg" alt="Sahara Adventures">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-8 left-8 text-white">
                         <h3 class="text-2xl font-bold mb-2" data-translate="cat1_title">Aventures au Sahara</h3>
@@ -546,7 +562,7 @@
                 </div>
                 <!-- Cultural Sites -->
                 <div class="bg-white rounded-3xl shadow-xl overflow-hidden relative group hover:shadow-2xl transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cultural Sites">
+                    <img src="images/aitbenhaddou.jpg" alt="Cultural Sites">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-8 left-8 text-white">
                         <h3 class="text-2xl font-bold mb-2" data-translate="cat2_title">Sites culturels</h3>
@@ -556,7 +572,7 @@
                 </div>
                 <!-- Natural Wonders -->
                 <div class="bg-white rounded-3xl shadow-xl overflow-hidden relative group hover:shadow-2xl transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Natural Wonders">
+                    <img src="images/daraa valley.jpg" alt="Natural Wonders">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-8 left-8 text-white">
                         <h3 class="text-2xl font-bold mb-2" data-translate="cat3_title">Merveilles naturelles</h3>
@@ -628,11 +644,11 @@
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-phone mt-1 mr-3 text-accent"></i>
-                            <span data-translate="footer_phone">+212 5 22 12 34 56</span>
+                            <span data-translate="footer_phone">+212691196491</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
-                            <span data-translate="footer_email">info@enjoymarrakechtours.com</span>
+                            <span data-translate="footer_email">Enjoymarrakechtour@gmail.com</span>
                         </li>
                     </ul>
                 </div>
@@ -714,8 +730,8 @@
                 footer_quick_links: "Liens Rapides",
                 footer_contact: "Contact",
                 footer_address: "123 Rue de la Médina, Marrakech, Maroc",
-                footer_phone: "+212 5 22 12 34 56",
-                footer_email: "info@enjoymarrakechtours.com",
+                footer_phone: "+212691196491",
+                footer_email: "Enjoymarrakechtour@gmail.com",
                 footer_newsletter: "Abonnez-vous",
                 footer_newsletter_desc: "Recevez nos dernières offres et conseils de voyage par email.",
                 footer_email_placeholder: "Votre adresse email",
@@ -773,8 +789,8 @@
                 footer_quick_links: "Quick Links",
                 footer_contact: "Contact",
                 footer_address: "123 Medina Street, Marrakech, Morocco",
-                footer_phone: "+212 5 22 12 34 56",
-                footer_email: "info@enjoymarrakechtours.com",
+                footer_phone: "+212691196491",
+                footer_email: "Enjoymarrakechtour@gmail.com",
                 footer_newsletter: "Subscribe",
                 footer_newsletter_desc: "Get our latest travel deals and tips by email.",
                 footer_email_placeholder: "Your email address",
@@ -832,8 +848,8 @@
                 footer_quick_links: "Enlaces rápidos",
                 footer_contact: "Contacto",
                 footer_address: "123 Calle de la Medina, Marrakech, Marruecos",
-                footer_phone: "+212 5 22 12 34 56",
-                footer_email: "info@enjoymarrakechtours.com",
+                footer_phone: "+212691196491",
+                footer_email: "Enjoymarrakechtour@gmail.com",
                 footer_newsletter: "Suscríbete",
                 footer_newsletter_desc: "Recibe nuestras últimas ofertas y consejos de viaje por email.",
                 footer_email_placeholder: "Tu dirección de email",

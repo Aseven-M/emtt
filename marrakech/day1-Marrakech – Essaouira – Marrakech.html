@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="html-root">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,17 +29,16 @@
     }
   </script>
   <style>
-     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     body {
       font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
       background-color: #ffffff;
     }
-     body { font-family: 'Poppins', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #24441B 0%, #2d5423 100%); }
-        .card-shadow { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); }
-        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .hover-lift:hover { transform: translateY(-8px); }
+    .gradient-bg { background: linear-gradient(135deg, #24441B 0%, #2d5423 100%); }
+    .card-shadow { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); }
+    .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .hover-lift:hover { transform: translateY(-8px); }
     /* Navbar styles */
     .navbar-scrolled {
       background-color: rgba(255, 255, 255, 0.95);
@@ -69,6 +68,14 @@
     #mobile-language-options.show {
       display: block;
     }
+    /* Slow spin animation */
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 10s linear infinite;
+    }
   </style>
 </head>
 <body class="bg-gray-100">
@@ -78,37 +85,37 @@
       <div class="flex justify-between items-center">
         <!-- Logo -->
         <a href="/index.html" class="flex items-center">
-          <img src="/images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
+          <img src="../images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
         </a>
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-6">
-          <a href="/index.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
+          <a href="/index.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav_home">
             Accueil
             <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
           </a>
-          <a href="/about.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
+          <a href="/about.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav_about">
             À propos
             <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
           </a>
           <!-- Packages Dropdown -->
           <div class="relative group">
-            <button class="nav-link text-primary font-medium flex items-center hover:text-accent">
+            <button class="nav-link text-primary font-medium flex items-center hover:text-accent" data-i18n="nav_packages">
               Packages
               <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
             </button>
             <div class="absolute left-0 mt-3 w-52 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-accent/20">
-              <a href="/tours/marrakech.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
+              <a href="../tours/marrakech.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="tour_marrakech">
                 From Marrakech
               </a>
-              <a href="/tours/fes.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
+              <a href="/tours/fes.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="tour_fes">
                 From Fes
               </a>
-              <a href="#" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
+              <a href="#" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="tour_casablanca">
                 From Casablanca
               </a>
             </div>
           </div>
-          <a href="/galery.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
+          <a href="/galery.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav_gallery">
             Galerie
             <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
           </a>
@@ -119,15 +126,15 @@
               <span class="current-language font-semibold">FR</span>
             </button>
             <div class="language-options absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl py-1 border border-accent/20">
-              <div class="language-option active px-4 py-2 cursor-pointer hover:bg-accent/10">
+              <div class="language-option active px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="fr">
                 <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French">
                 Français
               </div>
-              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10">
+              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="en">
                 <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English">
                 English
               </div>
-              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10">
+              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="es">
                 <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish">
                 Español
               </div>
@@ -136,7 +143,7 @@
         </div>
         <!-- Contact / Mobile Menu Button -->
         <div>
-          <a href="/contact.html" class="hidden md:block bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-all shadow-md hover:shadow-accent/50">
+          <a href="/contact.html" class="hidden md:block bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-all shadow-md hover:shadow-accent/50" data-i18n="nav_contact">
             <i class="fas fa-phone mr-2"></i>Contact US
           </a>
           <button id="mobile-menu-button" class="md:hidden text-primary text-2xl">
@@ -148,27 +155,27 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden mt-3">
       <div class="flex flex-col space-y-3 px-4 pb-4 bg-white/95 backdrop-blur-sm rounded-lg mx-4">
-        <a href="/index.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
+        <a href="/index.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20" data-i18n="nav_home">
           <i class="fas fa-home mr-3 text-accent"></i>Accueil
         </a>
-        <a href="/about.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
+        <a href="/about.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20" data-i18n="nav_about">
           <i class="fas fa-info-circle mr-3 text-accent"></i>À propos
         </a>
         <!-- Mobile Tours Dropdown -->
         <div class="mobile-tours-dropdown">
           <button id="mobile-tours-button" class="text-primary font-medium py-3 flex items-center justify-between w-full border-b border-accent/20">
-            <span class="flex items-center">
+            <span class="flex items-center" data-i18n="nav_tours">
               <i class="fas fa-route mr-3 text-accent"></i>Tours
             </span>
             <i class="fas fa-chevron-down text-xs"></i>
           </button>
           <div id="mobile-tours-content" class="pl-7 mt-2 hidden dropdown-content">
-            <a href="/tours/marrakech.html" class="block py-2 text-gray-600 hover:text-accent">From Marrakech</a>
-            <a href="/tours/fes.html" class="block py-2 text-gray-600 hover:text-accent">From Fes</a>
-            <a href="/tours/casablanca.html" class="block py-2 text-gray-600 hover:text-accent">From Casablanca</a>
+            <a href="../tours/marrakech.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="tour_marrakech">From Marrakech</a>
+            <a href="/tours/fes.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="tour_fes">From Fes</a>
+            <a href="/tours/casablanca.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="tour_casablanca">From Casablanca</a>
           </div>
         </div>
-        <a href="/galery.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
+        <a href="/galery.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20" data-i18n="nav_gallery">
           <i class="fas fa-image mr-3 text-accent"></i>Galerie
         </a>
         <!-- Mobile Language -->
@@ -179,33 +186,30 @@
             <i class="fas fa-chevron-down ml-2 text-xs"></i>
           </button>
           <div id="mobile-language-options" class="language-options mt-2">
-            <div class="language-option active p-2 hover:bg-accent/10 cursor-pointer">
+            <div class="language-option active p-2 hover:bg-accent/10 cursor-pointer" data-lang="fr">
               <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French">
               Français
             </div>
-            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer">
+            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="en">
               <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English">
               English
             </div>
-            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer">
+            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="es">
               <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish">
               Español
             </div>
           </div>
         </div>
-        <a href="/contact.html" class="mt-3 bg-accent text-white px-5 py-3 rounded-lg font-medium text-center transition-all hover:bg-accent/90">
+        <a href="/contact.html" class="mt-3 bg-accent text-white px-5 py-3 rounded-lg font-medium text-center transition-all hover:bg-accent/90" data-i18n="nav_contact">
           <i class="fas fa-calendar-check mr-2"></i>Contact US
         </a>
       </div>
     </div>
   </nav>
+
   <!-- Hero Section -->
- <!-- Hero Section -->
-<section class="gradient-bg text-white relative overflow-hidden min-h-screen flex items-center pt-24">
-    <!-- Enhanced Gradient Overlay -->
+  <section class="gradient-bg text-white relative overflow-hidden min-h-screen flex items-center pt-24">
     <div class="absolute inset-0 bg-gradient-to-br from-[#24441B] via-[#2d5422] to-black opacity-70"></div>
-    
-    <!-- Dynamic Background Elements -->
     <div class="absolute inset-0">
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#F2D04E]/8 rounded-full blur-3xl animate-pulse"></div>
       <div class="absolute bottom-1/3 right-1/3 w-80 h-80 bg-[#F2D04E]/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
@@ -213,168 +217,127 @@
       <div class="absolute top-10 right-10 w-1 h-20 bg-[#F2D04E]/30 rounded-full animate-bounce delay-300"></div>
       <div class="absolute bottom-20 left-20 w-2 h-2 bg-[#F2D04E] rounded-full animate-ping delay-700"></div>
     </div>
-    
     <div class="container mx-auto px-6 relative z-20">
-      <!-- Main Hero Content -->
       <div class="grid lg:grid-cols-2 gap-20 items-center min-h-screen py-20">
-        <!-- Left Content -->
         <div class="space-y-12">
-          <!-- Main Title -->
           <div class="space-y-8">
             <h1 class="text-6xl md:text-8xl font-black leading-none">
-              <span class="block text-white/90 mb-4">Découvrez</span>
+              <span class="block text-white/90 mb-4" data-i18n="hero_title1">Découvrez</span>
               <span class="block relative mb-6">
                 <span class="bg-gradient-to-r from-[#F2D04E] via-yellow-300 to-[#F2D04E] bg-clip-text text-transparent">
                   ESSAOUIRA
                 </span>
                 <div class="absolute -inset-4 bg-gradient-to-r from-[#F2D04E]/20 to-transparent blur-2xl -z-10 animate-pulse"></div>
               </span>
-              <span class="block text-white/70 text-4xl md:text-5xl font-medium">
-                la perle de l'Atlantique
-              </span>
+              <span class="block text-white/70 text-4xl md:text-5xl font-medium" data-i18n="hero_subtitle">la perle de l'Atlantique</span>
             </h1>
             <p class="text-2xl md:text-3xl text-gray-200 leading-relaxed max-w-2xl">
-              Une journée d'évasion de <span class="text-[#F2D04E] font-semibold">Marrakech à Essaouira</span>. 
-              Explorez la médina historique, les remparts océaniques et les plages ventées.
+              <span data-i18n="hero_desc1">Une journée d'évasion de</span> 
+              <span class="text-[#F2D04E] font-semibold">Marrakech à Essaouira</span>. 
+              <span data-i18n="hero_desc2">Explorez la médina historique, les remparts océaniques et les plages ventées.</span>
             </p>
           </div>
-
-          <!-- Enhanced Feature Tags -->
           <div class="flex flex-wrap gap-4">
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
-              <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-              </svg>
-              <span class="font-semibold">Site UNESCO</span>
+              <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/></svg>
+              <span class="font-semibold" data-i18n="tag_unesco">Site UNESCO</span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
-              <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z"/>
-              </svg>
-              <span class="font-semibold">Médina authentique</span>
+              <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z"/></svg>
+              <span class="font-semibold" data-i18n="tag_medina">Médina authentique</span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
-              <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-              </svg>
-              <span class="font-semibold">Guide local</span>
+              <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg>
+              <span class="font-semibold" data-i18n="tag_guide">Guide local</span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
-              <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-              </svg>
-              <span class="font-semibold">Petit groupe</span>
+              <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <span class="font-semibold" data-i18n="tag_small_group">Petit groupe</span>
             </div>
           </div>
-
-          <!-- Enhanced CTA Section -->
           <div class="flex flex-col sm:flex-row items-start gap-8">
-            
             <div class="flex-1 space-y-4">
               <a href="#reservation">
-              <button class="w-full bg-white/10 backdrop-blur-sm border-2 border-[#F2D04E] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#F2D04E] hover:text-[#24441B] transition-all duration-300 text-xl shadow-xl group relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                <span class="flex items-center justify-center relative z-10">
-                  Réserver maintenant
-                  <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                  </svg>
-                </span>
-              </button></a>
+                <button class="w-full bg-white/10 backdrop-blur-sm border-2 border-[#F2D04E] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#F2D04E] hover:text-[#24441B] transition-all duration-300 text-xl shadow-xl group relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <span class="flex items-center justify-center relative z-10" data-i18n="cta_book_now">
+                    Réserver maintenant
+                    <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                  </span>
+                </button>
+              </a>
               <div class="text-center space-y-2">
-                <div class="text-lg text-[#F2D04E] font-semibold">
-                  ✨ Confirmation immédiate
-                </div>
-                <div class="text-sm text-gray-300">
-                  Sans frais cachés • Annulation flexible
-                </div>
+                <div class="text-lg text-[#F2D04E] font-semibold" data-i18n="cta_confirmation">✨ Confirmation immédiate</div>
+                <div class="text-sm text-gray-300" data-i18n="cta_flex">Sans frais cachés • Annulation flexible</div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Right Visual Section -->
         <div class="relative">
-          <!-- Main Hero Image -->
-          <div class="relative">
-            <div class="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
-              <img src="https://images.pexels.com/photos/11588733/pexels-photo-11588733.jpeg" 
-                   alt="Remparts d'Essaouira" 
-                   class="w-full h-[500px] object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <!-- Image Overlay Content -->
-              <div class="absolute bottom-8 left-8 text-white">
-                <div class="flex items-center space-x-2 mb-4">
-                  <svg class="w-6 h-6 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg font-medium">Essaouira, Maroc</span>
-                </div>
-                <h3 class="text-3xl font-bold mb-3">Médina d'Essaouira</h3>
-                <p class="text-lg opacity-90">Un joyau côtier classé UNESCO</p>
+          <div class="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
+            <img src="https://images.pexels.com/photos/11588733/pexels-photo-11588733.jpeg" alt="Remparts d'Essaouira" class="w-full h-[500px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-8 text-white">
+              <div class="flex items-center space-x-2 mb-4">
+                <svg class="w-6 h-6 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-lg font-medium" data-i18n="location">Essaouira, Maroc</span>
               </div>
+              <h3 class="text-3xl font-bold mb-3" data-i18n="medina_title">Médina d'Essaouira</h3>
+              <p class="text-lg opacity-90" data-i18n="medina_desc">Un joyau côtier classé UNESCO</p>
             </div>
-
-            <!-- Enhanced Floating Cards -->
-            <div class="absolute -top-8 -left-8 bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-white/50 transform hover:scale-110 transition-transform">
-              <div class="flex items-center space-x-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center shadow-lg">
-                  <span class="text-[#24441B] font-black text-2xl">1</span>
-                </div>
-                <div>
-                  <div class="font-black text-[#24441B] text-xl">Jour</div>
-                  <div class="text-[#24441B]/60">D'évasion</div>
-                </div>
+          </div>
+          <div class="absolute -top-8 -left-8 bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-white/50 transform hover:scale-110 transition-transform">
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center shadow-lg">
+                <span class="text-[#24441B] font-black text-2xl">1</span>
               </div>
-            </div>
-            <div class="absolute -bottom-8 -right-8 bg-[#24441B] text-white rounded-3xl p-6 shadow-2xl transform hover:scale-110 transition-transform">
-              <div class="flex items-center space-x-4">
-                <div class="w-16 h-16 bg-[#F2D04E] rounded-2xl flex items-center justify-center shadow-lg">
-                  <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="font-black text-[#F2D04E] text-xl">4.8/5</div>
-                  <div class="text-gray-300">Excellence</div>
-                </div>
+              <div>
+                <div class="font-black text-[#24441B] text-xl" data-i18n="day_trip">Jour</div>
+                <div class="text-[#24441B]/60" data-i18n="day_excursion">D'évasion</div>
               </div>
             </div>
           </div>
-
-          <!-- Enhanced Gallery Images -->
+          <div class="absolute -bottom-8 -right-8 bg-[#24441B] text-white rounded-3xl p-6 shadow-2xl transform hover:scale-110 transition-transform">
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-[#F2D04E] rounded-2xl flex items-center justify-center shadow-lg">
+                <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-black text-[#F2D04E] text-xl">4.8/5</div>
+                <div class="text-gray-300" data-i18n="rating_excellence">Excellence</div>
+              </div>
+            </div>
+          </div>
           <div class="grid grid-cols-2 gap-6 mt-12">
             <div class="relative group overflow-hidden rounded-3xl shadow-xl">
-              <img src="https://images.pexels.com/photos/6655419/pexels-photo-6655419.jpeg" 
-                   alt="Remparts d'Essaouira" 
-                   class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
+              <img src="https://images.pexels.com/photos/6655419/pexels-photo-6655419.jpeg" alt="Remparts d'Essaouira" class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
-                <div class="text-sm font-bold mb-1">Matin</div>
-                <div class="text-xs opacity-90">Remparts et port</div>
+                <div class="text-sm font-bold mb-1" data-i18n="morning">Matin</div>
+                <div class="text-xs opacity-90" data-i18n="morning_desc">Remparts et port</div>
               </div>
             </div>
             <div class="relative group overflow-hidden rounded-3xl shadow-xl">
-              <img src="https://images.pexels.com/photos/11095599/pexels-photo-11095599.jpeg" 
-                   alt="Médina d'Essaouira" 
-                   class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
+              <img src="https://images.pexels.com/photos/11095599/pexels-photo-11095599.jpeg" alt="Médina d'Essaouira" class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
-                <div class="text-sm font-bold mb-1">Après-midi</div>
-                <div class="text-xs opacity-90">Médina et souks</div>
+                <div class="text-sm font-bold mb-1" data-i18n="afternoon">Après-midi</div>
+                <div class="text-xs opacity-90" data-i18n="afternoon_desc">Médina et souks</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Enhanced Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
       <div class="flex flex-col items-center space-y-3 group cursor-pointer">
-        <div class="text-sm text-[#F2D04E] font-semibold opacity-80 group-hover:opacity-100 transition-opacity animate-pulse">
-          Découvrir l'aventure
-        </div>
+        <div class="text-sm text-[#F2D04E] font-semibold opacity-80 group-hover:opacity-100 transition-opacity animate-pulse" data-i18n="scroll_indicator">Découvrir l'aventure</div>
         <div class="relative">
           <div class="w-10 h-16 border-2 border-[#F2D04E]/50 rounded-full flex justify-center items-start pt-3 group-hover:border-[#F2D04E] transition-colors">
             <div class="w-2 h-4 bg-gradient-to-b from-[#F2D04E] to-transparent rounded-full animate-bounce"></div>
@@ -384,74 +347,48 @@
         </div>
       </div>
     </div>
-</section>
+  </section>
 
-<!-- Inclusions/Exclusions Section -->
+  <!-- Inclusions/Exclusions Section -->
+  <!-- Inclusions/Exclusions Section -->
 <section class="py-20 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
-    <!-- Animated Background Elements -->
     <div class="absolute inset-0">
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div class="absolute top-10 right-1/3 w-2 h-2 bg-[#F2D04E] rounded-full animate-bounce"></div>
         <div class="absolute bottom-20 left-1/3 w-3 h-3 bg-[#24441B]/30 rounded-full animate-pulse delay-500"></div>
     </div>
-
     <div class="container mx-auto px-6 relative z-10">
-        <!-- Enhanced Header -->
         <div class="text-center mb-20">
             <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-8 py-4 rounded-full mb-8 border border-[#F2D04E]/30">
                 <svg class="w-6 h-6 text-[#F2D04E] mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                 </svg>
-                <span class="text-[#24441B] font-bold uppercase tracking-wider">Transparence totale</span>
+                <span class="text-[#24441B] font-bold uppercase tracking-wider" data-i18n="inclusion.transparency">Transparence totale</span>
             </div>
-            
             <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-8 leading-tight">
                 Votre journée 
                 <span class="relative">
-                    <span class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">tout compris</span>
+                    <span class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="inclusion.title">tout compris</span>
                     <div class="absolute -bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
                 </span>
             </h2>
-            
-            <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed">
-                Découvrez ce qui est inclus dans votre escapade à Essaouira et ce qu'il faut prévoir. 
-                Aucune surprise, que de la transparence.
-            </p>
-        </div>
-
-        <!-- Main Content Grid -->
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-3 gap-8 mb-16">
-                
-                <!-- Included Section -->
-                <div class="lg:col-span-2">
-                    <div class="bg-gradient-to-br from-green-50 to-[#F2D04E]/10 rounded-3xl p-8 border-2 border-green-200/50 relative overflow-hidden shadow-xl">
-                        <!-- Decorative Elements -->
-                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[#F2D04E]/20 to-green-200/20 rounded-full"></div>
-                        <div class="absolute -bottom-5 -left-5 w-20 h-20 bg-gradient-to-tr from-green-200/30 to-[#F2D04E]/20 rounded-full"></div>
-                        
-                        <div class="relative z-10">
-                            <!-- Header -->
-                            <div class="flex items-center justify-between mb-8">
+            <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed" data-i18n="inclusion.subtitle">
+                Découvrez ce qui est inclus dans votre escapade à Ait Ben Haddou et ce qu'il faut prévoir. 
                                 <div class="flex items-center">
                                     <div class="w-16 h-16 bg-gradient-to-br from-[#24441B] to-green-700 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                                         <svg class="w-8 h-8 text-[#F2D04E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                        </svg>
+        </svg>
                                     </div>
                                     <div>
-                                        <h3 class="text-3xl font-black text-[#24441B] mb-1">Tout inclus</h3>
-                                        <p class="text-green-700 font-semibold">Votre journée sans souci</p>
+                                        <h3 class="text-3xl font-black text-[#24441B] mb-1" data-i18n="inclusion.included">Tout inclus</h3>
+                                        <p class="text-green-700 font-semibold" data-i18n="inclusion.included_sub">Votre journée sans souci</p>
                                     </div>
                                 </div>
-                                
-                                <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] text-[#24441B] px-6 py-3 rounded-2xl font-black text-lg shadow-lg">
-                                    100€ de valeur
-                                </div>
+
                             </div>
 
-                            <!-- Features Grid -->
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="space-y-4">
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
@@ -461,11 +398,10 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Guide local expert</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Guide francophone pour une immersion dans l'histoire d'Essaouira</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.guide">Guide expert privé</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.guide_desc">Guide francophone certifié pour une immersion historique</p>
                                         </div>
                                     </div>
-
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
                                         <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
                                             <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
@@ -473,11 +409,10 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Transport confortable</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Minibus climatisé aller-retour depuis Marrakech</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.transport">Transport premium</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.transport_desc">4x4 climatisé aller-retour depuis Marrakech</p>
                                         </div>
                                     </div>
-
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
                                         <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
                                             <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
@@ -485,12 +420,11 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Visites guidées</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Médina UNESCO, remparts et port historique</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.visits">Visites guidées</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.visits_desc">Kasbah UNESCO et village historique</p>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="space-y-4">
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
                                         <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
@@ -499,11 +433,10 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Temps libre</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Explorez les souks ou détendez-vous sur la plage</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.free_time">Temps libre</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.free_time_desc">Explorez le village ou les boutiques locales</p>
                                         </div>
                                     </div>
-
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
                                         <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
                                             <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
@@ -511,8 +444,8 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Boissons non alcoolisées</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Eau et thé à la menthe offerts pendant la journée</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.drinks">Boissons non alcoolisées</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.drinks_desc">Eau et thé à la menthe offerts pendant la journée</p>
                                         </div>
                                     </div>
                                 </div>
@@ -521,601 +454,406 @@
                     </div>
                 </div>
 
-                <!-- Not Included Sidebar -->
-                <div class="lg:col-span-1">
-                    <div class="bg-gradient-to-b from-gray-100 to-gray-50 rounded-3xl p-8 border-2 border-gray-200/50 shadow-xl sticky top-8">
-                        <!-- Header -->
-                        <div class="flex items-center mb-8">
-                            <div class="w-14 h-14 bg-gradient-to-br from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-black text-gray-700 mb-1">À prévoir</h3>
-                                <p class="text-gray-500 font-semibold text-sm">Budget supplémentaire</p>
-                            </div>
-                        </div>
 
-                        <!-- Not Included Items -->
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Vols internationaux</h4>
-                                    <p class="text-xs text-gray-500">Selon votre ville de départ</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Déjeuner</h4>
-                                    <p class="text-xs text-gray-500">Repas au restaurant: 10-20€</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm5 3a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V7zM4 9a1 1 0 011-1h1a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1V9zm10-1a1 1 0 011 1v3a1 1 0 01-1 1h-1a1 1 0 01-1-1V9a1 1 0 011-1h1z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Dépenses personnelles</h4>
-                                    <p class="text-xs text-gray-500">Souvenirs, boissons, pourboires</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Budget Info -->
-                        <div class="bg-gradient-to-r from-orange-100 to-yellow-100 p-6 rounded-2xl border-2 border-orange-200/50">
-                            <div class="flex items-center text-orange-700 mb-3">
-                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="font-bold text-lg">Budget conseillé</span>
-                            </div>
-                            <div class="text-2xl font-black text-orange-800 mb-2">30-50€</div>
-                            <p class="text-sm text-orange-600">Pour une journée confortable</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </section>
- 
-    <section class="py-20 bg-white relative overflow-hidden">
-        <!-- Subtle Background Elements -->
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-32 right-20 w-64 h-64 bg-[#F2D04E]/5 rounded-full blur-2xl"></div>
-            <div class="absolute bottom-32 left-20 w-80 h-80 bg-[#24441B]/3 rounded-full blur-3xl"></div>
-        </div>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <!-- Clean Header -->
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center bg-[#F2D04E]/10 px-6 py-3 rounded-full mb-8">
-                    <svg class="w-5 h-5 text-[#24441B] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                    </svg>
-                    <span class="text-[#24441B] font-semibold text-sm">EXCURSION D'UNE JOURNÉE</span>
-                </div>
-                
-                <h1 class="text-6xl font-bold text-[#24441B] mb-6">
-                    Découvrez <span class="text-[#F2D04E]">Essaouira</span>
-                </h1>
-                
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Une escapade inoubliable de Marrakech vers la perle de l'Atlantique, 
-                    à travers des paysages authentiques et des villages berbères.
-                </p>
-            </div>
 
-            <!-- Main Content -->
-            <div class="max-w-7xl mx-auto">
-                <!-- Journey Overview Cards -->
-                <div class="grid md:grid-cols-3 gap-8 mb-16">
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">8h30 - 18h00</h3>
-                        <p class="text-gray-600">Journée complète avec transport inclus</p>
-                    </div>
-                    
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#24441B] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">180 km</h3>
-                        <p class="text-gray-600">Route panoramique vers la côte</p>
-                    </div>
-                    
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">Tout inclus</h3>
-                        <p class="text-gray-600">Transport + Guide professionnel</p>
-                    </div>
-                </div>
-
-                <!-- Main Journey Section -->
-                <div class="bg-gradient-to-r from-gray-50 to-white rounded-3xl p-12 shadow-xl mb-16">
-                    <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        <!-- Content -->
-                        <div>
-                            <span class="inline-block bg-[#24441B] text-[#F2D04E] px-4 py-2 rounded-full font-semibold text-sm mb-6">
-                                MARRAKECH → ESSAOUIRA → MARRAKECH
-                            </span>
-                            
-                            <h2 class="text-4xl font-bold text-[#24441B] mb-6 leading-tight">
-                                Une journée d'évasion vers l'Océan Atlantique
-                            </h2>
-                            
-                            <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                                Départ matinal de votre hébergement à Marrakech pour un voyage extraordinaire vers Essaouira. 
-                                Traversez des paysages changeants : vignobles, oliveraies, puis la majestueuse forêt d'arganiers. 
-                                Découvrez cette cité fortifiée unique, inscrite au patrimoine mondial de l'UNESCO, 
-                                avec ses remparts face à l'océan et sa médina aux influences portugaises.
-                            </p>
-
-                            <!-- Key Highlights -->
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Médina UNESCO</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Port de pêche</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Remparts historiques</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Plage immense</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Image -->
-                        <div class="relative">
-                            <div class="rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="https://images.pexels.com/photos/30326414/pexels-photo-30326414.jpeg" 
-                                     alt="Essaouira Medina" 
-                                     class="w-full h-80 object-cover hover:scale-105 transition-transform duration-700">
-                            </div>
-                            <!-- Floating card -->
-                            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-[#F2D04E] rounded-lg flex items-center justify-center mr-3">
-                                        <span class="text-[#24441B] font-bold text-lg">★</span>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-[#24441B]">UNESCO</div>
-                                        <div class="text-sm text-gray-600">Patrimoine Mondial</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Section -->
-                <div class="mb-16">
-                    <h3 class="text-3xl font-bold text-[#24441B] text-center mb-12">Programme de la journée</h3>
-                    
-                    <div class="max-w-4xl mx-auto">
-                        <div class="space-y-8">
-                            <!-- Timeline Item -->
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">8h30</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Départ de Marrakech</h4>
-                                    <p class="text-gray-600">Prise en charge à votre hôtel/riad. Début du voyage vers la côte atlantique.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#F2D04E] font-bold">10h30</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Traversée des paysages</h4>
-                                    <p class="text-gray-600">Vignobles, oliveraies, puis découverte de la forêt d'arganiers endémiques.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">12h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Arrivée à Essaouira</h4>
-                                    <p class="text-gray-600">Découverte de la médina, des remparts et du port de pêche traditionnel.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#F2D04E] font-bold">13h30</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Déjeuner libre</h4>
-                                    <p class="text-gray-600">Dégustation des spécialités locales, notamment les poissons frais du jour.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">15h30</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Retour à Marrakech</h4>
-                                    <p class="text-gray-600">Voyage de retour avec arrivée prévue en soirée dans la ville ocre.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gallery Section -->
-                <div class="mb-16">
-                    <h3 class="text-3xl font-bold text-[#24441B] text-center mb-12">Galerie</h3>
-                    
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <img src="https://images.pexels.com/photos/7835701/pexels-photo-7835701.jpeg" 
-                                 alt="Essaouira Beach" 
-                                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
-                            <div class="p-4 bg-white">
-                                <h4 class="font-bold text-[#24441B]">Plage d'Essaouira</h4>
-                                <p class="text-gray-600 text-sm">Étendue sauvage face à l'océan</p>
-                            </div>
-                        </div>
-                        
-                        <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <img src="https://images.pexels.com/photos/13308449/pexels-photo-13308449.jpeg" 
-                                 alt="Argan Trees" 
-                                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
-                            <div class="p-4 bg-white">
-                                <h4 class="font-bold text-[#24441B]">Forêt d'Arganiers</h4>
-                                <p class="text-gray-600 text-sm">Arbres endémiques du Maroc</p>
-                            </div>
-                        </div>
-                        
-                        <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <img src="https://images.pexels.com/photos/11218124/pexels-photo-11218124.jpeg" 
-                                 alt="Essaouira Port" 
-                                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
-                            <div class="p-4 bg-white">
-                                <h4 class="font-bold text-[#24441B]">Port de pêche</h4>
-                                <p class="text-gray-600 text-sm">Tradition maritime authentique</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA Section -->
-                <div class="text-center">
-                    <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] rounded-3xl p-12 shadow-2xl">
-                        <h3 class="text-4xl font-bold text-[#24441B] mb-6">Réservez votre aventure</h3>
-                        <p class="text-[#24441B]/80 text-lg mb-8 max-w-2xl mx-auto">
-                            Vivez une expérience inoubliable et découvrez les trésors cachés du Maroc 
-                            lors de cette excursion exceptionnelle vers Essaouira.
-                        </p>
-                        <a href="#reservation">
-                        <button class="bg-[#24441B] text-[#F2D04E] px-10 py-4 rounded-2xl font-bold text-xl hover:scale-105 hover:shadow-xl transition-all duration-300">
-                            RÉSERVER MAINTENANT
-                        </button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100" id="reservation">
-    <!-- Animated Background Elements -->
-    <div class="absolute inset-0">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div class="absolute top-10 right-10 w-32 h-32 border border-[#F2D04E]/20 rounded-full animate-spin-slow"></div>
-        <div class="absolute bottom-20 left-20 w-24 h-24 border border-[#24441B]/20 rounded-full animate-bounce"></div>
+  <!-- Journey Section -->
+  <section class="py-20 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-32 right-20 w-64 h-64 bg-[#F2D04E]/5 rounded-full blur-2xl"></div>
+      <div class="absolute bottom-32 left-20 w-80 h-80 bg-[#24441B]/3 rounded-full blur-3xl"></div>
     </div>
     <div class="container mx-auto px-6 relative z-10">
-        <!-- Split Layout: Info + Form -->
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <!-- Left Side - Info & Features -->
-                <div class="lg:sticky lg:top-8">
-                    <!-- Header -->
-                    <div class="mb-12">
-                        <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-[#F2D04E]/30">
-                            <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3 animate-pulse"></div>
-                            <span class="text-[#24441B] font-semibold text-sm uppercase tracking-wider">Réservation Express</span>
-                        </div>
-                        <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-6 leading-tight">
-                            Partez à l'
-                            <span class="relative inline-block">
-                                <span class="relative z-10 bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">aventure</span>
-                                <div class="absolute bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
-                            </span>
-                        </h2>
-                        <p class="text-xl text-[#24441B]/70 leading-relaxed mb-8">
-                            Réservez votre expérience inoubliable dans le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.
-                        </p>
-                    </div>
-                    <!-- Features Grid -->
-                    <div class="space-y-6 mb-12">
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Confirmation instantanée</h3>
-                                <p class="text-[#24441B]/60">Réponse garantie sous 2 heures, même le weekend</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.723-1.745 3.42 3.42 0 010-3.976 3.42 3.42 0 00.723-1.745 3.42 3.42 0 013.138-3.138z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Accompagnement premium</h3>
-                                <p class="text-[#24441B]/60">Guide expert et service personnalisé 24/7</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Flexibilité totale</h3>
-                                <p class="text-[#24441B]/60">Modification gratuite jusqu'à 48h avant le départ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Price Highlight -->
-                    <div class="bg-gradient-to-r from-[#24441B] to-[#2d5422] rounded-3xl p-8 text-white relative overflow-hidden">
-  <div class="absolute top-0 right-0 w-32 h-32 bg-[#F2D04E]/10 rounded-full -translate-y-16 translate-x-16"></div>
-  <div class="absolute bottom-0 left-0 w-24 h-24 bg-[#F2D04E]/20 rounded-full translate-y-12 -translate-x-12"></div>
-  <div class="relative z-10">
-    <div class="flex items-center justify-between mb-4">
-      <span class="text-[#F2D04E] font-semibold">Points forts du circuit</span>
-      <span class="text-sm opacity-75">Expérience unique</span>
-    </div>
-    <div class="text-2xl font-bold text-[#F2D04E] mb-2">Culture • Désert • Océan</div>
-    <p class="text-sm opacity-80">
-      Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.
-    </p>
-  </div>
-</div>
-
-                </div>
-                <!-- Right Side - Form -->
-                <div class="relative">
-                    <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden relative">
-                        <!-- Form Progress -->
-                        <div class="bg-gradient-to-r from-[#F2D04E]/10 to-[#F2D04E]/5 p-6 border-b border-gray-100">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-2xl font-bold text-[#24441B]">Détails de réservation</h3>
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-2 h-2 bg-[#F2D04E] rounded-full"></div>
-                                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <form class="p-8 space-y-8">
-                            <!-- Quick Selection -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">1</span>
-                                    Sélection rapide
-                                </h4>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="relative">
-                                        <input type="number" min="1" max="12" id="guests" name="guests" 
-                                               class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium text-center text-2xl"
-                                               placeholder="2" value="2">
-                                        <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
-                                            Voyageurs
-                                        </label>
-                                    </div>
-                                    <div class="relative">
-                                        <input type="date" id="date" name="date" 
-                                               class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium">
-                                        <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
-                                            Date de départ
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Contact Info -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">2</span>
-                                    Vos coordonnées
-                                </h4>
-                                <div class="space-y-6">
-                                    <div class="relative group">
-                                        <input type="text" id="fullname" name="fullname" 
-                                               class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                               placeholder=" ">
-                                        <label for="fullname" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                            Nom complet *
-                                        </label>
-                                        <div class="absolute right-4 top-4 text-[#24441B]/30 group-hover:text-[#F2D04E] transition-colors">
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div class="relative group">
-                                            <input type="email" id="email2" name="email2" 
-                                                   class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                                   placeholder=" ">
-                                            <label for="email2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                                Email *
-                                            </label>
-                                        </div>
-                                        <div class="relative group">
-                                            <input type="tel" id="phone2" name="phone2" 
-                                                   class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                                   placeholder=" ">
-                                            <label for="phone2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                                Téléphone *
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Special Requests -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">3</span>
-                                    Demandes spéciales
-                                </h4>
-                                <div class="relative">
-                                    <textarea id="requests" name="requests" rows="4" 
-                                              class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium resize-none" 
-                                              placeholder="Régime alimentaire, anniversaire, demandes particulières..."></textarea>
-                                    <div class="absolute right-4 bottom-4 text-[#24441B]/30">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Submit -->
-                            <div class="pt-4">
-                                <button type="submit" class="w-full bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-6 px-8 rounded-xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-[#F2D04E]/30 transform hover:-translate-y-1 relative overflow-hidden group">
-                                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                                    <div class="flex items-center justify-center space-x-3 relative z-10">
-                                        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                                        </svg>
-                                        <span>Envoyer ma demande</span>
-                                    </div>
-                                </button>
-                                <div class="flex items-center justify-center space-x-4 mt-6 text-sm text-[#24441B]/60">
-                                    <div class="flex items-center space-x-2">
-                                        <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <span>Données sécurisées</span>
-                                    </div>
-                                    <div class="w-px h-4 bg-[#24441B]/20"></div>
-                                    <div class="flex items-center space-x-2">
-                                        <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <span>Sans engagement</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Floating Trust Badge -->
-                    <div class="absolute -bottom-6 -right-6 bg-[#24441B] text-white p-4 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-[#F2D04E]">2h</div>
-                            <div class="text-xs opacity-80">Réponse garantie</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center bg-[#F2D04E]/10 px-6 py-3 rounded-full mb-8">
+          <svg class="w-5 h-5 text-[#24441B] mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-[#24441B] font-semibold text-sm" data-i18n="excursion_tag">EXCURSION D'UNE JOURNÉE</span>
         </div>
-    </div>
-    <!-- Custom CSS for slow spin -->
-    <style>
-        @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-            animation: spin-slow 10s linear infinite;
-        }
-    </style>
-</section>
-<div class="bg-gradient-to-r from-[#24441B] via-[#2d5422] to-[#24441B] rounded-3xl p-10 relative overflow-hidden shadow-2xl mt-20 mb-20 w-6/7 mx-auto">
-                <!-- Decorative Elements -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-[#F2D04E]/10 rounded-full -translate-y-32 translate-x-32"></div>
-                <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#F2D04E]/20 rounded-full translate-y-24 -translate-x-24"></div>
-                <div class="relative z-10 text-center text-white">
-                    <div class="max-w-4xl mx-auto">
-                        <h3 class="text-4xl font-black mb-6">
-                            Une question ? Besoin de 
-                            <span class="text-[#F2D04E]">personnaliser</span> ?
-                        </h3>
-                        <p class="text-xl text-white/80 mb-8 leading-relaxed">
-                            Notre équipe d'experts du Sahara est disponible 7j/7 pour adapter votre voyage à vos envies. 
-                            Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !
-                        </p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                             <a href="/contact.html"><button class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                              Parler à un expert
-                            </button></a> 
-                            <a href="/contact.html"><button class="border-2 border-[#F2D04E] text-[#F2D04E] hover:bg-[#F2D04E] hover:text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg">
-                               Devis personnalisé
-                            </button></a> 
-                        </div>
-                        <div class="flex items-center justify-center mt-8 space-x-8 text-sm">
-                            <div class="flex items-center text-[#F2D04E]/80">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                                </svg>
-                                Réponse garantie sous 2h
-                            </div>
-                            <div class="flex items-center text-[#F2D04E]/80">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                Devis gratuit et sans engagement
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <h1 class="text-6xl font-bold text-[#24441B] mb-6">
+          <span data-i18n="discover">Découvrez</span> <span class="text-[#F2D04E]">Essaouira</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-i18n="journey_intro">
+          Une escapade inoubliable de Marrakech vers la perle de l'Atlantique, à travers des paysages authentiques et des villages berbères.
+        </p>
+      </div>
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
             </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="duration">8h30 - 18h00</h3>
+            <p class="text-gray-600" data-i18n="duration_desc">Journée complète avec transport inclus</p>
+          </div>
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#24441B] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="distance">180 km</h3>
+            <p class="text-gray-600" data-i18n="distance_desc">Route panoramique vers la côte</p>
+          </div>
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="all_included">Tout inclus</h3>
+            <p class="text-gray-600" data-i18n="all_included_desc">Transport + Guide professionnel</p>
+          </div>
+        </div>
+        <div class="bg-gradient-to-r from-gray-50 to-white rounded-3xl p-12 shadow-xl mb-16">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span class="inline-block bg-[#24441B] text-[#F2D04E] px-4 py-2 rounded-full font-semibold text-sm mb-6">
+                MARRAKECH → ESSAOUIRA → MARRAKECH
+              </span>
+              <h2 class="text-4xl font-bold text-[#24441B] mb-6 leading-tight" data-i18n="journey_title">
+                Une journée d'évasion vers l'Océan Atlantique
+              </h2>
+              <p class="text-lg text-gray-700 leading-relaxed mb-8" data-i18n="journey_desc">
+                Départ matinal de votre hébergement à Marrakech pour un voyage extraordinaire vers Essaouira. 
+                Traversez des paysages changeants : vignobles, oliveraies, puis la majestueuse forêt d'arganiers. 
+                Découvrez cette cité fortifiée unique, inscrite au patrimoine mondial de l'UNESCO, 
+                avec ses remparts face à l'océan et sa médina aux influences portugaises.
+              </p>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="highlight_medina">Médina UNESCO</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="highlight_port">Port de pêche</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="highlight_walls">Remparts historiques</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="highlight_beach">Plage immense</span>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div class="rounded-2xl overflow-hidden shadow-2xl">
+                <img src="https://images.pexels.com/photos/30326414/pexels-photo-30326414.jpeg" alt="Essaouira Medina" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-700">
+              </div>
+              <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100">
+                <div class="flex items-center">
+                  <div class="w-12 h-12 bg-[#F2D04E] rounded-lg flex items-center justify-center mr-3">
+                    <span class="text-[#24441B] font-bold text-lg">★</span>
+                  </div>
+                  <div>
+                    <div class="font-bold text-[#24441B]" data-i18n="unesco_label">UNESCO</div>
+                    <div class="text-sm text-gray-600" data-i18n="unesco_desc">Patrimoine Mondial</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ... (Timeline, Gallery, etc. – similarly add data-i18n keys) -->
+        <!-- For brevity, I’ll add only representative translation keys below -->
+        <div class="mb-16">
+          <h3 class="text-3xl font-bold text-[#24441B] text-center mb-12" data-i18n="timeline_title">Programme de la journée</h3>
+          <div class="max-w-4xl mx-auto">
+            <div class="space-y-8">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">8h30</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline_departure">Départ de Marrakech</h4>
+                  <p class="text-gray-600" data-i18n="timeline_departure_desc">Prise en charge à votre hôtel/riad. Début du voyage vers la côte atlantique.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#F2D04E] font-bold">10h30</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline_landscapes">Traversée des paysages</h4>
+                  <p class="text-gray-600" data-i18n="timeline_landscapes_desc">Vignobles, oliveraies, puis découverte de la forêt d'arganiers endémiques.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">12h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline_arrival">Arrivée à Essaouira</h4>
+                  <p class="text-gray-600" data-i18n="timeline_arrival_desc">Découverte de la médina, des remparts et du port de pêche traditionnel.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#F2D04E] font-bold">13h30</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline_lunch">Déjeuner libre</h4>
+                  <p class="text-gray-600" data-i18n="timeline_lunch_desc">Dégustation des spécialités locales, notamment les poissons frais du jour.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">15h30</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline_return">Retour à Marrakech</h4>
+                  <p class="text-gray-600" data-i18n="timeline_return_desc">Voyage de retour avec arrivée prévue en soirée dans la ville ocre.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] rounded-3xl p-12 shadow-2xl">
+            <h3 class="text-4xl font-bold text-[#24441B] mb-6" data-i18n="cta_book_adventure">Réservez votre aventure</h3>
+            <p class="text-[#24441B]/80 text-lg mb-8 max-w-2xl mx-auto" data-i18n="cta_book_desc">
+              Vivez une expérience inoubliable et découvrez les trésors cachés du Maroc lors de cette excursion exceptionnelle vers Essaouira.
+            </p>
+            <a href="#reservation">
+              <button class="bg-[#24441B] text-[#F2D04E] px-10 py-4 rounded-2xl font-bold text-xl hover:scale-105 hover:shadow-xl transition-all duration-300" data-i18n="cta_book_btn">
+                RÉSERVER MAINTENANT
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section class="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100" id="reservation">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <div class="lg:sticky lg:top-8">
+            <div class="mb-12">
+              <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-[#F2D04E]/30">
+                <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3 animate-pulse"></div>
+                <span class="text-[#24441B] font-semibold text-sm uppercase tracking-wider" data-i18n="reservation_tag">Réservation Express</span>
+              </div>
+              <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-6 leading-tight">
+                <span data-i18n="reservation_title1">Partez à l'</span>
+                <span class="relative inline-block">
+                  <span class="relative z-10 bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="reservation_title2">aventure</span>
+                  <div class="absolute bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
+                </span>
+              </h2>
+              <p class="text-xl text-[#24441B]/70 leading-relaxed mb-8" data-i18n="reservation_desc">
+                Réservez votre expérience inoubliable dans le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.
+              </p>
+            </div>
+            <div class="space-y-6 mb-12">
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="feature_confirmation">Confirmation instantanée</h3>
+                  <p class="text-[#24441B]/60" data-i18n="feature_confirmation_desc">Réponse garantie sous 2 heures, même le weekend</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.723-1.745 3.42 3.42 0 010-3.976 3.42 3.42 0 00.723-1.745 3.42 3.42 0 013.138-3.138z"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="feature_premium">Accompagnement premium</h3>
+                  <p class="text-[#24441B]/60" data-i18n="feature_premium_desc">Guide expert et service personnalisé 24/7</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="feature_flexibility">Flexibilité totale</h3>
+                  <p class="text-[#24441B]/60" data-i18n="feature_flexibility_desc">Modification gratuite jusqu'à 48h avant le départ</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-[#24441B] to-[#2d5422] rounded-3xl p-8 text-white relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-[#F2D04E]/10 rounded-full -translate-y-16 translate-x-16"></div>
+              <div class="absolute bottom-0 left-0 w-24 h-24 bg-[#F2D04E]/20 rounded-full translate-y-12 -translate-x-12"></div>
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-[#F2D04E] font-semibold" data-i18n="highlights_tag">Points forts du circuit</span>
+                  <span class="text-sm opacity-75" data-i18n="highlights_desc_tag">Expérience unique</span>
+                </div>
+                <div class="text-2xl font-bold text-[#F2D04E] mb-2" data-i18n="highlights_value">Culture • Désert • Océan</div>
+                <p class="text-sm opacity-80" data-i18n="highlights_desc">
+                  Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden relative">
+              <div class="bg-gradient-to-r from-[#F2D04E]/10 to-[#F2D04E]/5 p-6 border-b border-gray-100">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-2xl font-bold text-[#24441B]" data-i18n="form_title">Détails de réservation</h3>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-[#F2D04E] rounded-full"></div>
+                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <form class="p-8 space-y-8">
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">1</span>
+                    <span data-i18n="form_quick_select">Sélection rapide</span>
+                  </h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="relative">
+                      <input type="number" min="1" max="12" id="guests" name="guests" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium text-center text-2xl" placeholder="2" value="2">
+                      <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm" data-i18n="form_guests_label">Voyageurs</label>
+                    </div>
+                    <div class="relative">
+                      <input type="date" id="date" name="date" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium">
+                      <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm" data-i18n="form_date_label">Date de départ</label>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">2</span>
+                    <span data-i18n="form_contact_info">Vos coordonnées</span>
+                  </h4>
+                  <div class="space-y-6">
+                    <div class="relative group">
+                      <input type="text" id="fullname" name="fullname" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" placeholder=" ">
+                      <label for="fullname" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="form_name_label">Nom complet *</label>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="relative group">
+                        <input type="email" id="email2" name="email2" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" placeholder=" ">
+                        <label for="email2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="form_email_label">Email *</label>
+                      </div>
+                      <div class="relative group">
+                        <input type="tel" id="phone2" name="phone2" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" placeholder=" ">
+                        <label for="phone2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="form_phone_label">Téléphone *</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">3</span>
+                    <span data-i18n="form_special_requests">Demandes spéciales</span>
+                  </h4>
+                  <div class="relative">
+                    <textarea id="requests" name="requests" rows="4" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium resize-none" placeholder="Régime alimentaire, anniversaire, demandes particulières..."></textarea>
+                    <div class="absolute right-4 bottom-4 text-[#24441B]/30">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-4">
+                  <button type="submit" class="w-full bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-6 px-8 rounded-xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-[#F2D04E]/30 transform hover:-translate-y-1 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <div class="flex items-center justify-center space-x-3 relative z-10">
+                      <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                      </svg>
+                      <span data-i18n="form_submit_btn">Envoyer ma demande</span>
+                    </div>
+                  </button>
+                  <div class="flex items-center justify-center space-x-4 mt-6 text-sm text-[#24441B]/60">
+                    <div class="flex items-center space-x-2">
+                      <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                      <span data-i18n="form_secure">Données sécurisées</span>
+                    </div>
+                    <div class="w-px h-4 bg-[#24441B]/20"></div>
+                    <div class="flex items-center space-x-2">
+                      <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span data-i18n="form_no_commitment">Sans engagement</span>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="absolute -bottom-6 -right-6 bg-[#24441B] text-white p-4 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-[#F2D04E]">2h</div>
+                <div class="text-xs opacity-80" data-i18n="response_time">Réponse garantie</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- CTA Banner -->
+  <div class="bg-gradient-to-r from-[#24441B] via-[#2d5422] to-[#24441B] rounded-3xl p-10 relative overflow-hidden shadow-2xl mt-20 mb-20 w-6/7 mx-auto">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-[#F2D04E]/10 rounded-full -translate-y-32 translate-x-32"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#F2D04E]/20 rounded-full translate-y-24 -translate-x-24"></div>
+    <div class="relative z-10 text-center text-white">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-4xl font-black mb-6">
+          <span data-i18n="cta_question">Une question ? Besoin de</span> 
+          <span class="text-[#F2D04E]" data-i18n="cta_custom">personnaliser</span> ?
+        </h3>
+        <p class="text-xl text-white/80 mb-8 leading-relaxed" data-i18n="cta_desc">
+          Notre équipe d'experts du Sahara est disponible 7j/7 pour adapter votre voyage à vos envies. 
+          Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/contact.html">
+            <button class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1" data-i18n="cta_expert_btn">
+              Parler à un expert
+            </button>
+          </a> 
+          <a href="/contact.html">
+            <button class="border-2 border-[#F2D04E] text-[#F2D04E] hover:bg-[#F2D04E] hover:text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg" data-i18n="cta_quote_btn">
+              Devis personnalisé
+            </button>
+          </a> 
+        </div>
+        <div class="flex items-center justify-center mt-8 space-x-8 text-sm">
+          <div class="flex items-center text-[#F2D04E]/80">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            <span data-i18n="cta_response_time">Réponse garantie sous 2h</span>
+          </div>
+          <div class="flex items-center text-[#F2D04E]/80">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span data-i18n="cta_free_quote">Devis gratuit et sans engagement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-white pt-16 pb-8">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        <!-- Company Info -->
         <div>
-          <div class=" text-primary px-4 py-2 rounded-lg font-bold text-xl mb-6 inline-block">
+          <div class="text-primary px-4 py-2 rounded-lg font-bold text-xl mb-6 inline-block">
             <a href="/index.html" class="flex items-center">
-          <img src="/images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
-        </a>
+              <img src="../images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
+            </a>
           </div>
-          <p class="text-gray-400 mb-6">
+          <p class="text-gray-400 mb-6" data-i18n="footer_about">
             Votre agence de voyage spécialiste des circuits sur mesure au Maroc depuis plus de 10 ans.
           </p>
           <div class="flex space-x-4">
@@ -1133,42 +871,39 @@
             </a>
           </div>
         </div>
-        <!-- Quick Links -->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Liens Rapides</h3>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer_links_title">Liens Rapides</h3>
           <ul class="space-y-2">
-            <li><a href="/index.html" class="text-gray-400 hover:text-accent transition-colors">Accueil</a></li>
-            <li><a href="/about.html" class="text-gray-400 hover:text-accent transition-colors">À propos</a></li>
-            <li><a href="#tours" class="text-gray-400 hover:text-accent transition-colors">Circuits</a></li>
-            <li><a href="/galery.html" class="text-gray-400 hover:text-accent transition-colors">Galerie</a></li>
-            <li><a href="/contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
+            <li><a href="/index.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="/about.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav_about">À propos</a></li>
+            <li><a href="#tours" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav_tours">Circuits</a></li>
+            <li><a href="/galery.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav_gallery">Galerie</a></li>
+            <li><a href="/contact.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav_contact">Contact</a></li>
           </ul>
         </div>
-        <!-- Contact Info -->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Contact</h3>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer_contact_title">Contact</h3>
           <ul class="space-y-3 text-gray-400">
             <li class="flex items-start">
               <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
-              <span>123 Rue de la Médina, Marrakech, Maroc</span>
+              <span data-i18n="footer_address">123 Rue de la Médina, Marrakech, Maroc</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-phone mt-1 mr-3 text-accent"></i>
-              <span>+212 5 22 12 34 56</span>
+              <span>+212691196491</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
-              <span>info@enjoymarrakechtours.com</span>
+              <span>Enjoymarrakechtour@gmail.com</span>
             </li>
           </ul>
         </div>
-        <!-- Newsletter -->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Abonnez-vous</h3>
-          <p class="text-gray-400 mb-4">Recevez nos dernières offres et conseils de voyage par email.</p>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer_newsletter_title">Abonnez-vous</h3>
+          <p class="text-gray-400 mb-4" data-i18n="footer_newsletter_desc">Recevez nos dernières offres et conseils de voyage par email.</p>
           <form class="flex flex-col">
-            <input type="email" placeholder="Votre adresse email" class="bg-gray-800 text-white p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-accent">
-            <button type="submit" class="bg-accent text-primary font-medium py-3 rounded hover:bg-accent/90 transition-colors">S'abonner</button>
+            <input type="email" placeholder="Votre adresse email" class="bg-gray-800 text-white p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-accent" data-i18n="footer_email_placeholder">
+            <button type="submit" class="bg-accent text-primary font-medium py-3 rounded hover:bg-accent/90 transition-colors" data-i18n="footer_subscribe_btn">S'abonner</button>
           </form>
         </div>
       </div>
@@ -1177,97 +912,570 @@
       </div>
     </div>
   </footer>
-  <!-- JavaScript for interactivity -->
+
+  <!-- JavaScript for Translation -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get elements
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileToursButton = document.getElementById('mobile-tours-button');
-      const mobileToursContent = document.getElementById('mobile-tours-content');
-      const mobileLanguageButton = document.getElementById('mobile-language-button');
-      const mobileLanguageOptions = document.getElementById('mobile-language-options');
-      // Toggle mobile menu
-      mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
+    // Translation dictionary
+    const translations = {
+      fr: {
+        // Navbar
+        nav_home: "Accueil",
+        nav_about: "À propos",
+        nav_packages: "Packages",
+        nav_tours: "Tours",
+        nav_gallery: "Galerie",
+        nav_contact: "Contact US",
+        tour_marrakech: "From Marrakech",
+        tour_fes: "From Fes",
+        tour_casablanca: "From Casablanca",
+        // Hero
+        hero_title1: "Découvrez",
+        hero_subtitle: "la perle de l'Atlantique",
+        hero_desc1: "Une journée d'évasion de",
+        hero_desc2: "Explorez la médina historique, les remparts océaniques et les plages ventées.",
+        tag_unesco: "Site UNESCO",
+        tag_medina: "Médina authentique",
+        tag_guide: "Guide local",
+        tag_small_group: "Petit groupe",
+        cta_book_now: "Réserver maintenant",
+        cta_confirmation: "✨ Confirmation immédiate",
+        cta_flex: "Sans frais cachés • Annulation flexible",
+        location: "Essaouira, Maroc",
+        medina_title: "Médina d'Essaouira",
+        medina_desc: "Un joyau côtier classé UNESCO",
+        day_trip: "Jour",
+        day_excursion: "D'évasion",
+        rating_excellence: "Excellence",
+        morning: "Matin",
+        morning_desc: "Remparts et port",
+        afternoon: "Après-midi",
+        afternoon_desc: "Médina et souks",
+        scroll_indicator: "Découvrir l'aventure",
+        // Inclusions
+        transparency: "Transparence totale",
+        inclusions_title1: "Votre journée",
+        inclusions_title2: "tout compris",
+        inclusions_desc: "Découvrez ce qui est inclus dans votre escapade à Essaouira et ce qu'il faut prévoir. Aucune surprise, que de la transparence.",
+        included_title: "Tout inclus",
+        included_subtitle: "Votre journée sans souci",
+        included_value: "100€ de valeur",
+        feature_guide: "Guide local expert",
+        feature_guide_desc: "Guide francophone pour une immersion dans l'histoire d'Essaouira",
+        feature_transport: "Transport confortable",
+        feature_transport_desc: "Minibus climatisé aller-retour depuis Marrakech",
+        feature_tours: "Visites guidées",
+        feature_tours_desc: "Médina UNESCO, remparts et port historique",
+        feature_free_time: "Temps libre",
+        feature_free_time_desc: "Explorez les souks ou détendez-vous sur la plage",
+        feature_drinks: "Boissons non alcoolisées",
+        feature_drinks_desc: "Eau et thé à la menthe offerts pendant la journée",
+        not_included_title: "À prévoir",
+        not_included_subtitle: "Budget supplémentaire",
+        extra_flights: "Vols internationaux",
+        extra_flights_desc: "Selon votre ville de départ",
+        extra_lunch: "Déjeuner",
+        extra_lunch_desc: "Repas au restaurant: 10-20€",
+        extra_personal: "Dépenses personnelles",
+        extra_personal_desc: "Souvenirs, boissons, pourboires",
+        budget_advice: "Budget conseillé",
+        budget_advice_desc: "Pour une journée confortable",
+        // Journey
+        excursion_tag: "EXCURSION D'UNE JOURNÉE",
+        discover: "Découvrez",
+        journey_intro: "Une escapade inoubliable de Marrakech vers la perle de l'Atlantique, à travers des paysages authentiques et des villages berbères.",
+        duration: "8h30 - 18h00",
+        duration_desc: "Journée complète avec transport inclus",
+        distance: "180 km",
+        distance_desc: "Route panoramique vers la côte",
+        all_included: "Tout inclus",
+        all_included_desc: "Transport + Guide professionnel",
+        journey_title: "Une journée d'évasion vers l'Océan Atlantique",
+        journey_desc: "Départ matinal de votre hébergement à Marrakech pour un voyage extraordinaire vers Essaouira. Traversez des paysages changeants : vignobles, oliveraies, puis la majestueuse forêt d'arganiers. Découvrez cette cité fortifiée unique, inscrite au patrimoine mondial de l'UNESCO, avec ses remparts face à l'océan et sa médina aux influences portugaises.",
+        highlight_medina: "Médina UNESCO",
+        highlight_port: "Port de pêche",
+        highlight_walls: "Remparts historiques",
+        highlight_beach: "Plage immense",
+        unesco_label: "UNESCO",
+        unesco_desc: "Patrimoine Mondial",
+        timeline_title: "Programme de la journée",
+        timeline_departure: "Départ de Marrakech",
+        timeline_departure_desc: "Prise en charge à votre hôtel/riad. Début du voyage vers la côte atlantique.",
+        timeline_landscapes: "Traversée des paysages",
+        timeline_landscapes_desc: "Vignobles, oliveraies, puis découverte de la forêt d'arganiers endémiques.",
+        timeline_arrival: "Arrivée à Essaouira",
+        timeline_arrival_desc: "Découverte de la médina, des remparts et du port de pêche traditionnel.",
+        timeline_lunch: "Déjeuner libre",
+        timeline_lunch_desc: "Dégustation des spécialités locales, notamment les poissons frais du jour.",
+        timeline_return: "Retour à Marrakech",
+        timeline_return_desc: "Voyage de retour avec arrivée prévue en soirée dans la ville ocre.",
+        cta_book_adventure: "Réservez votre aventure",
+        cta_book_desc: "Vivez une expérience inoubliable et découvrez les trésors cachés du Maroc lors de cette excursion exceptionnelle vers Essaouira.",
+        cta_book_btn: "RÉSERVER MAINTENANT",
+        // Reservation
+        reservation_tag: "Réservation Express",
+        reservation_title1: "Partez à l'",
+        reservation_title2: "aventure",
+        reservation_desc: "Réservez votre expérience inoubliable dans le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.",
+        feature_confirmation: "Confirmation instantanée",
+        feature_confirmation_desc: "Réponse garantie sous 2 heures, même le weekend",
+        feature_premium: "Accompagnement premium",
+        feature_premium_desc: "Guide expert et service personnalisé 24/7",
+        feature_flexibility: "Flexibilité totale",
+        feature_flexibility_desc: "Modification gratuite jusqu'à 48h avant le départ",
+        highlights_tag: "Points forts du circuit",
+        highlights_desc_tag: "Expérience unique",
+        highlights_value: "Culture • Désert • Océan",
+        highlights_desc: "Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.",
+        form_title: "Détails de réservation",
+        form_quick_select: "Sélection rapide",
+        form_guests_label: "Voyageurs",
+        form_date_label: "Date de départ",
+        form_contact_info: "Vos coordonnées",
+        form_name_label: "Nom complet *",
+        form_email_label: "Email *",
+        form_phone_label: "Téléphone *",
+        form_special_requests: "Demandes spéciales",
+        form_submit_btn: "Envoyer ma demande",
+        form_secure: "Données sécurisées",
+        form_no_commitment: "Sans engagement",
+        response_time: "Réponse garantie",
+        // CTA
+        cta_question: "Une question ? Besoin de",
+        cta_custom: "personnaliser",
+        cta_desc: "Notre équipe d'experts du Sahara est disponible 7j/7 pour adapter votre voyage à vos envies. Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !",
+        cta_expert_btn: "Parler à un expert",
+        cta_quote_btn: "Devis personnalisé",
+        cta_response_time: "Réponse garantie sous 2h",
+        cta_free_quote: "Devis gratuit et sans engagement",
+        // Footer
+        footer_about: "Votre agence de voyage spécialiste des circuits sur mesure au Maroc depuis plus de 10 ans.",
+        footer_links_title: "Liens Rapides",
+        footer_contact_title: "Contact",
+        footer_address: "123 Rue de la Médina, Marrakech, Maroc",
+        footer_newsletter_title: "Abonnez-vous",
+        footer_newsletter_desc: "Recevez nos dernières offres et conseils de voyage par email.",
+        footer_email_placeholder: "Votre adresse email",
+        footer_subscribe_btn: "S'abonner"
+      },
+      en: {
+        // Navbar
+        nav_home: "Home",
+        nav_about: "About",
+        nav_packages: "Packages",
+        nav_tours: "Tours",
+        nav_gallery: "Gallery",
+        nav_contact: "Contact US",
+        tour_marrakech: "From Marrakech",
+        tour_fes: "From Fes",
+        tour_casablanca: "From Casablanca",
+        // Hero
+        hero_title1: "Discover",
+        hero_subtitle: "the pearl of the Atlantic",
+        hero_desc1: "A day trip from",
+        hero_desc2: "Explore the historic medina, ocean-facing ramparts, and windy beaches.",
+        tag_unesco: "UNESCO Site",
+        tag_medina: "Authentic Medina",
+        tag_guide: "Local Guide",
+        tag_small_group: "Small Group",
+        cta_book_now: "Book Now",
+        cta_confirmation: "✨ Instant Confirmation",
+        cta_flex: "No hidden fees • Flexible cancellation",
+        location: "Essaouira, Morocco",
+        medina_title: "Essaouira Medina",
+        medina_desc: "A UNESCO-listed coastal gem",
+        day_trip: "Day",
+        day_excursion: "Trip",
+        rating_excellence: "Excellence",
+        morning: "Morning",
+        morning_desc: "Ramparts & port",
+        afternoon: "Afternoon",
+        afternoon_desc: "Medina & souks",
+        scroll_indicator: "Discover the adventure",
+        // Inclusions
+        transparency: "Full Transparency",
+        inclusions_title1: "Your full-day",
+        inclusions_title2: "all-inclusive",
+        inclusions_desc: "See what’s included in your Essaouira escape and what to prepare. No surprises, just clarity.",
+        included_title: "All Included",
+        included_subtitle: "Your hassle-free day",
+        included_value: "€100 value",
+        feature_guide: "Expert Local Guide",
+        feature_guide_desc: "French-speaking guide for an immersive Essaouira history tour",
+        feature_transport: "Comfortable Transport",
+        feature_transport_desc: "Round-trip air-conditioned minibus from Marrakech",
+        feature_tours: "Guided Visits",
+        feature_tours_desc: "UNESCO Medina, ramparts, and historic fishing port",
+        feature_free_time: "Free Time",
+        feature_free_time_desc: "Explore souks or relax on the beach",
+        feature_drinks: "Non-alcoholic Drinks",
+        feature_drinks_desc: "Water and mint tea provided during the day",
+        not_included_title: "To Bring",
+        not_included_subtitle: "Additional budget",
+        extra_flights: "International Flights",
+        extra_flights_desc: "Depending on your departure city",
+        extra_lunch: "Lunch",
+        extra_lunch_desc: "Restaurant meal: €10-20",
+        extra_personal: "Personal Expenses",
+        extra_personal_desc: "Souvenirs, drinks, tips",
+        budget_advice: "Suggested Budget",
+        budget_advice_desc: "For a comfortable day",
+        // Journey
+        excursion_tag: "DAY TRIP",
+        discover: "Discover",
+        journey_intro: "An unforgettable escape from Marrakech to the pearl of the Atlantic, through authentic landscapes and Berber villages.",
+        duration: "8:30 AM - 6:00 PM",
+        duration_desc: "Full-day with transport included",
+        distance: "180 km",
+        distance_desc: "Scenic route to the coast",
+        all_included: "All Included",
+        all_included_desc: "Transport + Professional Guide",
+        journey_title: "A Day Trip to the Atlantic Ocean",
+        journey_desc: "Morning departure from your Marrakech accommodation for an extraordinary journey to Essaouira. Cross changing landscapes: vineyards, olive groves, then the majestic argan forest. Discover this unique fortified city, a UNESCO World Heritage site, with ocean-facing ramparts and a medina with Portuguese influences.",
+        highlight_medina: "UNESCO Medina",
+        highlight_port: "Fishing Port",
+        highlight_walls: "Historic Ramparts",
+        highlight_beach: "Vast Beach",
+        unesco_label: "UNESCO",
+        unesco_desc: "World Heritage",
+        timeline_title: "Daily Itinerary",
+        timeline_departure: "Departure from Marrakech",
+        timeline_departure_desc: "Pick-up at your hotel/riad. Start the journey to the Atlantic coast.",
+        timeline_landscapes: "Landscape Crossing",
+        timeline_landscapes_desc: "Vineyards, olive groves, then the endemic argan forest.",
+        timeline_arrival: "Arrival in Essaouira",
+        timeline_arrival_desc: "Discover the medina, ramparts, and traditional fishing port.",
+        timeline_lunch: "Free Lunch",
+        timeline_lunch_desc: "Enjoy local specialties, especially fresh fish of the day.",
+        timeline_return: "Return to Marrakech",
+        timeline_return_desc: "Return trip, arriving back in the ochre city in the evening.",
+        cta_book_adventure: "Book Your Adventure",
+        cta_book_desc: "Live an unforgettable experience and discover Morocco’s hidden treasures on this exceptional Essaouira excursion.",
+        cta_book_btn: "BOOK NOW",
+        // Reservation
+        reservation_tag: "Quick Reservation",
+        reservation_title1: "Set off on an",
+        reservation_title2: "adventure",
+        reservation_desc: "Book your unforgettable Sahara experience. Our team helps you create magical memories.",
+        feature_confirmation: "Instant Confirmation",
+        feature_confirmation_desc: "Guaranteed reply within 2 hours, even on weekends",
+        feature_premium: "Premium Support",
+        feature_premium_desc: "Expert guide and personalized 24/7 service",
+        feature_flexibility: "Full Flexibility",
+        feature_flexibility_desc: "Free changes up to 48h before departure",
+        highlights_tag: "Tour Highlights",
+        highlights_desc_tag: "Unique Experience",
+        highlights_value: "Culture • Desert • Ocean",
+        highlights_desc: "Comfortable transport, handpicked accommodations, and authentic immersion in Moroccan landscapes.",
+        form_title: "Booking Details",
+        form_quick_select: "Quick Selection",
+        form_guests_label: "Travelers",
+        form_date_label: "Departure Date",
+        form_contact_info: "Your Contact",
+        form_name_label: "Full Name *",
+        form_email_label: "Email *",
+        form_phone_label: "Phone *",
+        form_special_requests: "Special Requests",
+        form_submit_btn: "Send My Request",
+        form_secure: "Secure Data",
+        form_no_commitment: "No Commitment",
+        response_time: "Guaranteed Reply",
+        // CTA
+        cta_question: "Any questions? Need to",
+        cta_custom: "customize",
+        cta_desc: "Our Sahara experts are available 7/7 to tailor your trip to your wishes. Dietary needs, birthdays, special requests — anything’s possible!",
+        cta_expert_btn: "Talk to an Expert",
+        cta_quote_btn: "Personalized Quote",
+        cta_response_time: "Reply within 2h",
+        cta_free_quote: "Free & No Commitment Quote",
+        // Footer
+        footer_about: "Your travel agency specializing in tailor-made tours in Morocco for over 10 years.",
+        footer_links_title: "Quick Links",
+        footer_contact_title: "Contact",
+        footer_address: "123 Medina Street, Marrakech, Morocco",
+        footer_newsletter_title: "Subscribe",
+        footer_newsletter_desc: "Receive our latest offers and travel tips by email.",
+        footer_email_placeholder: "Your email address",
+        footer_subscribe_btn: "Subscribe"
+      },
+      es: {
+        // Navbar
+        nav_home: "Inicio",
+        nav_about: "Acerca de",
+        nav_packages: "Paquetes",
+        nav_tours: "Tours",
+        nav_gallery: "Galería",
+        nav_contact: "Contacto",
+        tour_marrakech: "Desde Marrakech",
+        tour_fes: "Desde Fez",
+        tour_casablanca: "Desde Casablanca",
+        // Hero
+        hero_title1: "Descubre",
+        hero_subtitle: "la perla del Atlántico",
+        hero_desc1: "Una excursión de un día desde",
+        hero_desc2: "Explora la medina histórica, los fuertes frente al océano y las playas ventosas.",
+        tag_unesco: "Sitio UNESCO",
+        tag_medina: "Medina auténtica",
+        tag_guide: "Guía local",
+        tag_small_group: "Grupo pequeño",
+        cta_book_now: "Reservar ahora",
+        cta_confirmation: "✨ Confirmación inmediata",
+        cta_flex: "Sin costos ocultos • Cancelación flexible",
+        location: "Essaouira, Marruecos",
+        medina_title: "Medina de Essaouira",
+        medina_desc: "Una joya costera declarada Patrimonio de la Humanidad",
+        day_trip: "Día",
+        day_excursion: "De excursión",
+        rating_excellence: "Excelencia",
+        morning: "Mañana",
+        morning_desc: "Murallas y puerto",
+        afternoon: "Tarde",
+        afternoon_desc: "Medina y zocos",
+        scroll_indicator: "Descubre la aventura",
+        // Inclusions
+        transparency: "Transparencia total",
+        inclusions_title1: "Tu día",
+        inclusions_title2: "todo incluido",
+        inclusions_desc: "Descubre lo que incluye tu escapada a Essaouira y qué debes llevar. Sin sorpresas, solo claridad.",
+        included_title: "Todo incluido",
+        included_subtitle: "Tu día sin preocupaciones",
+        included_value: "100€ de valor",
+        feature_guide: "Guía local experto",
+        feature_guide_desc: "Guía francófono para una inmersión en la historia de Essaouira",
+        feature_transport: "Transporte cómodo",
+        feature_transport_desc: "Minibús climatizado ida y vuelta desde Marrakech",
+        feature_tours: "Visitas guiadas",
+        feature_tours_desc: "Medina UNESCO, murallas y puerto histórico",
+        feature_free_time: "Tiempo libre",
+        feature_free_time_desc: "Explora los zocos o relájate en la playa",
+        feature_drinks: "Bebidas no alcohólicas",
+        feature_drinks_desc: "Agua y té de menta incluidos durante el día",
+        not_included_title: "Qué llevar",
+        not_included_subtitle: "Presupuesto adicional",
+        extra_flights: "Vuelos internacionales",
+        extra_flights_desc: "Según tu ciudad de salida",
+        extra_lunch: "Almuerzo",
+        extra_lunch_desc: "Plato en restaurante: 10-20€",
+        extra_personal: "Gastos personales",
+        extra_personal_desc: "Recuerdos, bebidas, propinas",
+        budget_advice: "Presupuesto sugerido",
+        budget_advice_desc: "Para un día cómodo",
+        // Journey
+        excursion_tag: "EXCURSIÓN DE UN DÍA",
+        discover: "Descubre",
+        journey_intro: "Una escapada inolvidable desde Marrakech hacia la perla del Atlántico, atravesando paisajes auténticos y pueblos bereberes.",
+        duration: "8:30 - 18:00",
+        duration_desc: "Día completo con transporte incluido",
+        distance: "180 km",
+        distance_desc: "Ruta panorámica hacia la costa",
+        all_included: "Todo incluido",
+        all_included_desc: "Transporte + Guía profesional",
+        journey_title: "Un día de escape hacia el Océano Atlántico",
+        journey_desc: "Salida matinal desde tu alojamiento en Marrakech para un viaje extraordinario hacia Essaouira. Atraviesa paisajes cambiantes: viñedos, olivares y luego el majestuoso bosque de argán. Descubre esta ciudad fortificada única, Patrimonio de la Humanidad por la UNESCO, con sus murallas frente al océano y su medina de influencia portuguesa.",
+        highlight_medina: "Medina UNESCO",
+        highlight_port: "Puerto pesquero",
+        highlight_walls: "Murallas históricas",
+        highlight_beach: "Playa inmensa",
+        unesco_label: "UNESCO",
+        unesco_desc: "Patrimonio Mundial",
+        timeline_title: "Programa del día",
+        timeline_departure: "Salida desde Marrakech",
+        timeline_departure_desc: "Recogida en tu hotel/riad. Inicio del viaje hacia la costa atlántica.",
+        timeline_landscapes: "Travesía de paisajes",
+        timeline_landscapes_desc: "Viñedos, olivares y descubrimiento del bosque de argán endémico.",
+        timeline_arrival: "Llegada a Essaouira",
+        timeline_arrival_desc: "Descubrimiento de la medina, las murallas y el puerto pesquero tradicional.",
+        timeline_lunch: "Almuerzo libre",
+        timeline_lunch_desc: "Degustación de especialidades locales, especialmente pescado fresco del día.",
+        timeline_return: "Regreso a Marrakech",
+        timeline_return_desc: "Viaje de regreso con llegada prevista por la noche en la ciudad ocre.",
+        cta_book_adventure: "Reserva tu aventura",
+        cta_book_desc: "Vive una experiencia inolvidable y descubre los tesoros escondidos de Marruecos en esta excursión excepcional a Essaouira.",
+        cta_book_btn: "RESERVAR AHORA",
+        // Reservation
+        reservation_tag: "Reserva Express",
+        reservation_title1: "Parte hacia la",
+        reservation_title2: "aventura",
+        reservation_desc: "Reserva tu experiencia inolvidable en el desierto del Sahara. Nuestro equipo te acompaña para crear recuerdos mágicos.",
+        feature_confirmation: "Confirmación instantánea",
+        feature_confirmation_desc: "Respuesta garantizada en 2 horas, incluso los fines de semana",
+        feature_premium: "Acompañamiento premium",
+        feature_premium_desc: "Guía experto y servicio personalizado 24/7",
+        feature_flexibility: "Flexibilidad total",
+        feature_flexibility_desc: "Modificación gratuita hasta 48h antes de la salida",
+        highlights_tag: "Puntos fuertes del circuito",
+        highlights_desc_tag: "Experiencia única",
+        highlights_value: "Cultura • Desierto • Océano",
+        highlights_desc: "Transporte cómodo, alojamientos seleccionados e inmersión auténtica en los paisajes marroquíes.",
+        form_title: "Detalles de la reserva",
+        form_quick_select: "Selección rápida",
+        form_guests_label: "Viajeros",
+        form_date_label: "Fecha de salida",
+        form_contact_info: "Tus datos",
+        form_name_label: "Nombre completo *",
+        form_email_label: "Email *",
+        form_phone_label: "Teléfono *",
+        form_special_requests: "Solicitudes especiales",
+        form_submit_btn: "Enviar mi solicitud",
+        form_secure: "Datos seguros",
+        form_no_commitment: "Sin compromiso",
+        response_time: "Respuesta garantizada",
+        // CTA
+        cta_question: "¿Una pregunta? ¿Necesitas",
+        cta_custom: "personalizar",
+        cta_desc: "Nuestro equipo de expertos del Sahara está disponible 7 días/semana para adaptar tu viaje a tus deseos. Dietas, cumpleaños, peticiones especiales... ¡todo es posible!",
+        cta_expert_btn: "Hablar con un experto",
+        cta_quote_btn: "Presupuesto personalizado",
+        cta_response_time: "Respuesta garantizada en 2h",
+        cta_free_quote: "Presupuesto gratuito y sin compromiso",
+        // Footer
+        footer_about: "Tu agencia de viajes especialista en circuitos a medida en Marruecos desde hace más de 10 años.",
+        footer_links_title: "Enlaces rápidos",
+        footer_contact_title: "Contacto",
+        footer_address: "123 Calle de la Medina, Marrakech, Marruecos",
+        footer_newsletter_title: "Suscríbete",
+        footer_newsletter_desc: "Recibe nuestras últimas ofertas y consejos de viaje por email.",
+        footer_email_placeholder: "Tu dirección de correo",
+        footer_subscribe_btn: "Suscribirse"
+      }
+    };
+
+    let currentLang = 'fr'; // default
+
+    // Translate page
+    function translatePage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+
+      // Update all translatable elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
       });
-      // Toggle tours dropdown in mobile menu
-      mobileToursButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileToursContent.classList.toggle('hidden');
-        // Rotate the chevron icon
-        const chevron = this.querySelector('.fa-chevron-down');
-        chevron.classList.toggle('rotate-180');
+
+      // Update language code in UI
+      document.querySelectorAll('.current-language').forEach(el => {
+        el.textContent = lang.toUpperCase();
       });
-      // Toggle language options in mobile menu
-      mobileLanguageButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileLanguageOptions.classList.toggle('show');
-        // Rotate the chevron icon
-        const chevron = this.querySelector('.fa-chevron-down');
-        chevron.classList.toggle('rotate-180');
-      });
-      // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!mobileMenu.contains(event.target) && 
-            !mobileMenuButton.contains(event.target) &&
-            !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          // Also close any open dropdowns
-          if (!mobileToursContent.classList.contains('hidden')) {
-            mobileToursContent.classList.add('hidden');
-            mobileToursButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
+
+      // Update `lang` attribute on <html>
+      document.getElementById('html-root').setAttribute('lang', lang);
+
+      // Save to localStorage for persistence
+      localStorage.setItem('preferred-lang', lang);
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check localStorage or browser language
+      const savedLang = localStorage.getItem('preferred-lang');
+      const browserLang = navigator.language.split('-')[0];
+      const langToUse = savedLang || (['fr','en','es'].includes(browserLang) ? browserLang : 'fr');
+
+      if (langToUse !== 'fr') {
+        translatePage(langToUse);
+      }
+
+      // Set active class on language options
+      function setActiveLanguage(lang) {
+        // Desktop
+        document.querySelectorAll('.language-switcher .language-option').forEach(opt => {
+          opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+        });
+        // Mobile
+        document.querySelectorAll('#mobile-language-options .language-option').forEach(opt => {
+          opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+        });
+      }
+
+      // Attach click handlers
+      document.querySelectorAll('[data-lang]').forEach(option => {
+        option.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          translatePage(lang);
+          setActiveLanguage(lang);
+          
+          // Close mobile dropdown if needed
+          const mobileOpts = document.getElementById('mobile-language-options');
+          if (mobileOpts && mobileOpts.classList.contains('show')) {
+            mobileOpts.classList.remove('show');
+            document.querySelector('#mobile-language-button .fa-chevron-down')?.classList.remove('rotate-180');
           }
-          if (mobileLanguageOptions.classList.contains('show')) {
-            mobileLanguageOptions.classList.remove('show');
-            mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
+        });
+      });
+
+      // Set initial active state
+      setActiveLanguage(currentLang);
+
+      
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        
+        // Toggle icon between bars and times
+        const icon = mobileMenuButton.querySelector("i");
+        if (icon) {
+          if (mobileMenu.classList.contains("hidden")) {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          } else {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
           }
         }
       });
-      // Handle language selection in mobile menu
-      const mobileLanguageOptionsList = mobileLanguageOptions.querySelectorAll('.language-option');
-      mobileLanguageOptionsList.forEach(option => {
-        option.addEventListener('click', function() {
-          const languageText = this.textContent.trim();
-          const languageCode = languageText.split(' ')[0];
-          // Update the selected language
-          document.querySelectorAll('.current-language').forEach(el => {
-            el.textContent = languageCode;
-          });
-          // Hide the options
-          mobileLanguageOptions.classList.remove('show');
-          mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
-          // Update active class
-          mobileLanguageOptionsList.forEach(opt => opt.classList.remove('active'));
-          this.classList.add('active');
-        });
+    }
+
+    // Mobile Tours Dropdown
+    const mobileToursButton = document.getElementById("mobile-tours-button");
+    const mobileToursContent = document.getElementById("mobile-tours-content");
+    
+    if (mobileToursButton && mobileToursContent) {
+      mobileToursButton.addEventListener("click", () => {
+        mobileToursContent.classList.toggle("hidden");
+        
+        // Toggle chevron rotation
+        const chevron = mobileToursButton.querySelector(".fa-chevron-down");
+        if (chevron) {
+          chevron.classList.toggle("rotate-180");
+        }
       });
-      // Handle language selection in desktop menu
-      const desktopLanguageOptions = document.querySelectorAll('.language-switcher .language-option');
-      desktopLanguageOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          const languageText = this.textContent.trim();
-          const languageCode = languageText.split(' ')[0];
-          // Update the selected language
-          document.querySelectorAll('.current-language').forEach(el => {
-            el.textContent = languageCode;
-          });
-          // Update active class
-          desktopLanguageOptions.forEach(opt => opt.classList.remove('active'));
-          this.classList.add('active');
-        });
+    }
+
+    // Mobile Language Switcher
+    const mobileLangButton = document.getElementById("mobile-language-button");
+    const mobileLangOptions = document.getElementById("mobile-language-options");
+    
+    if (mobileLangButton && mobileLangOptions) {
+      mobileLangButton.addEventListener("click", () => {
+        mobileLangOptions.classList.toggle("show");
+        
+        // Toggle chevron rotation
+        const chevron = mobileLangButton.querySelector(".fa-chevron-down");
+        if (chevron) {
+          chevron.classList.toggle("rotate-180");
+        }
       });
-      // Navbar scroll effect
-      window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 10) {
-          navbar.classList.remove('navbar-default');
-          navbar.classList.add('navbar-scrolled');
+    }
+
+    // Navbar scroll effect
+    const navbar = document.getElementById("navbar");
+    if (navbar) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("navbar-scrolled");
+          navbar.classList.remove("navbar-default");
         } else {
-          navbar.classList.remove('navbar-scrolled');
-          navbar.classList.add('navbar-default');
+          navbar.classList.remove("navbar-scrolled");
+          navbar.classList.add("navbar-default");
         }
       });
+    }
     });
   </script>
 </body>

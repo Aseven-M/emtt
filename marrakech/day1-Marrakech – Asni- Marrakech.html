@@ -13,9 +13,9 @@
       theme: {
         extend: {
           colors: {
-            primary: '#24441B',    // Dark green
-            secondary: '#E4DFD8',  // Light beige
-            accent: '#F2D04E',     // Yellow
+            primary: '#24441B',
+            secondary: '#E4DFD8',
+            accent: '#F2D04E',
           },
           boxShadow: {
             'feature': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -29,18 +29,16 @@
     }
   </script>
   <style>
-     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     body {
       font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
       background-color: #ffffff;
     }
-     body { font-family: 'Poppins', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #24441B 0%, #2d5423 100%); }
-        .card-shadow { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); }
-        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .hover-lift:hover { transform: translateY(-8px); }
-    /* Navbar styles */
+    .gradient-bg { background: linear-gradient(135deg, #24441B 0%, #2d5423 100%); }
+    .card-shadow { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); }
+    .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .hover-lift:hover { transform: translateY(-8px); }
     .navbar-scrolled {
       background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -52,7 +50,6 @@
       backdrop-filter: blur(5px);
       border-radius: 1.5rem;
     }
-    /* Desktop language switcher hover effect */
     .language-switcher .language-options {
       opacity: 0;
       visibility: hidden;
@@ -62,12 +59,18 @@
       opacity: 1;
       visibility: visible;
     }
-    /* Mobile language options */
     #mobile-language-options {
       display: none;
     }
     #mobile-language-options.show {
       display: block;
+    }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 10s linear infinite;
     }
   </style>
 </head>
@@ -78,37 +81,31 @@
       <div class="flex justify-between items-center">
         <!-- Logo -->
         <a href="/index.html" class="flex items-center">
-          <img src="/images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
+          <img src="../images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
         </a>
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-6">
-          <a href="/index.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
+          <a href="/index.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav.home">
             Accueil
             <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
           </a>
-          <a href="/about.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
+          <a href="/about.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav.about">
             À propos
             <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
           </a>
           <!-- Packages Dropdown -->
           <div class="relative group">
-            <button class="nav-link text-primary font-medium flex items-center hover:text-accent">
+            <button class="nav-link text-primary font-medium flex items-center hover:text-accent" data-i18n="nav.packages">
               Packages
               <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
             </button>
             <div class="absolute left-0 mt-3 w-52 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-accent/20">
-              <a href="/tours/marrakech.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                From Marrakech
-              </a>
-              <a href="/tours/fes.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                From Fes
-              </a>
-              <a href="#" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                From Casablanca
-              </a>
+              <a href="../tours/marrakech.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="tours.marrakech">From Marrakech</a>
+              <a href="/tours/fes.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="tours.fes">From Fes</a>
+              <a href="#" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="tours.casablanca">From Casablanca</a>
             </div>
           </div>
-          <a href="/galery.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
+          <a href="/galery.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav.gallery">
             Galerie
             <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
           </a>
@@ -119,24 +116,21 @@
               <span class="current-language font-semibold">FR</span>
             </button>
             <div class="language-options absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl py-1 border border-accent/20">
-              <div class="language-option active px-4 py-2 cursor-pointer hover:bg-accent/10">
-                <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French">
-                Français
+              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="fr">
+                <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French"> Français
               </div>
-              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10">
-                <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English">
-                English
+              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="en">
+                <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English"> English
               </div>
-              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10">
-                <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish">
-                Español
+              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="es">
+                <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish"> Español
               </div>
             </div>
           </div>
         </div>
         <!-- Contact / Mobile Menu Button -->
         <div>
-          <a href="/contact.html" class="hidden md:block bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-all shadow-md hover:shadow-accent/50">
+          <a href="/contact.html" class="hidden md:block bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-all shadow-md hover:shadow-accent/50" data-i18n="nav.contact">
             <i class="fas fa-phone mr-2"></i>Contact US
           </a>
           <button id="mobile-menu-button" class="md:hidden text-primary text-2xl">
@@ -148,30 +142,28 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden mt-3">
       <div class="flex flex-col space-y-3 px-4 pb-4 bg-white/95 backdrop-blur-sm rounded-lg mx-4">
-        <a href="/index.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
+        <a href="/index.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20" data-i18n="nav.home">
           <i class="fas fa-home mr-3 text-accent"></i>Accueil
         </a>
-        <a href="/about.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
+        <a href="/about.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20" data-i18n="nav.about">
           <i class="fas fa-info-circle mr-3 text-accent"></i>À propos
         </a>
-        <!-- Mobile Tours Dropdown -->
         <div class="mobile-tours-dropdown">
           <button id="mobile-tours-button" class="text-primary font-medium py-3 flex items-center justify-between w-full border-b border-accent/20">
-            <span class="flex items-center">
+            <span class="flex items-center" data-i18n="nav.tours">
               <i class="fas fa-route mr-3 text-accent"></i>Tours
             </span>
             <i class="fas fa-chevron-down text-xs"></i>
           </button>
           <div id="mobile-tours-content" class="pl-7 mt-2 hidden dropdown-content">
-            <a href="/tours/marrakech.html" class="block py-2 text-gray-600 hover:text-accent">From Marrakech</a>
-            <a href="/tours/fes.html" class="block py-2 text-gray-600 hover:text-accent">From Fes</a>
-            <a href="/tours/casablanca.html" class="block py-2 text-gray-600 hover:text-accent">From Casablanca</a>
+            <a href="../tours/marrakech.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="tours.marrakech">From Marrakech</a>
+            <a href="/tours/fes.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="tours.fes">From Fes</a>
+            <a href="/tours/casablanca.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="tours.casablanca">From Casablanca</a>
           </div>
         </div>
-        <a href="/galery.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
+        <a href="/galery.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20" data-i18n="nav.gallery">
           <i class="fas fa-image mr-3 text-accent"></i>Galerie
         </a>
-        <!-- Mobile Language -->
         <div class="language-switcher mt-3 py-2 border-t border-accent/20">
           <button id="mobile-language-button" class="language-btn w-full justify-center text-primary flex items-center">
             <i class="fas fa-globe mr-2 text-accent"></i>
@@ -179,33 +171,27 @@
             <i class="fas fa-chevron-down ml-2 text-xs"></i>
           </button>
           <div id="mobile-language-options" class="language-options mt-2">
-            <div class="language-option active p-2 hover:bg-accent/10 cursor-pointer">
-              <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French">
-              Français
+            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="fr">
+              <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French"> Français
             </div>
-            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer">
-              <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English">
-              English
+            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="en">
+              <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English"> English
             </div>
-            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer">
-              <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish">
-              Español
+            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="es">
+              <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish"> Español
             </div>
           </div>
         </div>
-        <a href="/contact.html" class="mt-3 bg-accent text-white px-5 py-3 rounded-lg font-medium text-center transition-all hover:bg-accent/90">
+        <a href="/contact.html" class="mt-3 bg-accent text-white px-5 py-3 rounded-lg font-medium text-center transition-all hover:bg-accent/90" data-i18n="nav.contact">
           <i class="fas fa-calendar-check mr-2"></i>Contact US
         </a>
       </div>
     </div>
   </nav>
+
   <!-- Hero Section -->
- <!-- Hero Section -->
-<section class="gradient-bg text-white relative overflow-hidden min-h-screen flex items-center pt-24">
-    <!-- Enhanced Gradient Overlay -->
+  <section class="gradient-bg text-white relative overflow-hidden min-h-screen flex items-center pt-24">
     <div class="absolute inset-0 bg-gradient-to-br from-[#24441B] via-[#2d5422] to-black opacity-70"></div>
-    
-    <!-- Dynamic Background Elements -->
     <div class="absolute inset-0">
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#F2D04E]/8 rounded-full blur-3xl animate-pulse"></div>
       <div class="absolute bottom-1/3 right-1/3 w-80 h-80 bg-[#F2D04E]/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
@@ -213,78 +199,68 @@
       <div class="absolute top-10 right-10 w-1 h-20 bg-[#F2D04E]/30 rounded-full animate-bounce delay-300"></div>
       <div class="absolute bottom-20 left-20 w-2 h-2 bg-[#F2D04E] rounded-full animate-ping delay-700"></div>
     </div>
-    
     <div class="container mx-auto px-6 relative z-20">
-      <!-- Main Hero Content -->
       <div class="grid lg:grid-cols-2 gap-20 items-center min-h-screen py-20">
-        <!-- Left Content -->
         <div class="space-y-12">
-          <!-- Main Title -->
           <div class="space-y-8">
             <h1 class="text-6xl md:text-8xl font-black leading-none">
-              <span class="block text-white/90 mb-4">Explorez</span>
+              <span class="block text-white/90 mb-4" data-i18n="hero.explore">Explorez</span>
               <span class="block relative mb-6">
-                <span class="bg-gradient-to-r from-[#F2D04E] via-yellow-300 to-[#F2D04E] bg-clip-text text-transparent">
-                  ASNI
-                </span>
+                <span class="bg-gradient-to-r from-[#F2D04E] via-yellow-300 to-[#F2D04E] bg-clip-text text-transparent" data-i18n="hero.asni">ASNI</span>
                 <div class="absolute -inset-4 bg-gradient-to-r from-[#F2D04E]/20 to-transparent blur-2xl -z-10 animate-pulse"></div>
               </span>
-              <span class="block text-white/70 text-4xl md:text-5xl font-medium">
-                cœur de l'Atlas
-              </span>
+              <span class="block text-white/70 text-4xl md:text-5xl font-medium" data-i18n="hero.atlas">cœur de l'Atlas</span>
             </h1>
-            <p class="text-2xl md:text-3xl text-gray-200 leading-relaxed max-w-2xl">
-              Une journée d'immersion de <span class="text-[#F2D04E] font-semibold">Marrakech à Asni</span>. 
-              Découvrez les villages berbères, les vallées verdoyantes et les montagnes majestueuses.
+            <p class="text-2xl md:text-3xl text-gray-200 leading-relaxed max-w-2xl" data-i18n="hero.subtitle">
+              Une journée d'immersion de <span class="text-[#F2D04E] font-semibold">Marrakech à Asni</span>. Découvrez les villages berbères, les vallées verdoyantes et les montagnes majestueuses.
             </p>
           </div>
 
-          <!-- Enhanced Feature Tags -->
           <div class="flex flex-wrap gap-4">
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
               <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
               </svg>
-              <span class="font-semibold">Nature authentique</span>
+              <span class="font-semibold" data-i18n="tags.nature">Nature authentique</span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
               <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z"/>
               </svg>
-              <span class="font-semibold">Villages berbères</span>
+              <span class="font-semibold" data-i18n="tags.berber">Villages berbères</span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
               <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
               </svg>
-              <span class="font-semibold">Guide local</span>
+              <span class="font-semibold" data-i18n="tags.guide">Guide local</span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
               <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
               </svg>
-              <span class="font-semibold">Petit groupe</span>
+              <span class="font-semibold" data-i18n="tags.smallgroup">Petit groupe</span>
             </div>
           </div>
 
-          <!-- Enhanced CTA Section -->
           <div class="flex flex-col sm:flex-row items-start gap-8">
-            
-            <div class="flex-1 space-y-4"><a href="#reservation">
-              <button class="w-full bg-white/10 backdrop-blur-sm border-2 border-[#F2D04E] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#F2D04E] hover:text-[#24441B] transition-all duration-300 text-xl shadow-xl group relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                <span class="flex items-center justify-center relative z-10">
-                  Réserver maintenant
-                  <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                  </svg>
-                </span>
-              </button></a>
+            <div class="flex-1 space-y-4">
+              <a href="#reservation">
+                <button class="w-full bg-white/10 backdrop-blur-sm border-2 border-[#F2D04E] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#F2D04E] hover:text-[#24441B] transition-all duration-300 text-xl shadow-xl group relative overflow-hidden" data-i18n="cta.book">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <span class="flex items-center justify-center relative z-10">
+                    Réserver maintenant
+                    <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                  </span>
+                </button>
+              </a>
               <div class="text-center space-y-2">
-                <div class="text-lg text-[#F2D04E] font-semibold">
+                <div class="text-lg text-[#F2D04E] font-semibold" data-i18n="cta.instant">
                   ✨ Confirmation immédiate
                 </div>
-                <div class="text-sm text-gray-300">
+                <div class="text-sm text-gray-300" data-i18n="cta.fees">
                   Sans frais cachés • Annulation flexible
                 </div>
               </div>
@@ -292,56 +268,49 @@
           </div>
         </div>
 
-        <!-- Right Visual Section -->
         <div class="relative">
-          <!-- Main Hero Image -->
-          <div class="relative">
-            <div class="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
-              <img src="https://images.unsplash.com/photo-1651163937782-4ea284cc041a?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                   alt="Asni Valley" 
-                   class="w-full h-[500px] object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <!-- Image Overlay Content -->
-              <div class="absolute bottom-8 left-8 text-white">
-                <div class="flex items-center space-x-2 mb-4">
-                  <svg class="w-6 h-6 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg font-medium">Asni, Maroc</span>
-                </div>
-                <h3 class="text-3xl font-bold mb-3">Vallée d'Asni</h3>
-                <p class="text-lg opacity-90">Un écrin de nature et de culture</p>
+          <div class="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1651163937782-4ea284cc041a?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                 alt="Asni Valley" 
+                 class="w-full h-[500px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-8 text-white">
+              <div class="flex items-center space-x-2 mb-4">
+                <svg class="w-6 h-6 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-lg font-medium" data-i18n="hero.location">Asni, Maroc</span>
               </div>
+              <h3 class="text-3xl font-bold mb-3" data-i18n="hero.title">Vallée d'Asni</h3>
+              <p class="text-lg opacity-90" data-i18n="hero.tagline">Un écrin de nature et de culture</p>
             </div>
+          </div>
 
-            <!-- Enhanced Floating Cards -->
-            <div class="absolute -top-8 -left-8 bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-white/50 transform hover:scale-110 transition-transform">
-              <div class="flex items-center space-x-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center shadow-lg">
-                  <span class="text-[#24441B] font-black text-2xl">1</span>
-                </div>
-                <div>
-                  <div class="font-black text-[#24441B] text-xl">Jour</div>
-                  <div class="text-[#24441B]/60">De nature</div>
-                </div>
+          <div class="absolute -top-8 -left-8 bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-white/50 transform hover:scale-110 transition-transform">
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center shadow-lg">
+                <span class="text-[#24441B] font-black text-2xl" data-i18n="hero.day">1</span>
+              </div>
+              <div>
+                <div class="font-black text-[#24441B] text-xl" data-i18n="hero.day-label">Jour</div>
+                <div class="text-[#24441B]/60" data-i18n="hero.nature">De nature</div>
               </div>
             </div>
-            <div class="absolute -bottom-8 -right-8 bg-[#24441B] text-white rounded-3xl p-6 shadow-2xl transform hover:scale-110 transition-transform">
-              <div class="flex items-center space-x-4">
-                <div class="w-16 h-16 bg-[#F2D04E] rounded-2xl flex items-center justify-center shadow-lg">
-                  <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="font-black text-[#F2D04E] text-xl">4.7/5</div>
-                  <div class="text-gray-300">Excellence</div>
-                </div>
+          </div>
+          <div class="absolute -bottom-8 -right-8 bg-[#24441B] text-white rounded-3xl p-6 shadow-2xl transform hover:scale-110 transition-transform">
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-[#F2D04E] rounded-2xl flex items-center justify-center shadow-lg">
+                <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-black text-[#F2D04E] text-xl">4.7/5</div>
+                <div class="text-gray-300" data-i18n="hero.rating">Excellence</div>
               </div>
             </div>
           </div>
 
-          <!-- Enhanced Gallery Images -->
           <div class="grid grid-cols-2 gap-6 mt-12">
             <div class="relative group overflow-hidden rounded-3xl shadow-xl">
               <img src="https://www.naturallymorocco.co.uk/cms/destinations/19_6399d42246d24s_4.jpg?v=1686743404" 
@@ -349,8 +318,8 @@
                    class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
-                <div class="text-sm font-bold mb-1">Matin</div>
-                <div class="text-xs opacity-90">Villages berbères</div>
+                <div class="text-sm font-bold mb-1" data-i18n="gallery.morning">Matin</div>
+                <div class="text-xs opacity-90" data-i18n="gallery.villages">Villages berbères</div>
               </div>
             </div>
             <div class="relative group overflow-hidden rounded-3xl shadow-xl">
@@ -359,8 +328,8 @@
                    class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
-                <div class="text-sm font-bold mb-1">Après-midi</div>
-                <div class="text-xs opacity-90">Randonnée légère</div>
+                <div class="text-sm font-bold mb-1" data-i18n="gallery.afternoon">Après-midi</div>
+                <div class="text-xs opacity-90" data-i18n="gallery.hike">Randonnée légère</div>
               </div>
             </div>
           </div>
@@ -368,9 +337,8 @@
       </div>
     </div>
 
-    <!-- Enhanced Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-      <div class="flex flex-col items-center space-y-3 group cursor-pointer">
+      <div class="flex flex-col items-center space-y-3 group cursor-pointer" data-i18n="scroll.explore">
         <div class="text-sm text-[#F2D04E] font-semibold opacity-80 group-hover:opacity-100 transition-opacity animate-pulse">
           Découvrir l'aventure
         </div>
@@ -383,74 +351,47 @@
         </div>
       </div>
     </div>
-</section>
+  </section>
 
-<!-- Inclusions/Exclusions Section -->
+  <!-- Inclusions/Exclusions Section -->
 <section class="py-20 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
-    <!-- Animated Background Elements -->
     <div class="absolute inset-0">
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div class="absolute top-10 right-1/3 w-2 h-2 bg-[#F2D04E] rounded-full animate-bounce"></div>
         <div class="absolute bottom-20 left-1/3 w-3 h-3 bg-[#24441B]/30 rounded-full animate-pulse delay-500"></div>
     </div>
-
     <div class="container mx-auto px-6 relative z-10">
-        <!-- Enhanced Header -->
         <div class="text-center mb-20">
             <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-8 py-4 rounded-full mb-8 border border-[#F2D04E]/30">
                 <svg class="w-6 h-6 text-[#F2D04E] mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                 </svg>
-                <span class="text-[#24441B] font-bold uppercase tracking-wider">Transparence totale</span>
+                <span class="text-[#24441B] font-bold uppercase tracking-wider" data-i18n="inclusion.transparency">Transparence totale</span>
             </div>
-            
             <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-8 leading-tight">
                 Votre journée 
                 <span class="relative">
-                    <span class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">tout compris</span>
+                    <span class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="inclusion.title">tout compris</span>
                     <div class="absolute -bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
                 </span>
             </h2>
-            
-            <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed">
-                Découvrez ce qui est inclus dans votre escapade à Asni et ce qu'il faut prévoir. 
-                Aucune surprise, que de la transparence.
-            </p>
-        </div>
-
-        <!-- Main Content Grid -->
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-3 gap-8 mb-16">
-                
-                <!-- Included Section -->
-                <div class="lg:col-span-2">
-                    <div class="bg-gradient-to-br from-green-50 to-[#F2D04E]/10 rounded-3xl p-8 border-2 border-green-200/50 relative overflow-hidden shadow-xl">
-                        <!-- Decorative Elements -->
-                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[#F2D04E]/20 to-green-200/20 rounded-full"></div>
-                        <div class="absolute -bottom-5 -left-5 w-20 h-20 bg-gradient-to-tr from-green-200/30 to-[#F2D04E]/20 rounded-full"></div>
-                        
-                        <div class="relative z-10">
-                            <!-- Header -->
-                            <div class="flex items-center justify-between mb-8">
+            <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed" data-i18n="inclusion.subtitle">
+                Découvrez ce qui est inclus dans votre escapade à Ait Ben Haddou et ce qu'il faut prévoir. 
                                 <div class="flex items-center">
                                     <div class="w-16 h-16 bg-gradient-to-br from-[#24441B] to-green-700 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                                         <svg class="w-8 h-8 text-[#F2D04E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                        </svg>
+        </svg>
                                     </div>
                                     <div>
-                                        <h3 class="text-3xl font-black text-[#24441B] mb-1">Tout inclus</h3>
-                                        <p class="text-green-700 font-semibold">Votre journée sans souci</p>
+                                        <h3 class="text-3xl font-black text-[#24441B] mb-1" data-i18n="inclusion.included">Tout inclus</h3>
+                                        <p class="text-green-700 font-semibold" data-i18n="inclusion.included_sub">Votre journée sans souci</p>
                                     </div>
                                 </div>
-                                
-                                <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] text-[#24441B] px-6 py-3 rounded-2xl font-black text-lg shadow-lg">
-                                    90€ de valeur
-                                </div>
+
                             </div>
 
-                            <!-- Features Grid -->
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="space-y-4">
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
@@ -460,11 +401,10 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Guide local expert</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Guide francophone pour une immersion dans la culture berbère</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.guide">Guide expert privé</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.guide_desc">Guide francophone certifié pour une immersion historique</p>
                                         </div>
                                     </div>
-
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
                                         <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
                                             <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
@@ -472,11 +412,10 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Transport confortable</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Minibus climatisé aller-retour depuis Marrakech</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.transport">Transport premium</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.transport_desc">4x4 climatisé aller-retour depuis Marrakech</p>
                                         </div>
                                     </div>
-
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
                                         <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
                                             <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
@@ -484,12 +423,11 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Visites guidées</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Villages berbères et vallées d'Asni</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.visits">Visites guidées</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.visits_desc">Kasbah UNESCO et village historique</p>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="space-y-4">
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
                                         <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
@@ -498,11 +436,10 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Temps libre</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Randonnée ou découverte des marchés locaux</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.free_time">Temps libre</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.free_time_desc">Explorez le village ou les boutiques locales</p>
                                         </div>
                                     </div>
-
                                     <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
                                         <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
                                             <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
@@ -510,8 +447,8 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Boissons non alcoolisées</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Eau et thé à la menthe offerts pendant la journée</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.drinks">Boissons non alcoolisées</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.drinks_desc">Eau et thé à la menthe offerts pendant la journée</p>
                                         </div>
                                     </div>
                                 </div>
@@ -520,567 +457,452 @@
                     </div>
                 </div>
 
-                <!-- Not Included Sidebar -->
-                <div class="lg:col-span-1">
-                    <div class="bg-gradient-to-b from-gray-100 to-gray-50 rounded-3xl p-8 border-2 border-gray-200/50 shadow-xl sticky top-8">
-                        <!-- Header -->
-                        <div class="flex items-center mb-8">
-                            <div class="w-14 h-14 bg-gradient-to-br from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-black text-gray-700 mb-1">À prévoir</h3>
-                                <p class="text-gray-500 font-semibold text-sm">Budget supplémentaire</p>
-                            </div>
-                        </div>
 
-                        <!-- Not Included Items -->
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Vols internationaux</h4>
-                                    <p class="text-xs text-gray-500">Selon votre ville de départ</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Déjeuner</h4>
-                                    <p class="text-xs text-gray-500">Repas au restaurant: 8-15€</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm5 3a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V7zM4 9a1 1 0 011-1h1a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1V9zm10-1a1 1 0 011 1v3a1 1 0 01-1 1h-1a1 1 0 01-1-1V9a1 1 0 011-1h1z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Dépenses personnelles</h4>
-                                    <p class="text-xs text-gray-500">Souvenirs, boissons, pourboires</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Budget Info -->
-                        <div class="bg-gradient-to-r from-orange-100 to-yellow-100 p-6 rounded-2xl border-2 border-orange-200/50">
-                            <div class="flex items-center text-orange-700 mb-3">
-                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="font-bold text-lg">Budget conseillé</span>
-                            </div>
-                            <div class="text-2xl font-black text-orange-800 mb-2">20-40€</div>
-                            <p class="text-sm text-orange-600">Pour une journée confortable</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Journey Overview Section -->
-<section class="py-20 bg-white relative overflow-hidden">
-        <!-- Subtle Background Elements -->
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-32 right-20 w-64 h-64 bg-[#F2D04E]/5 rounded-full blur-2xl"></div>
-            <div class="absolute bottom-32 left-20 w-80 h-80 bg-[#24441B]/3 rounded-full blur-3xl"></div>
-        </div>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <!-- Clean Header -->
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center bg-[#F2D04E]/10 px-6 py-3 rounded-full mb-8">
-                    <svg class="w-5 h-5 text-[#24441B] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                    </svg>
-                    <span class="text-[#24441B] font-semibold text-sm">EXCURSION D'UNE JOURNÉE</span>
-                </div>
-                
-                <h1 class="text-6xl font-bold text-[#24441B] mb-6">
-                    Découvrez <span class="text-[#F2D04E]">Asni</span>
-                </h1>
-                
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Une escapade inoubliable de Marrakech vers la vallée d'Asni, 
-                    à travers les paysages verdoyants et les villages berbères du Haut Atlas.
-                </p>
-            </div>
-
-            <!-- Main Content -->
-            <div class="max-w-7xl mx-auto">
-                <!-- Journey Overview Cards -->
-                <div class="grid md:grid-cols-3 gap-8 mb-16">
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">8h00 - 17h00</h3>
-                        <p class="text-gray-600">Journée complète avec transport inclus</p>
-                    </div>
-                    
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#24441B] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">50 km</h3>
-                        <p class="text-gray-600">Route panoramique dans l'Atlas</p>
-                    </div>
-                    
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">Tout inclus</h3>
-                        <p class="text-gray-600">Transport + Guide professionnel</p>
-                    </div>
-                </div>
-
-                <!-- Main Journey Section -->
-                <div class="bg-gradient-to-r from-gray-50 to-white rounded-3xl p-12 shadow-xl mb-16">
-                    <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        <!-- Content -->
-                        <div>
-                            <span class="inline-block bg-[#24441B] text-[#F2D04E] px-4 py-2 rounded-full font-semibold text-sm mb-6">
-                                MARRAKECH → ASNI → MARRAKECH
-                            </span>
-                            
-                            <h2 class="text-4xl font-bold text-[#24441B] mb-6 leading-tight">
-                                Une journée dans les montagnes de l'Atlas
-                            </h2>
-                            
-                            <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                                Départ matinal de Marrakech pour une escapade dans la vallée d'Asni, nichée au cœur du Haut Atlas. 
-                                Traversez des paysages de montagnes spectaculaires et découvrez des villages berbères authentiques, 
-                                avec leurs traditions et leur hospitalité légendaire.
-                            </p>
-
-                            <!-- Key Highlights -->
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Villages berbères</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Vallée d'Asni</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Haut Atlas</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Randonnée légère</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Image -->
-                        <div class="relative">
-                            <div class="rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="https://th.bing.com/th/id/OIP.TL170jwY10UKysZQ4hTO8QHaDs?w=302&h=174&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" 
-                                     alt="Asni Valley" 
-                                     class="w-full h-80 object-cover hover:scale-105 transition-transform duration-700">
-                            </div>
-                            <!-- Floating card -->
-                            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-[#F2D04E] rounded-lg flex items-center justify-center mr-3">
-                                        <span class="text-[#24441B] font-bold text-lg">★</span>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-[#24441B]">Authentique</div>
-                                        <div class="text-sm text-gray-600">Culture berbère</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Section -->
-                <div class="mb-16">
-                    <h3 class="text-3xl font-bold text-[#24441B] text-center mb-12">Programme de la journée</h3>
-                    
-                    <div class="max-w-4xl mx-auto">
-                        <div class="space-y-8">
-                            <!-- Timeline Item -->
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">8h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Départ de Marrakech</h4>
-                                    <p class="text-gray-600">Prise en charge à votre hôtel/riad. Début du voyage vers Asni.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#F2D04E] font-bold">9h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Arrivée à Asni</h4>
-                                    <p class="text-gray-600">Visite guidée des villages berbères et découverte de la vallée.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">11h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Randonnée légère</h4>
-                                    <p class="text-gray-600">Balade dans les paysages montagneux avec vues panoramiques.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#F2D04E] font-bold">13h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Déjeuner libre</h4>
-                                    <p class="text-gray-600">Dégustation de spécialités berbères dans un restaurant local.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">14h30</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Retour à Marrakech</h4>
-                                    <p class="text-gray-600">Voyage de retour avec arrivée prévue en fin d'après-midi.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-        
-                
-
-                <!-- CTA Section -->
-                <div class="text-center">
-                    <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] rounded-3xl p-12 shadow-2xl">
-                        <h3 class="text-4xl font-bold text-[#24441B] mb-6">Réservez votre aventure</h3>
-                        <p class="text-[#24441B]/80 text-lg mb-8 max-w-2xl mx-auto">
-                            Vivez une expérience inoubliable et découvrez les trésors cachés du Maroc 
-                            lors de cette excursion exceptionnelle vers Asni.
-                        </p>
-                        <a href="#reservation">
-                        <button class="bg-[#24441B] text-[#F2D04E] px-10 py-4 rounded-2xl font-bold text-xl hover:scale-105 hover:shadow-xl transition-all duration-300">
-                            RÉSERVER MAINTENANT
-                        </button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section>
-    <section class="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100" id="reservation">
-    <!-- Animated Background Elements -->
-    <div class="absolute inset-0">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div class="absolute top-10 right-10 w-32 h-32 border border-[#F2D04E]/20 rounded-full animate-spin-slow"></div>
-        <div class="absolute bottom-20 left-20 w-24 h-24 border border-[#24441B]/20 rounded-full animate-bounce"></div>
+  <!-- Journey Overview Section -->
+  <section class="py-20 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-32 right-20 w-64 h-64 bg-[#F2D04E]/5 rounded-full blur-2xl"></div>
+      <div class="absolute bottom-32 left-20 w-80 h-80 bg-[#24441B]/3 rounded-full blur-3xl"></div>
     </div>
     <div class="container mx-auto px-6 relative z-10">
-        <!-- Split Layout: Info + Form -->
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <!-- Left Side - Info & Features -->
-                <div class="lg:sticky lg:top-8">
-                    <!-- Header -->
-                    <div class="mb-12">
-                        <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-[#F2D04E]/30">
-                            <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3 animate-pulse"></div>
-                            <span class="text-[#24441B] font-semibold text-sm uppercase tracking-wider">Réservation Express</span>
-                        </div>
-                        <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-6 leading-tight">
-                            Partez à l'
-                            <span class="relative inline-block">
-                                <span class="relative z-10 bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">aventure</span>
-                                <div class="absolute bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
-                            </span>
-                        </h2>
-                        <p class="text-xl text-[#24441B]/70 leading-relaxed mb-8">
-                            Réservez votre expérience inoubliable dans le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.
-                        </p>
-                    </div>
-                    <!-- Features Grid -->
-                    <div class="space-y-6 mb-12">
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Confirmation instantanée</h3>
-                                <p class="text-[#24441B]/60">Réponse garantie sous 2 heures, même le weekend</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.723-1.745 3.42 3.42 0 010-3.976 3.42 3.42 0 00.723-1.745 3.42 3.42 0 013.138-3.138z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Accompagnement premium</h3>
-                                <p class="text-[#24441B]/60">Guide expert et service personnalisé 24/7</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Flexibilité totale</h3>
-                                <p class="text-[#24441B]/60">Modification gratuite jusqu'à 48h avant le départ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Price Highlight -->
-                    <<div class="bg-gradient-to-r from-[#24441B] to-[#2d5422] rounded-3xl p-8 text-white relative overflow-hidden">
-  <div class="absolute top-0 right-0 w-32 h-32 bg-[#F2D04E]/10 rounded-full -translate-y-16 translate-x-16"></div>
-  <div class="absolute bottom-0 left-0 w-24 h-24 bg-[#F2D04E]/20 rounded-full translate-y-12 -translate-x-12"></div>
-  <div class="relative z-10">
-    <div class="flex items-center justify-between mb-4">
-      <span class="text-[#F2D04E] font-semibold">Points forts du circuit</span>
-      <span class="text-sm opacity-75">Expérience unique</span>
-    </div>
-    <div class="text-2xl font-bold text-[#F2D04E] mb-2">Culture • Désert • Océan</div>
-    <p class="text-sm opacity-80">
-      Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.
-    </p>
-  </div>
-</div>
-
-                </div>
-                <!-- Right Side - Form -->
-                <div class="relative">
-                    <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden relative">
-                        <!-- Form Progress -->
-                        <div class="bg-gradient-to-r from-[#F2D04E]/10 to-[#F2D04E]/5 p-6 border-b border-gray-100">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-2xl font-bold text-[#24441B]">Détails de réservation</h3>
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-2 h-2 bg-[#F2D04E] rounded-full"></div>
-                                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <form class="p-8 space-y-8">
-                            <!-- Quick Selection -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">1</span>
-                                    Sélection rapide
-                                </h4>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="relative">
-                                        <input type="number" min="1" max="12" id="guests" name="guests" 
-                                               class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium text-center text-2xl"
-                                               placeholder="2" value="2">
-                                        <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
-                                            Voyageurs
-                                        </label>
-                                    </div>
-                                    <div class="relative">
-                                        <input type="date" id="date" name="date" 
-                                               class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium">
-                                        <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
-                                            Date de départ
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Contact Info -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">2</span>
-                                    Vos coordonnées
-                                </h4>
-                                <div class="space-y-6">
-                                    <div class="relative group">
-                                        <input type="text" id="fullname" name="fullname" 
-                                               class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                               placeholder=" ">
-                                        <label for="fullname" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                            Nom complet *
-                                        </label>
-                                        <div class="absolute right-4 top-4 text-[#24441B]/30 group-hover:text-[#F2D04E] transition-colors">
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div class="relative group">
-                                            <input type="email" id="email2" name="email2" 
-                                                   class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                                   placeholder=" ">
-                                            <label for="email2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                                Email *
-                                            </label>
-                                        </div>
-                                        <div class="relative group">
-                                            <input type="tel" id="phone2" name="phone2" 
-                                                   class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                                   placeholder=" ">
-                                            <label for="phone2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                                Téléphone *
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Special Requests -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">3</span>
-                                    Demandes spéciales
-                                </h4>
-                                <div class="relative">
-                                    <textarea id="requests" name="requests" rows="4" 
-                                              class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium resize-none" 
-                                              placeholder="Régime alimentaire, anniversaire, demandes particulières..."></textarea>
-                                    <div class="absolute right-4 bottom-4 text-[#24441B]/30">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Submit -->
-                            <div class="pt-4">
-                                <button type="submit" class="w-full bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-6 px-8 rounded-xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-[#F2D04E]/30 transform hover:-translate-y-1 relative overflow-hidden group">
-                                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                                    <div class="flex items-center justify-center space-x-3 relative z-10">
-                                        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                                        </svg>
-                                        <span>Envoyer ma demande</span>
-                                    </div>
-                                </button>
-                                <div class="flex items-center justify-center space-x-4 mt-6 text-sm text-[#24441B]/60">
-                                    <div class="flex items-center space-x-2">
-                                        <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <span>Données sécurisées</span>
-                                    </div>
-                                    <div class="w-px h-4 bg-[#24441B]/20"></div>
-                                    <div class="flex items-center space-x-2">
-                                        <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <span>Sans engagement</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Floating Trust Badge -->
-                    <div class="absolute -bottom-6 -right-6 bg-[#24441B] text-white p-4 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-[#F2D04E]">2h</div>
-                            <div class="text-xs opacity-80">Réponse garantie</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center bg-[#F2D04E]/10 px-6 py-3 rounded-full mb-8">
+          <svg class="w-5 h-5 text-[#24441B] mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-[#24441B] font-semibold text-sm" data-i18n="journey.subtitle">EXCURSION D'UNE JOURNÉE</span>
         </div>
-    </div>
-    <!-- Custom CSS for slow spin -->
-    <style>
-        @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-            animation: spin-slow 10s linear infinite;
-        }
-    </style>
-</section>
-<div class="bg-gradient-to-r from-[#24441B] via-[#2d5422] to-[#24441B] rounded-3xl p-10 relative overflow-hidden shadow-2xl mt-20 mb-20 w-6/7 mx-auto">
-                <!-- Decorative Elements -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-[#F2D04E]/10 rounded-full -translate-y-32 translate-x-32"></div>
-                <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#F2D04E]/20 rounded-full translate-y-24 -translate-x-24"></div>
-                <div class="relative z-10 text-center text-white">
-                    <div class="max-w-4xl mx-auto">
-                        <h3 class="text-4xl font-black mb-6">
-                            Une question ? Besoin de 
-                            <span class="text-[#F2D04E]">personnaliser</span> ?
-                        </h3>
-                        <p class="text-xl text-white/80 mb-8 leading-relaxed">
-                            Notre équipe d'experts du Sahara est disponible 7j/7 pour adapter votre voyage à vos envies. 
-                            Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !
-                        </p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                          <a href="/contact.html"> <button class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                               Parler à un expert 
-                            </button></a>
-                            <a href="/contact.html"><button class="border-2 border-[#F2D04E] text-[#F2D04E] hover:bg-[#F2D04E] hover:text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg">
-                               Devis personnalisé
-                            </button></a> 
-                        </div>
-                        <div class="flex items-center justify-center mt-8 space-x-8 text-sm">
-                            <div class="flex items-center text-[#F2D04E]/80">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                                </svg>
-                                Réponse garantie sous 2h
-                            </div>
-                            <div class="flex items-center text-[#F2D04E]/80">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                Devis gratuit et sans engagement
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <h1 class="text-6xl font-bold text-[#24441B] mb-6">
+          Découvrez <span class="text-[#F2D04E]" data-i18n="journey.asni">Asni</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-i18n="journey.desc">
+          Une escapade inoubliable de Marrakech vers la vallée d'Asni, à travers les paysages verdoyants et les villages berbères du Haut Atlas.
+        </p>
+      </div>
+
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
             </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="journey.hours">8h00 - 17h00</h3>
+            <p class="text-gray-600" data-i18n="journey.duration">Journée complète avec transport inclus</p>
+          </div>
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#24441B] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="journey.distance">50 km</h3>
+            <p class="text-gray-600" data-i18n="journey.route">Route panoramique dans l'Atlas</p>
+          </div>
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="journey.included">Tout inclus</h3>
+            <p class="text-gray-600" data-i18n="journey.value">Transport + Guide professionnel</p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-gray-50 to-white rounded-3xl p-12 shadow-xl mb-16">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span class="inline-block bg-[#24441B] text-[#F2D04E] px-4 py-2 rounded-full font-semibold text-sm mb-6" data-i18n="journey.route">
+                MARRAKECH → ASNI → MARRAKECH
+              </span>
+              <h2 class="text-4xl font-bold text-[#24441B] mb-6 leading-tight" data-i18n="journey.title">
+                Une journée dans les montagnes de l'Atlas
+              </h2>
+              <p class="text-lg text-gray-700 leading-relaxed mb-8" data-i18n="journey.intro">
+                Départ matinal de Marrakech pour une escapade dans la vallée d'Asni, nichée au cœur du Haut Atlas. Traversez des paysages de montagnes spectaculaires et découvrez des villages berbères authentiques, avec leurs traditions et leur hospitalité légendaire.
+              </p>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="highlight.berber">Villages berbères</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="highlight.valley">Vallée d'Asni</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="highlight.atlas">Haut Atlas</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="highlight.hike">Randonnée légère</span>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div class="rounded-2xl overflow-hidden shadow-2xl">
+                <img src="https://th.bing.com/th/id/OIP.TL170jwY10UKysZQ4hTO8QHaDs?w=302&h=174&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" 
+                     alt="Asni Valley" 
+                     class="w-full h-80 object-cover hover:scale-105 transition-transform duration-700">
+              </div>
+              <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100">
+                <div class="flex items-center">
+                  <div class="w-12 h-12 bg-[#F2D04E] rounded-lg flex items-center justify-center mr-3">
+                    <span class="text-[#24441B] font-bold text-lg">★</span>
+                  </div>
+                  <div>
+                    <div class="font-bold text-[#24441B]" data-i18n="card.authentic">Authentique</div>
+                    <div class="text-sm text-gray-600" data-i18n="card.culture">Culture berbère</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <h3 class="text-3xl font-bold text-[#24441B] text-center mb-12" data-i18n="timeline.title">Programme de la journée</h3>
+          <div class="max-w-4xl mx-auto">
+            <div class="space-y-8">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">8h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline.pickup">Départ de Marrakech</h4>
+                  <p class="text-gray-600" data-i18n="timeline.pickup-desc">Prise en charge à votre hôtel/riad. Début du voyage vers Asni.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#F2D04E] font-bold">9h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline.arrival">Arrivée à Asni</h4>
+                  <p class="text-gray-600" data-i18n="timeline.arrival-desc">Visite guidée des villages berbères et découverte de la vallée.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">11h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline.hike">Randonnée légère</h4>
+                  <p class="text-gray-600" data-i18n="timeline.hike-desc">Balade dans les paysages montagneux avec vues panoramiques.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#F2D04E] font-bold">13h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline.lunch">Déjeuner libre</h4>
+                  <p class="text-gray-600" data-i18n="timeline.lunch-desc">Dégustation de spécialités berbères dans un restaurant local.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">14h30</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="timeline.return">Retour à Marrakech</h4>
+                  <p class="text-gray-600" data-i18n="timeline.return-desc">Voyage de retour avec arrivée prévue en fin d'après-midi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] rounded-3xl p-12 shadow-2xl">
+            <h3 class="text-4xl font-bold text-[#24441B] mb-6" data-i18n="cta.final-title">Réservez votre aventure</h3>
+            <p class="text-[#24441B]/80 text-lg mb-8 max-w-2xl mx-auto" data-i18n="cta.final-desc">
+              Vivez une expérience inoubliable et découvrez les trésors cachés du Maroc lors de cette excursion exceptionnelle vers Asni.
+            </p>
+            <a href="#reservation">
+              <button class="bg-[#24441B] text-[#F2D04E] px-10 py-4 rounded-2xl font-bold text-xl hover:scale-105 hover:shadow-xl transition-all duration-300" data-i18n="cta.final-btn">
+                RÉSERVER MAINTENANT
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section class="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100" id="reservation">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div class="absolute top-10 right-10 w-32 h-32 border border-[#F2D04E]/20 rounded-full animate-spin-slow"></div>
+      <div class="absolute bottom-20 left-20 w-24 h-24 border border-[#24441B]/20 rounded-full animate-bounce"></div>
+    </div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <div class="lg:sticky lg:top-8">
+            <div class="mb-12">
+              <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-[#F2D04E]/30">
+                <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3 animate-pulse"></div>
+                <span class="text-[#24441B] font-semibold text-sm uppercase tracking-wider" data-i18n="reserve.subtitle">Réservation Express</span>
+              </div>
+              <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-6 leading-tight">
+                Partez à l'
+                <span class="relative inline-block">
+                  <span class="relative z-10 bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="reserve.adventure">aventure</span>
+                  <div class="absolute bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
+                </span>
+              </h2>
+              <p class="text-xl text-[#24441B]/70 leading-relaxed mb-8" data-i18n="reserve.desc">
+                Réservez votre expérience inoubliable dans le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.
+              </p>
+            </div>
+
+            <div class="space-y-6 mb-12">
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="reserve.feature1-title">Confirmation instantanée</h3>
+                  <p class="text-[#24441B]/60" data-i18n="reserve.feature1-desc">Réponse garantie sous 2 heures, même le weekend</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.723-1.745 3.42 3.42 0 010-3.976 3.42 3.42 0 00.723-1.745 3.42 3.42 0 013.138-3.138z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="reserve.feature2-title">Accompagnement premium</h3>
+                  <p class="text-[#24441B]/60" data-i18n="reserve.feature2-desc">Guide expert et service personnalisé 24/7</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="reserve.feature3-title">Flexibilité totale</h3>
+                  <p class="text-[#24441B]/60" data-i18n="reserve.feature3-desc">Modification gratuite jusqu'à 48h avant le départ</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-[#24441B] to-[#2d5422] rounded-3xl p-8 text-white relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-[#F2D04E]/10 rounded-full -translate-y-16 translate-x-16"></div>
+              <div class="absolute bottom-0 left-0 w-24 h-24 bg-[#F2D04E]/20 rounded-full translate-y-12 -translate-x-12"></div>
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-[#F2D04E] font-semibold" data-i18n="reserve.highlights">Points forts du circuit</span>
+                  <span class="text-sm opacity-75" data-i18n="reserve.unique">Expérience unique</span>
+                </div>
+                <div class="text-2xl font-bold text-[#F2D04E] mb-2" data-i18n="reserve.trio">Culture • Désert • Océan</div>
+                <p class="text-sm opacity-80" data-i18n="reserve.details">
+                  Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden relative">
+              <div class="bg-gradient-to-r from-[#F2D04E]/10 to-[#F2D04E]/5 p-6 border-b border-gray-100">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-2xl font-bold text-[#24441B]" data-i18n="form.title">Détails de réservation</h3>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-[#F2D04E] rounded-full"></div>
+                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <form class="p-8 space-y-8">
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">1</span>
+                    <span data-i18n="form.section1">Sélection rapide</span>
+                  </h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="relative">
+                      <input type="number" min="1" max="12" id="guests" name="guests" 
+                             class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium text-center text-2xl"
+                             placeholder="2" value="2">
+                      <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
+                        <span data-i18n="form.guests">Voyageurs</span>
+                      </label>
+                    </div>
+                    <div class="relative">
+                      <input type="date" id="date" name="date" 
+                             class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium">
+                      <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
+                        <span data-i18n="form.date">Date de départ</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">2</span>
+                    <span data-i18n="form.section2">Vos coordonnées</span>
+                  </h4>
+                  <div class="space-y-6">
+                    <div class="relative group">
+                      <input type="text" id="fullname" name="fullname" 
+                             class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
+                             placeholder=" ">
+                      <label for="fullname" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
+                        <span data-i18n="form.name">Nom complet *</span>
+                      </label>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="relative group">
+                        <input type="email" id="email2" name="email2" 
+                               class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
+                               placeholder=" ">
+                        <label for="email2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
+                          <span data-i18n="form.email">Email *</span>
+                        </label>
+                      </div>
+                      <div class="relative group">
+                        <input type="tel" id="phone2" name="phone2" 
+                               class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
+                               placeholder=" ">
+                        <label for="phone2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
+                          <span data-i18n="form.phone">Téléphone *</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">3</span>
+                    <span data-i18n="form.section3">Demandes spéciales</span>
+                  </h4>
+                  <div class="relative">
+                    <textarea id="requests" name="requests" rows="4" 
+                              class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium resize-none" 
+                              placeholder="Régime alimentaire, anniversaire, demandes particulières..."></textarea>
+                    <div class="absolute right-4 bottom-4 text-[#24441B]/30">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-4">
+                  <button type="submit" class="w-full bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-6 px-8 rounded-xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-[#F2D04E]/30 transform hover:-translate-y-1 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <div class="flex items-center justify-center space-x-3 relative z-10">
+                      <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                      </svg>
+                      <span data-i18n="form.submit">Envoyer ma demande</span>
+                    </div>
+                  </button>
+                  <div class="flex items-center justify-center space-x-4 mt-6 text-sm text-[#24441B]/60">
+                    <div class="flex items-center space-x-2">
+                      <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                      </svg>
+                      <span data-i18n="form.secure">Données sécurisées</span>
+                    </div>
+                    <div class="w-px h-4 bg-[#24441B]/20"></div>
+                    <div class="flex items-center space-x-2">
+                      <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                      </svg>
+                      <span data-i18n="form.no-commit">Sans engagement</span>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="absolute -bottom-6 -right-6 bg-[#24441B] text-white p-4 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-[#F2D04E]">2h</div>
+                <div class="text-xs opacity-80" data-i18n="form.response">Réponse garantie</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-gradient-to-r from-[#24441B] via-[#2d5422] to-[#24441B] rounded-3xl p-10 relative overflow-hidden shadow-2xl mt-20 mb-20 w-6/7 mx-auto">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-[#F2D04E]/10 rounded-full -translate-y-32 translate-x-32"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#F2D04E]/20 rounded-full translate-y-24 -translate-x-24"></div>
+    <div class="relative z-10 text-center text-white">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-4xl font-black mb-6">
+          Une question ? Besoin de 
+          <span class="text-[#F2D04E]" data-i18n="contact.customize">personnaliser</span> ?
+        </h3>
+        <p class="text-xl text-white/80 mb-8 leading-relaxed" data-i18n="contact.desc">
+          Notre équipe d'experts du Sahara est disponible 7j/7 pour adapter votre voyage à vos envies. Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/contact.html">
+            <button class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1" data-i18n="contact.expert">
+              Parler à un expert 
+            </button>
+          </a>
+          <a href="/contact.html">
+            <button class="border-2 border-[#F2D04E] text-[#F2D04E] hover:bg-[#F2D04E] hover:text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg" data-i18n="contact.quote">
+              Devis personnalisé
+            </button>
+          </a> 
+        </div>
+        <div class="flex items-center justify-center mt-8 space-x-8 text-sm">
+          <div class="flex items-center text-[#F2D04E]/80">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <span data-i18n="contact.2h">Réponse garantie sous 2h</span>
+          </div>
+          <div class="flex items-center text-[#F2D04E]/80">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span data-i18n="contact.free-quote">Devis gratuit et sans engagement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-white pt-16 pb-8">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        <!-- Company Info -->
         <div>
-          <div class=" text-primary px-4 py-2 rounded-lg font-bold text-xl mb-6 inline-block">
+          <div class="text-primary px-4 py-2 rounded-lg font-bold text-xl mb-6 inline-block">
             <a href="/index.html" class="flex items-center">
-          <img src="/images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
-        </a>
+              <img src="../images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
+            </a>
           </div>
-          <p class="text-gray-400 mb-6">
+          <p class="text-gray-400 mb-6" data-i18n="footer.about">
             Votre agence de voyage spécialiste des circuits sur mesure au Maroc depuis plus de 10 ans.
           </p>
           <div class="flex space-x-4">
@@ -1098,130 +920,520 @@
             </a>
           </div>
         </div>
-        <!-- Quick Links -->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Liens Rapides</h3>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.quick-links">Liens Rapides</h3>
           <ul class="space-y-2">
-            <li><a href="/index.html" class="text-gray-400 hover:text-accent transition-colors">Accueil</a></li>
-            <li><a href="/about.html" class="text-gray-400 hover:text-accent transition-colors">À propos</a></li>
-            <li><a href="#tours" class="text-gray-400 hover:text-accent transition-colors">Circuits</a></li>
-            <li><a href="/galery.html" class="text-gray-400 hover:text-accent transition-colors">Galerie</a></li>
-            <li><a href="/contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
+            <li><a href="/index.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.home">Accueil</a></li>
+            <li><a href="/about.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.about">À propos</a></li>
+            <li><a href="#tours" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.tours">Circuits</a></li>
+            <li><a href="/galery.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.gallery">Galerie</a></li>
+            <li><a href="/contact.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
-        <!-- Contact Info -->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Contact</h3>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.contact">Contact</h3>
           <ul class="space-y-3 text-gray-400">
             <li class="flex items-start">
               <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
-              <span>123 Rue de la Médina, Marrakech, Maroc</span>
+              <span data-i18n="footer.address">123 Rue de la Médina, Marrakech, Maroc</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-phone mt-1 mr-3 text-accent"></i>
-              <span>+212 5 22 12 34 56</span>
+              <span data-i18n="footer.phone">+212691196491</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
-              <span>info@enjoymarrakechtours.com</span>
+              <span data-i18n="footer.email">Enjoymarrakechtour@gmail.com</span>
             </li>
           </ul>
         </div>
-        <!-- Newsletter -->
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Abonnez-vous</h3>
-          <p class="text-gray-400 mb-4">Recevez nos dernières offres et conseils de voyage par email.</p>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.newsletter">Abonnez-vous</h3>
+          <p class="text-gray-400 mb-4" data-i18n="footer.news-desc">Recevez nos dernières offres et conseils de voyage par email.</p>
           <form class="flex flex-col">
-            <input type="email" placeholder="Votre adresse email" class="bg-gray-800 text-white p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-accent">
-            <button type="submit" class="bg-accent text-primary font-medium py-3 rounded hover:bg-accent/90 transition-colors">S'abonner</button>
+            <input type="email" placeholder="Votre adresse email" class="bg-gray-800 text-white p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-accent" data-i18n="footer.email-input">
+            <button type="submit" class="bg-accent text-primary font-medium py-3 rounded hover:bg-accent/90 transition-colors" data-i18n="footer.subscribe">S'abonner</button>
           </form>
         </div>
       </div>
       <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
-        <p>&copy; 2025 Enjoy Marrakech Tours. Tous droits réservés.</p>
+        <p data-i18n="footer.copyright">&copy; 2025 Enjoy Marrakech Tours. Tous droits réservés.</p>
       </div>
     </div>
   </footer>
-  <!-- JavaScript for interactivity -->
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get elements
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileToursButton = document.getElementById('mobile-tours-button');
-      const mobileToursContent = document.getElementById('mobile-tours-content');
-      const mobileLanguageButton = document.getElementById('mobile-language-button');
-      const mobileLanguageOptions = document.getElementById('mobile-language-options');
-      // Toggle mobile menu
-      mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-      });
-      // Toggle tours dropdown in mobile menu
-      mobileToursButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileToursContent.classList.toggle('hidden');
-        // Rotate the chevron icon
-        const chevron = this.querySelector('.fa-chevron-down');
-        chevron.classList.toggle('rotate-180');
-      });
-      // Toggle language options in mobile menu
-      mobileLanguageButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileLanguageOptions.classList.toggle('show');
-        // Rotate the chevron icon
-        const chevron = this.querySelector('.fa-chevron-down');
-        chevron.classList.toggle('rotate-180');
-      });
-      // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!mobileMenu.contains(event.target) && 
-            !mobileMenuButton.contains(event.target) &&
-            !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          // Also close any open dropdowns
-          if (!mobileToursContent.classList.contains('hidden')) {
-            mobileToursContent.classList.add('hidden');
-            mobileToursButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
-          }
-          if (mobileLanguageOptions.classList.contains('show')) {
-            mobileLanguageOptions.classList.remove('show');
-            mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
-          }
+    // Translation data
+    const translations = {
+      fr: {
+        // NAV
+        'nav.home': 'Accueil',
+        'nav.about': 'À propos',
+        'nav.packages': 'Packages',
+        'nav.tours': 'Tours',
+        'nav.gallery': 'Galerie',
+        'nav.contact': 'Contact US',
+        'tours.marrakech': 'From Marrakech',
+        'tours.fes': 'From Fes',
+        'tours.casablanca': 'From Casablanca',
+        
+        // HERO
+        'hero.explore': 'Explorez',
+        'hero.asni': 'ASNI',
+        'hero.atlas': 'cœur de l\'Atlas',
+        'hero.subtitle': 'Une journée d\'immersion de <span class="text-[#F2D04E] font-semibold">Marrakech à Asni</span>. Découvrez les villages berbères, les vallées verdoyantes et les montagnes majestueuses.',
+        'tags.nature': 'Nature authentique',
+        'tags.berber': 'Villages berbères',
+        'tags.guide': 'Guide local',
+        'tags.smallgroup': 'Petit groupe',
+        'cta.book': 'Réserver maintenant',
+        'cta.instant': '✨ Confirmation immédiate',
+        'cta.fees': 'Sans frais cachés • Annulation flexible',
+        'hero.location': 'Asni, Maroc',
+        'hero.title': 'Vallée d\'Asni',
+        'hero.tagline': 'Un écrin de nature et de culture',
+        'hero.day': '1',
+        'hero.day-label': 'Jour',
+        'hero.nature': 'De nature',
+        'hero.rating': 'Excellence',
+        'gallery.morning': 'Matin',
+        'gallery.villages': 'Villages berbères',
+        'gallery.afternoon': 'Après-midi',
+        'gallery.hike': 'Randonnée légère',
+        'scroll.explore': 'Découvrir l\'aventure',
+        
+        // INCLUSIONS
+        'inclusions.transparency': 'Transparence totale',
+        'inclusions.allinclusive': 'tout compris',
+        'inclusions.intro': 'Découvrez ce qui est inclus dans votre escapade à Asni et ce qu\'il faut prévoir. Aucune surprise, que de la transparence.',
+        'inclusions.included': 'Tout inclus',
+        'inclusions.subtitle': 'Votre journée sans souci',
+        'included.guide': 'Guide local expert',
+        'included.guide-desc': 'Guide francophone pour une immersion dans la culture berbère',
+        'included.transport': 'Transport confortable',
+        'included.transport-desc': 'Minibus climatisé aller-retour depuis Marrakech',
+        'included.visits': 'Visites guidées',
+        'included.visits-desc': 'Villages berbères et vallées d\'Asni',
+        'included.free-time': 'Temps libre',
+        'included.free-time-desc': 'Randonnée ou découverte des marchés locaux',
+        'excluded.title': 'À prévoir',
+        'excluded.subtitle': 'Budget supplémentaire',
+        'excluded.flight': 'Vols internationaux',
+        'excluded.flight-desc': 'Selon votre ville de départ',
+        'excluded.lunch': 'Déjeuner',
+        'excluded.lunch-desc': 'Repas au restaurant: 8-15€',
+        'excluded.personal': 'Dépenses personnelles',
+        'excluded.personal-desc': 'Souvenirs, boissons, pourboires',
+        'excluded.budget-title': 'Budget conseillé',
+        'excluded.budget-amount': '20-40€',
+        'excluded.budget-desc': 'Pour une journée confortable',
+        
+        // JOURNEY
+        'journey.subtitle': 'EXCURSION D\'UNE JOURNÉE',
+        'journey.asni': 'Asni',
+        'journey.desc': 'Une escapade inoubliable de Marrakech vers la vallée d\'Asni, à travers les paysages verdoyants et les villages berbères du Haut Atlas.',
+        'journey.hours': '8h00 - 17h00',
+        'journey.duration': 'Journée complète avec transport inclus',
+        'journey.distance': '50 km',
+        'journey.route': 'Route panoramique dans l\'Atlas',
+        'journey.included': 'Tout inclus',
+        'journey.value': 'Transport + Guide professionnel',
+        'journey.route': 'MARRAKECH → ASNI → MARRAKECH',
+        'journey.title': 'Une journée dans les montagnes de l\'Atlas',
+        'journey.intro': 'Départ matinal de Marrakech pour une escapade dans la vallée d\'Asni, nichée au cœur du Haut Atlas. Traversez des paysages de montagnes spectaculaires et découvrez des villages berbères authentiques, avec leurs traditions et leur hospitalité légendaire.',
+        'highlight.berber': 'Villages berbères',
+        'highlight.valley': 'Vallée d\'Asni',
+        'highlight.atlas': 'Haut Atlas',
+        'highlight.hike': 'Randonnée légère',
+        'card.authentic': 'Authentique',
+        'card.culture': 'Culture berbère',
+        'timeline.title': 'Programme de la journée',
+        'timeline.pickup': 'Départ de Marrakech',
+        'timeline.pickup-desc': 'Prise en charge à votre hôtel/riad. Début du voyage vers Asni.',
+        'timeline.arrival': 'Arrivée à Asni',
+        'timeline.arrival-desc': 'Visite guidée des villages berbères et découverte de la vallée.',
+        'timeline.hike': 'Randonnée légère',
+        'timeline.hike-desc': 'Balade dans les paysages montagneux avec vues panoramiques.',
+        'timeline.lunch': 'Déjeuner libre',
+        'timeline.lunch-desc': 'Dégustation de spécialités berbères dans un restaurant local.',
+        'timeline.return': 'Retour à Marrakech',
+        'timeline.return-desc': 'Voyage de retour avec arrivée prévue en fin d\'après-midi.',
+        'cta.final-title': 'Réservez votre aventure',
+        'cta.final-desc': 'Vivez une expérience inoubliable et découvrez les trésors cachés du Maroc lors de cette excursion exceptionnelle vers Asni.',
+        'cta.final-btn': 'RÉSERVER MAINTENANT',
+        
+        // RESERVATION
+        'reserve.subtitle': 'Réservation Express',
+        'reserve.adventure': 'aventure',
+        'reserve.desc': 'Réservez votre expérience inoubliable dans le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.',
+        'reserve.feature1-title': 'Confirmation instantanée',
+        'reserve.feature1-desc': 'Réponse garantie sous 2 heures, même le weekend',
+        'reserve.feature2-title': 'Accompagnement premium',
+        'reserve.feature2-desc': 'Guide expert et service personnalisé 24/7',
+        'reserve.feature3-title': 'Flexibilité totale',
+        'reserve.feature3-desc': 'Modification gratuite jusqu\'à 48h avant le départ',
+        'reserve.highlights': 'Points forts du circuit',
+        'reserve.unique': 'Expérience unique',
+        'reserve.trio': 'Culture • Désert • Océan',
+        'reserve.details': 'Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.',
+        'form.title': 'Détails de réservation',
+        'form.section1': 'Sélection rapide',
+        'form.guests': 'Voyageurs',
+        'form.date': 'Date de départ',
+        'form.section2': 'Vos coordonnées',
+        'form.name': 'Nom complet *',
+        'form.email': 'Email *',
+        'form.phone': 'Téléphone *',
+        'form.section3': 'Demandes spéciales',
+        'form.submit': 'Envoyer ma demande',
+        'form.secure': 'Données sécurisées',
+        'form.no-commit': 'Sans engagement',
+        'form.response': 'Réponse garantie',
+        
+        // CONTACT
+        'contact.customize': 'personnaliser',
+        'contact.desc': 'Notre équipe d\'experts du Sahara est disponible 7j/7 pour adapter votre voyage à vos envies. Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !',
+        'contact.expert': 'Parler à un expert',
+        'contact.quote': 'Devis personnalisé',
+        'contact.2h': 'Réponse garantie sous 2h',
+        'contact.free-quote': 'Devis gratuit et sans engagement',
+        
+        // FOOTER
+        'footer.about': 'Votre agence de voyage spécialiste des circuits sur mesure au Maroc depuis plus de 10 ans.',
+        'footer.quick-links': 'Liens Rapides',
+        'footer.contact': 'Contact',
+        'footer.address': '123 Rue de la Médina, Marrakech, Maroc',
+        'footer.phone': '+212691196491',
+        'footer.email': 'Enjoymarrakechtour@gmail.com',
+        'footer.newsletter': 'Abonnez-vous',
+        'footer.news-desc': 'Recevez nos dernières offres et conseils de voyage par email.',
+        'footer.email-input': 'Votre adresse email',
+        'footer.subscribe': 'S\'abonner',
+        'footer.copyright': '&copy; 2025 Enjoy Marrakech Tours. Tous droits réservés.'
+      },
+      
+      en: {
+        // NAV
+        'nav.home': 'Home',
+        'nav.about': 'About',
+        'nav.packages': 'Packages',
+        'nav.tours': 'Tours',
+        'nav.gallery': 'Gallery',
+        'nav.contact': 'Contact US',
+        'tours.marrakech': 'From Marrakech',
+        'tours.fes': 'From Fes',
+        'tours.casablanca': 'From Casablanca',
+        
+        // HERO
+        'hero.explore': 'Explore',
+        'hero.asni': 'ASNI',
+        'hero.atlas': 'Heart of the Atlas',
+        'hero.subtitle': 'A day of immersion from <span class="text-[#F2D04E] font-semibold">Marrakech to Asni</span>. Discover Berber villages, lush valleys and majestic mountains.',
+        'tags.nature': 'Authentic Nature',
+        'tags.berber': 'Berber Villages',
+        'tags.guide': 'Local Guide',
+        'tags.smallgroup': 'Small Group',
+        'cta.book': 'Book Now',
+        'cta.instant': '✨ Instant Confirmation',
+        'cta.fees': 'No hidden fees • Flexible cancellation',
+        'hero.location': 'Asni, Morocco',
+        'hero.title': 'Asni Valley',
+        'hero.tagline': 'A treasure of nature and culture',
+        'hero.day': '1',
+        'hero.day-label': 'Day',
+        'hero.nature': 'Of nature',
+        'hero.rating': 'Excellence',
+        'gallery.morning': 'Morning',
+        'gallery.villages': 'Berber villages',
+        'gallery.afternoon': 'Afternoon',
+        'gallery.hike': 'Light hike',
+        'scroll.explore': 'Discover the adventure',
+        
+        // INCLUSIONS
+        'inclusions.transparency': 'Full Transparency',
+        'inclusions.allinclusive': 'all inclusive',
+        'inclusions.intro': 'Discover what’s included in your Asni escape and what to prepare for. No surprises — only transparency.',
+        'inclusions.included': 'All included',
+        'inclusions.subtitle': 'Your worry-free day',
+        'included.guide': 'Local expert guide',
+        'included.guide-desc': 'French-speaking guide for an authentic Berber cultural immersion',
+        'included.transport': 'Comfortable transport',
+        'included.transport-desc': 'Air-conditioned minibus round-trip from Marrakech',
+        'included.visits': 'Guided visits',
+        'included.visits-desc': 'Berber villages and Asni valley',
+        'included.free-time': 'Free time',
+        'included.free-time-desc': 'Hiking or exploration of local markets',
+        'excluded.title': 'To prepare',
+        'excluded.subtitle': 'Extra budget',
+        'excluded.flight': 'International flights',
+        'excluded.flight-desc': 'Depending on your city of departure',
+        'excluded.lunch': 'Lunch',
+        'excluded.lunch-desc': 'Restaurant meal: 8–15€',
+        'excluded.personal': 'Personal expenses',
+        'excluded.personal-desc': 'Souvenirs, drinks, tips',
+        'excluded.budget-title': 'Suggested budget',
+        'excluded.budget-amount': '20–40€',
+        'excluded.budget-desc': 'For a comfortable day',
+        
+        // JOURNEY
+        'journey.subtitle': 'DAY TRIP',
+        'journey.asni': 'Asni',
+        'journey.desc': 'An unforgettable escape from Marrakech to the Asni Valley, through lush landscapes and authentic Berber villages of the High Atlas.',
+        'journey.hours': '8:00 AM – 5:00 PM',
+        'journey.duration': 'Full day with transport included',
+        'journey.distance': '50 km',
+        'journey.route': 'Scenic Atlas route',
+        'journey.included': 'All included',
+        'journey.value': 'Transport + Professional guide',
+        'journey.route': 'MARRAKECH → ASNI → MARRAKECH',
+        'journey.title': 'A day in the Atlas Mountains',
+        'journey.intro': 'Early departure from Marrakech for an escape into the Asni Valley, nestled in the heart of the High Atlas. Journey through spectacular mountain scenery and discover authentic Berber villages with their traditions and legendary hospitality.',
+        'highlight.berber': 'Berber villages',
+        'highlight.valley': 'Asni Valley',
+        'highlight.atlas': 'High Atlas',
+        'highlight.hike': 'Light hike',
+        'card.authentic': 'Authentic',
+        'card.culture': 'Berber culture',
+        'timeline.title': 'Daily itinerary',
+        'timeline.pickup': 'Departure from Marrakech',
+        'timeline.pickup-desc': 'Hotel/riad pickup. Begin journey to Asni.',
+        'timeline.arrival': 'Arrival in Asni',
+        'timeline.arrival-desc': 'Guided visit of Berber villages and valley exploration.',
+        'timeline.hike': 'Light hike',
+        'timeline.hike-desc': 'Scenic walk through mountain landscapes with panoramic views.',
+        'timeline.lunch': 'Free lunch',
+        'timeline.lunch-desc': 'Tasting of Berber specialties at a local restaurant.',
+        'timeline.return': 'Return to Marrakech',
+        'timeline.return-desc': 'Return journey with arrival in late afternoon.',
+        'cta.final-title': 'Book your adventure',
+        'cta.final-desc': 'Live an unforgettable experience and discover Morocco’s hidden treasures on this exceptional excursion to Asni.',
+        'cta.final-btn': 'BOOK NOW',
+        
+        // RESERVATION
+        'reserve.subtitle': 'Quick Booking',
+        'reserve.adventure': 'adventure',
+        'reserve.desc': 'Book your unforgettable Sahara experience. Our team is here to help create magical memories.',
+        'reserve.feature1-title': 'Instant confirmation',
+        'reserve.feature1-desc': 'Guaranteed reply within 2 hours, even weekends',
+        'reserve.feature2-title': 'Premium support',
+        'reserve.feature2-desc': 'Expert guide and 24/7 personalized service',
+        'reserve.feature3-title': 'Total flexibility',
+        'reserve.feature3-desc': 'Free changes up to 48h before departure',
+        'reserve.highlights': 'Tour highlights',
+        'reserve.unique': 'Unique experience',
+        'reserve.trio': 'Culture • Desert • Ocean',
+        'reserve.details': 'Comfortable transport, selected accommodations, and authentic immersion in Moroccan landscapes.',
+        'form.title': 'Booking details',
+        'form.section1': 'Quick selection',
+        'form.guests': 'Travelers',
+        'form.date': 'Departure date',
+        'form.section2': 'Your contact info',
+        'form.name': 'Full name *',
+        'form.email': 'Email *',
+        'form.phone': 'Phone *',
+        'form.section3': 'Special requests',
+        'form.submit': 'Send my request',
+        'form.secure': 'Secure data',
+        'form.no-commit': 'No commitment',
+        'form.response': 'Guaranteed reply',
+        
+        // CONTACT
+        'contact.customize': 'customize',
+        'contact.desc': 'Our Sahara experts are available 7/7 to tailor your journey to your wishes—dietary needs, birthdays, special requests… everything is possible!',
+        'contact.expert': 'Talk to an expert',
+        'contact.quote': 'Custom quote',
+        'contact.2h': 'Guaranteed reply within 2h',
+        'contact.free-quote': 'Free and no-obligation quote',
+        
+        // FOOTER
+        'footer.about': 'Your travel agency specializing in tailor-made tours in Morocco for over 10 years.',
+        'footer.quick-links': 'Quick Links',
+        'footer.contact': 'Contact',
+        'footer.address': '123 Rue de la Médina, Marrakech, Morocco',
+        'footer.phone': '+212691196491',
+        'footer.email': 'Enjoymarrakechtour@gmail.com',
+        'footer.newsletter': 'Subscribe',
+        'footer.news-desc': 'Receive our latest offers and travel tips by email.',
+        'footer.email-input': 'Your email address',
+        'footer.subscribe': 'Subscribe',
+        'footer.copyright': '&copy; 2025 Enjoy Marrakech Tours. All rights reserved.'
+      },
+      
+      es: {
+        // NAV
+        'nav.home': 'Inicio',
+        'nav.about': 'Acerca de',
+        'nav.packages': 'Paquetes',
+        'nav.tours': 'Tours',
+        'nav.gallery': 'Galería',
+        'nav.contact': 'Contacto',
+        'tours.marrakech': 'Desde Marrakech',
+        'tours.fes': 'Desde Fez',
+        'tours.casablanca': 'Desde Casablanca',
+        
+        // HERO
+        'hero.explore': 'Explora',
+        'hero.asni': 'ASNI',
+        'hero.atlas': 'corazón del Atlas',
+        'hero.subtitle': 'Un día de inmersión desde <span class="text-[#F2D04E] font-semibold">Marrakech a Asni</span>. Descubre pueblos bereberes, valles verdes y montañas majestuosas.',
+        'tags.nature': 'Naturaleza auténtica',
+        'tags.berber': 'Pueblos bereberes',
+        'tags.guide': 'Guía local',
+        'tags.smallgroup': 'Grupo pequeño',
+        'cta.book': 'Reservar ahora',
+        'cta.instant': '✨ Confirmación inmediata',
+        'cta.fees': 'Sin costos ocultos • Cancelación flexible',
+        'hero.location': 'Asni, Marruecos',
+        'hero.title': 'Valle de Asni',
+        'hero.tagline': 'Una joya de naturaleza y cultura',
+        'hero.day': '1',
+        'hero.day-label': 'Día',
+        'hero.nature': 'De naturaleza',
+        'hero.rating': 'Excelencia',
+        'gallery.morning': 'Mañana',
+        'gallery.villages': 'Pueblos bereberes',
+        'gallery.afternoon': 'Tarde',
+        'gallery.hike': 'Caminata ligera',
+        'scroll.explore': 'Descubre la aventura',
+        
+        // INCLUSIONS
+        'inclusions.transparency': 'Transparencia total',
+        'inclusions.allinclusive': 'todo incluido',
+        'inclusions.intro': 'Descubre lo que incluye tu escapada a Asni y lo que necesitas preparar. Sin sorpresas — total transparencia.',
+        'inclusions.included': 'Todo incluido',
+        'inclusions.subtitle': 'Tu día sin preocupaciones',
+        'included.guide': 'Guía local experto',
+        'included.guide-desc': 'Guía francófono para una inmersión cultural bereber auténtica',
+        'included.transport': 'Transporte cómodo',
+        'included.transport-desc': 'Minibús con aire acondicionado ida y vuelta desde Marrakech',
+        'included.visits': 'Visitas guiadas',
+        'included.visits-desc': 'Pueblos bereberes y valle de Asni',
+        'included.free-time': 'Tiempo libre',
+        'included.free-time-desc': 'Caminata o exploración de mercados locales',
+        'excluded.title': 'Qué preparar',
+        'excluded.subtitle': 'Presupuesto extra',
+        'excluded.flight': 'Vuelos internacionales',
+        'excluded.flight-desc': 'Según tu ciudad de partida',
+        'excluded.lunch': 'Almuerzo',
+        'excluded.lunch-desc': 'Comida en restaurante: 8–15€',
+        'excluded.personal': 'Gastos personales',
+        'excluded.personal-desc': 'Recuerdos, bebidas, propinas',
+        'excluded.budget-title': 'Presupuesto sugerido',
+        'excluded.budget-amount': '20–40€',
+        'excluded.budget-desc': 'Para un día cómodo',
+        
+        // JOURNEY
+        'journey.subtitle': 'EXCURSIÓN DE UN DÍA',
+        'journey.asni': 'Asni',
+        'journey.desc': 'Una escapada inolvidable de Marrakech al valle de Asni, a través de paisajes verdes y pueblos bereberes auténticos del Alto Atlas.',
+        'journey.hours': '8:00 AM – 5:00 PM',
+        'journey.duration': 'Día completo con transporte incluido',
+        'journey.distance': '50 km',
+        'journey.route': 'Ruta panorámica por el Atlas',
+        'journey.included': 'Todo incluido',
+        'journey.value': 'Transporte + Guía profesional',
+        'journey.route': 'MARRAKECH → ASNI → MARRAKECH',
+        'journey.title': 'Un día en las montañas del Atlas',
+        'journey.intro': 'Salida temprano de Marrakech para una escapada al valle de Asni, en el corazón del Alto Atlas. Recorre paisajes montañosos espectaculares y descubre pueblos bereberes auténticos con sus tradiciones y hospitalidad legendaria.',
+        'highlight.berber': 'Pueblos bereberes',
+        'highlight.valley': 'Valle de Asni',
+        'highlight.atlas': 'Alto Atlas',
+        'highlight.hike': 'Caminata ligera',
+        'card.authentic': 'Auténtico',
+        'card.culture': 'Cultura bereber',
+        'timeline.title': 'Itinerario del día',
+        'timeline.pickup': 'Salida de Marrakech',
+        'timeline.pickup-desc': 'Recogida en hotel/riad. Comienzo del viaje hacia Asni.',
+        'timeline.arrival': 'Llegada a Asni',
+        'timeline.arrival-desc': 'Visita guiada a pueblos bereberes y exploración del valle.',
+        'timeline.hike': 'Caminata ligera',
+        'timeline.hike-desc': 'Paseo escénico por paisajes montañosos con vistas panorámicas.',
+        'timeline.lunch': 'Almuerzo libre',
+        'timeline.lunch-desc': 'Degustación de especialidades bereberes en un restaurante local.',
+        'timeline.return': 'Regreso a Marrakech',
+        'timeline.return-desc': 'Viaje de regreso con llegada por la tarde.',
+        'cta.final-title': 'Reserva tu aventura',
+        'cta.final-desc': 'Vive una experiencia inolvidable y descubre los tesoros ocultos de Marruecos en esta excursión excepcional a Asni.',
+        'cta.final-btn': 'RESERVAR AHORA',
+        
+        // RESERVATION
+        'reserve.subtitle': 'Reserva Express',
+        'reserve.adventure': 'aventura',
+        'reserve.desc': 'Reserva tu experiencia inolvidable en el Sáhara. Nuestro equipo te acompañará para crear recuerdos mágicos.',
+        'reserve.feature1-title': 'Confirmación instantánea',
+        'reserve.feature1-desc': 'Respuesta garantizada en 2 horas, inclusive fines de semana',
+        'reserve.feature2-title': 'Acompañamiento premium',
+        'reserve.feature2-desc': 'Guía experto y servicio personalizado 24/7',
+        'reserve.feature3-title': 'Flexibilidad total',
+        'reserve.feature3-desc': 'Cambios gratuitos hasta 48h antes de la salida',
+        'reserve.highlights': 'Puntos destacados del circuito',
+        'reserve.unique': 'Experiencia única',
+        'reserve.trio': 'Cultura • Desierto • Océano',
+        'reserve.details': 'Transporte cómodo, alojamientos seleccionados e inmersión auténtica en los paisajes marroquíes.',
+        'form.title': 'Detalles de reserva',
+        'form.section1': 'Selección rápida',
+        'form.guests': 'Viajeros',
+        'form.date': 'Fecha de salida',
+        'form.section2': 'Tus datos',
+        'form.name': 'Nombre completo *',
+        'form.email': 'Correo electrónico *',
+        'form.phone': 'Teléfono *',
+        'form.section3': 'Solicitudes especiales',
+        'form.submit': 'Enviar mi solicitud',
+        'form.secure': 'Datos seguros',
+        'form.no-commit': 'Sin compromiso',
+        'form.response': 'Respuesta garantizada',
+        
+        // CONTACT
+        'contact.customize': 'personalizar',
+        'contact.desc': 'Nuestro equipo de expertos en el Sáhara está disponible 7/7 para adaptar tu viaje a tus deseos. Dietas especiales, cumpleaños, solicitudes especiales... ¡todo es posible!',
+        'contact.expert': 'Hablar con un experto',
+        'contact.quote': 'Presupuesto personalizado',
+        'contact.2h': 'Respuesta garantizada en 2h',
+        'contact.free-quote': 'Presupuesto gratuito y sin compromiso',
+        
+        // FOOTER
+        'footer.about': 'Tu agencia de viajes especializada en circuitos a medida en Marruecos desde hace más de 10 años.',
+        'footer.quick-links': 'Enlaces rápidos',
+        'footer.contact': 'Contacto',
+        'footer.address': '123 Calle de la Medina, Marrakech, Marruecos',
+        'footer.phone': '+212691196491',
+        'footer.email': 'Enjoymarrakechtour@gmail.com',
+        'footer.newsletter': 'Suscríbete',
+        'footer.news-desc': 'Recibe nuestras últimas ofertas y consejos de viaje por correo electrónico.',
+        'footer.email-input': 'Tu dirección de correo electrónico',
+        'footer.subscribe': 'Suscribirse',
+        'footer.copyright': '&copy; 2025 Enjoy Marrakech Tours. Todos los derechos reservados.'
+      }
+    };
+
+    // Current language
+    let currentLang = 'fr';
+
+    // Apply translations
+    function translatePage(lang) {
+      currentLang = lang;
+      
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          // Preserve HTML in translations (e.g., <span> tags)
+          el.innerHTML = translations[lang][key];
         }
       });
-      // Handle language selection in mobile menu
-      const mobileLanguageOptionsList = mobileLanguageOptions.querySelectorAll('.language-option');
-      mobileLanguageOptionsList.forEach(option => {
-        option.addEventListener('click', function() {
-          const languageText = this.textContent.trim();
-          const languageCode = languageText.split(' ')[0];
-          // Update the selected language
-          document.querySelectorAll('.current-language').forEach(el => {
-            el.textContent = languageCode;
-          });
-          // Hide the options
-          mobileLanguageOptions.classList.remove('show');
-          mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
-          // Update active class
-          mobileLanguageOptionsList.forEach(opt => opt.classList.remove('active'));
-          this.classList.add('active');
-        });
+
+      // Update current language display
+      document.querySelectorAll('.current-language').forEach(el => {
+        el.textContent = lang.toUpperCase();
       });
-      // Handle language selection in desktop menu
-      const desktopLanguageOptions = document.querySelectorAll('.language-switcher .language-option');
-      desktopLanguageOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          const languageText = this.textContent.trim();
-          const languageCode = languageText.split(' ')[0];
-          // Update the selected language
-          document.querySelectorAll('.current-language').forEach(el => {
-            el.textContent = languageCode;
-          });
-          // Update active class
-          desktopLanguageOptions.forEach(opt => opt.classList.remove('active'));
-          this.classList.add('active');
-        });
-      });
+
+      // Update <html lang> attribute
+      document.documentElement.setAttribute('lang', lang);
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
       // Navbar scroll effect
       window.addEventListener('scroll', () => {
         const navbar = document.getElementById('navbar');
@@ -1233,6 +1445,77 @@
           navbar.classList.add('navbar-default');
         }
       });
+
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileToursButton = document.getElementById('mobile-tours-button');
+      const mobileToursContent = document.getElementById('mobile-tours-content');
+      const mobileLanguageButton = document.getElementById('mobile-language-button');
+      const mobileLanguageOptions = document.getElementById('mobile-language-options');
+
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileToursButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileToursContent.classList.toggle('hidden');
+        const chevron = mobileToursButton.querySelector('.fa-chevron-down');
+        chevron.classList.toggle('rotate-180');
+      });
+
+      mobileLanguageButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileLanguageOptions.classList.toggle('show');
+        const chevron = mobileLanguageButton.querySelector('.fa-chevron-down');
+        chevron.classList.toggle('rotate-180');
+      });
+
+      document.addEventListener('click', (event) => {
+        if (
+          !mobileMenu.contains(event.target) && 
+          !mobileMenuButton.contains(event.target) &&
+          !mobileMenu.classList.contains('hidden')
+        ) {
+          mobileMenu.classList.add('hidden');
+          if (!mobileToursContent.classList.contains('hidden')) {
+            mobileToursContent.classList.add('hidden');
+            mobileToursButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
+          }
+          if (mobileLanguageOptions.classList.contains('show')) {
+            mobileLanguageOptions.classList.remove('show');
+            mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
+          }
+        }
+      });
+
+      // Language selection handlers
+      function setupLanguageHandlers() {
+        // Desktop and mobile language options
+        document.querySelectorAll('.language-option').forEach(option => {
+          option.addEventListener('click', () => {
+            const lang = option.getAttribute('data-lang');
+            translatePage(lang);
+            
+            // Update active class in both desktop & mobile
+            document.querySelectorAll('.language-option').forEach(el => {
+              el.classList.remove('active');
+            });
+            option.classList.add('active');
+            
+            // Hide mobile language options
+            if (mobileLanguageOptions.classList.contains('show')) {
+              mobileLanguageOptions.classList.remove('show');
+              mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
+            }
+          });
+        });
+      }
+
+      // Initialize
+      translatePage('fr'); // Default language
+      setupLanguageHandlers();
     });
   </script>
 </body>

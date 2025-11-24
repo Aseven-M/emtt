@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="html-root">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enjoy Marrakech Tours</title>
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#24441B',    // Dark green
-            secondary: '#E4DFD8',  // Light beige
-            accent: '#F2D04E',     // Yellow
+            primary: '#24441B',
+            secondary: '#E4DFD8',
+            accent: '#F2D04E',
           },
           boxShadow: {
             'feature': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -29,18 +29,16 @@
     }
   </script>
   <style>
-     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     body {
       font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
       background-color: #ffffff;
     }
-     body { font-family: 'Poppins', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #24441B 0%, #2d5423 100%); }
-        .card-shadow { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); }
-        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .hover-lift:hover { transform: translateY(-8px); }
-    /* Navbar styles */
+    .gradient-bg { background: linear-gradient(135deg, #24441B 0%, #2d5423 100%); }
+    .card-shadow { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); }
+    .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .hover-lift:hover { transform: translateY(-8px); }
     .navbar-scrolled {
       background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -52,7 +50,6 @@
       backdrop-filter: blur(5px);
       border-radius: 1.5rem;
     }
-    /* Desktop language switcher hover effect */
     .language-switcher .language-options {
       opacity: 0;
       visibility: hidden;
@@ -62,12 +59,18 @@
       opacity: 1;
       visibility: visible;
     }
-    /* Mobile language options */
     #mobile-language-options {
       display: none;
     }
     #mobile-language-options.show {
       display: block;
+    }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 10s linear infinite;
     }
   </style>
 </head>
@@ -78,40 +81,21 @@
       <div class="flex justify-between items-center">
         <!-- Logo -->
         <a href="/index.html" class="flex items-center">
-          <img src="/images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
+          <img src="../images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours" data-i18n="alt.logo">
         </a>
-        <!-- Desktop Navigation -->
+        <!-- Desktop Nav -->
         <div class="hidden md:flex items-center space-x-6">
-          <a href="/index.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
-            Accueil
-            <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
-          </a>
-          <a href="/about.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
-            À propos
-            <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
-          </a>
-          <!-- Packages Dropdown -->
+          <a href="/index.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav.home"></a>
+          <a href="/about.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav.about"></a>
           <div class="relative group">
-            <button class="nav-link text-primary font-medium flex items-center hover:text-accent">
-              Packages
-              <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
-            </button>
+            <button class="nav-link text-primary font-medium flex items-center hover:text-accent" data-i18n="nav.packages"></button>
             <div class="absolute left-0 mt-3 w-52 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-accent/20">
-              <a href="/tours/marrakech.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                From Marrakech
-              </a>
-              <a href="/tours/fes.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                From Fes
-              </a>
-              <a href="#" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                From Casablanca
-              </a>
+              <a href="../tours/marrakech.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="nav.marrakech"></a>
+              <a href="/tours/fes.html" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="nav.fes"></a>
+              <a href="#" class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent" data-i18n="nav.casablanca"></a>
             </div>
           </div>
-          <a href="/galery.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
-            Galerie
-            <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
-          </a>
+          <a href="/galery.html" class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group" data-i18n="nav.gallery"></a>
           <!-- Language Switcher -->
           <div class="language-switcher relative group">
             <button class="language-btn flex items-center text-primary hover:text-accent">
@@ -119,59 +103,52 @@
               <span class="current-language font-semibold">FR</span>
             </button>
             <div class="language-options absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl py-1 border border-accent/20">
-              <div class="language-option active px-4 py-2 cursor-pointer hover:bg-accent/10">
-                <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French">
-                Français
+              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="fr">
+                <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French"> Français
               </div>
-              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10">
-                <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English">
-                English
+              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="en">
+                <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English"> English
               </div>
-              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10">
-                <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish">
-                Español
+              <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="es">
+                <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish"> Español
               </div>
             </div>
           </div>
         </div>
-        <!-- Contact / Mobile Menu Button -->
         <div>
-          <a href="/contact.html" class="hidden md:block bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-all shadow-md hover:shadow-accent/50">
-            <i class="fas fa-phone mr-2"></i>Contact US
-          </a>
+          <a href="/contact.html" class="hidden md:block bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-all shadow-md hover:shadow-accent/50" data-i18n="nav.contact"></a>
           <button id="mobile-menu-button" class="md:hidden text-primary text-2xl">
             <i class="fas fa-bars"></i>
           </button>
         </div>
       </div>
     </div>
+
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden mt-3">
       <div class="flex flex-col space-y-3 px-4 pb-4 bg-white/95 backdrop-blur-sm rounded-lg mx-4">
         <a href="/index.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
-          <i class="fas fa-home mr-3 text-accent"></i>Accueil
+          <i class="fas fa-home mr-3 text-accent"></i><span data-i18n="nav.home"></span>
         </a>
         <a href="/about.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
-          <i class="fas fa-info-circle mr-3 text-accent"></i>À propos
+          <i class="fas fa-info-circle mr-3 text-accent"></i><span data-i18n="nav.about"></span>
         </a>
-        <!-- Mobile Tours Dropdown -->
         <div class="mobile-tours-dropdown">
           <button id="mobile-tours-button" class="text-primary font-medium py-3 flex items-center justify-between w-full border-b border-accent/20">
             <span class="flex items-center">
-              <i class="fas fa-route mr-3 text-accent"></i>Tours
+              <i class="fas fa-route mr-3 text-accent"></i><span data-i18n="nav.tours"></span>
             </span>
             <i class="fas fa-chevron-down text-xs"></i>
           </button>
           <div id="mobile-tours-content" class="pl-7 mt-2 hidden dropdown-content">
-            <a href="/tours/marrakech.html" class="block py-2 text-gray-600 hover:text-accent">From Marrakech</a>
-            <a href="/tours/fes.html" class="block py-2 text-gray-600 hover:text-accent">From Fes</a>
-            <a href="/tours/casablanca.html" class="block py-2 text-gray-600 hover:text-accent">From Casablanca</a>
+            <a href="../tours/marrakech.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="nav.marrakech"></a>
+            <a href="/tours/fes.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="nav.fes"></a>
+            <a href="/tours/casablanca.html" class="block py-2 text-gray-600 hover:text-accent" data-i18n="nav.casablanca"></a>
           </div>
         </div>
         <a href="/galery.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
-          <i class="fas fa-image mr-3 text-accent"></i>Galerie
+          <i class="fas fa-image mr-3 text-accent"></i><span data-i18n="nav.gallery"></span>
         </a>
-        <!-- Mobile Language -->
         <div class="language-switcher mt-3 py-2 border-t border-accent/20">
           <button id="mobile-language-button" class="language-btn w-full justify-center text-primary flex items-center">
             <i class="fas fa-globe mr-2 text-accent"></i>
@@ -179,33 +156,25 @@
             <i class="fas fa-chevron-down ml-2 text-xs"></i>
           </button>
           <div id="mobile-language-options" class="language-options mt-2">
-            <div class="language-option active p-2 hover:bg-accent/10 cursor-pointer">
-              <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French">
-              Français
+            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="fr">
+              <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French"> Français
             </div>
-            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer">
-              <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English">
-              English
+            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="en">
+              <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English"> English
             </div>
-            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer">
-              <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish">
-              Español
+            <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="es">
+              <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish"> Español
             </div>
           </div>
         </div>
-        <a href="/contact.html" class="mt-3 bg-accent text-white px-5 py-3 rounded-lg font-medium text-center transition-all hover:bg-accent/90">
-          <i class="fas fa-calendar-check mr-2"></i>Contact US
-        </a>
+        <a href="/contact.html" class="mt-3 bg-accent text-white px-5 py-3 rounded-lg font-medium text-center transition-all hover:bg-accent/90" data-i18n="nav.contact"></a>
       </div>
     </div>
   </nav>
+
   <!-- Hero Section -->
- <!-- Hero Section -->
-<section class="gradient-bg text-white relative overflow-hidden min-h-screen flex items-center pt-24">
-    <!-- Enhanced Gradient Overlay -->
+  <section class="gradient-bg text-white relative overflow-hidden min-h-screen flex items-center pt-24">
     <div class="absolute inset-0 bg-gradient-to-br from-[#24441B] via-[#2d5422] to-black opacity-70"></div>
-    
-    <!-- Dynamic Background Elements -->
     <div class="absolute inset-0">
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#F2D04E]/8 rounded-full blur-3xl animate-pulse"></div>
       <div class="absolute bottom-1/3 right-1/3 w-80 h-80 bg-[#F2D04E]/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
@@ -213,155 +182,123 @@
       <div class="absolute top-10 right-10 w-1 h-20 bg-[#F2D04E]/30 rounded-full animate-bounce delay-300"></div>
       <div class="absolute bottom-20 left-20 w-2 h-2 bg-[#F2D04E] rounded-full animate-ping delay-700"></div>
     </div>
-    
     <div class="container mx-auto px-6 relative z-20">
-      <!-- Main Hero Content -->
       <div class="grid lg:grid-cols-2 gap-20 items-center min-h-screen py-20">
-        <!-- Left Content -->
         <div class="space-y-12">
-          <!-- Main Title -->
           <div class="space-y-8">
             <h1 class="text-6xl md:text-8xl font-black leading-none">
-              <span class="block text-white/90 mb-4">Explorez</span>
+              <span class="block text-white/90 mb-4" data-i18n="hero.title1"></span>
               <span class="block relative mb-6">
-                <span class="bg-gradient-to-r from-[#F2D04E] via-yellow-300 to-[#F2D04E] bg-clip-text text-transparent">
-                  OURIKA
-                </span>
+                <span class="bg-gradient-to-r from-[#F2D04E] via-yellow-300 to-[#F2D04E] bg-clip-text text-transparent" data-i18n="hero.title2"></span>
                 <div class="absolute -inset-4 bg-gradient-to-r from-[#F2D04E]/20 to-transparent blur-2xl -z-10 animate-pulse"></div>
               </span>
-              <span class="block text-white/70 text-4xl md:text-5xl font-medium">
-                vallée verdoyante
-              </span>
+              <span class="block text-white/70 text-4xl md:text-5xl font-medium" data-i18n="hero.subtitle"></span>
             </h1>
-            <p class="text-2xl md:text-3xl text-gray-200 leading-relaxed max-w-2xl">
-              Une journée d'immersion de <span class="text-[#F2D04E] font-semibold">Marrakech à la vallée d'Ourika</span>. 
-              Découvrez les cascades, les villages berbères et les paysages luxuriants.
-            </p>
+            <p class="text-2xl md:text-3xl text-gray-200 leading-relaxed max-w-2xl" data-i18n="hero.description"></p>
           </div>
 
-          <!-- Enhanced Feature Tags -->
           <div class="flex flex-wrap gap-4">
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
               <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
               </svg>
-              <span class="font-semibold">Nature luxuriante</span>
+              <span class="font-semibold" data-i18n="hero.feature1"></span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
               <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z"/>
               </svg>
-              <span class="font-semibold">Villages berbères</span>
+              <span class="font-semibold" data-i18n="hero.feature2"></span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
               <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
               </svg>
-              <span class="font-semibold">Guide local</span>
+              <span class="font-semibold" data-i18n="hero.feature3"></span>
             </div>
             <div class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
               <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
               </svg>
-              <span class="font-semibold">Petit groupe</span>
+              <span class="font-semibold" data-i18n="hero.feature4"></span>
             </div>
           </div>
 
-          <!-- Enhanced CTA Section -->
           <div class="flex flex-col sm:flex-row items-start gap-8">
-            
             <div class="flex-1 space-y-4">
-                <a href="#reservation">
-              <button class="w-full bg-white/10 backdrop-blur-sm border-2 border-[#F2D04E] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#F2D04E] hover:text-[#24441B] transition-all duration-300 text-xl shadow-xl group relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                <span class="flex items-center justify-center relative z-10">
-                  Réserver maintenant
-                  <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                  </svg>
-                </span>
-              </button></a>
+              <a href="#reservation">
+                <button class="w-full bg-white/10 backdrop-blur-sm border-2 border-[#F2D04E] text-white px-10 py-5 rounded-2xl font-bold hover:bg-[#F2D04E] hover:text-[#24441B] transition-all duration-300 text-xl shadow-xl group relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <span class="flex items-center justify-center relative z-10" data-i18n="hero.cta"></span>
+                </button>
+              </a>
               <div class="text-center space-y-2">
-                <div class="text-lg text-[#F2D04E] font-semibold">
-                  ✨ Confirmation immédiate
-                </div>
-                <div class="text-sm text-gray-300">
-                  Sans frais cachés • Annulation flexible
-                </div>
+                <div class="text-lg text-[#F2D04E] font-semibold" data-i18n="hero.confirm"></div>
+                <div class="text-sm text-gray-300" data-i18n="hero.flex"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Right Visual Section -->
         <div class="relative">
-          <!-- Main Hero Image -->
-          <div class="relative">
-            <div class="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
-              <img src="https://images.unsplash.com/photo-1671804079626-4aaafa95184e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3VyaWthfGVufDB8fDB8fHwy" 
-                   alt="Ourika Valley" 
-                   class="w-full h-[500px] object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <!-- Image Overlay Content -->
-              <div class="absolute bottom-8 left-8 text-white">
-                <div class="flex items-center space-x-2 mb-4">
-                  <svg class="w-6 h-6 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-lg font-medium">Ourika, Maroc</span>
-                </div>
-                <h3 class="text-3xl font-bold mb-3">Vallée d'Ourika</h3>
-                <p class="text-lg opacity-90">Un havre de paix et de nature</p>
+          <div class="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1671804079626-4aaafa95184e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3VyaWthfGVufDB8fDB8fHwy" 
+                 alt="Ourika Valley" class="w-full h-[500px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-8 text-white">
+              <div class="flex items-center space-x-2 mb-4">
+                <svg class="w-6 h-6 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <span data-i18n="hero.location"></span>
               </div>
+              <h3 class="text-3xl font-bold mb-3" data-i18n="hero.locationTitle"></h3>
+              <p class="text-lg opacity-90" data-i18n="hero.locationDesc"></p>
             </div>
+          </div>
 
-            <!-- Enhanced Floating Cards -->
-            <div class="absolute -top-8 -left-8 bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-white/50 transform hover:scale-110 transition-transform">
-              <div class="flex items-center space-x-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center shadow-lg">
-                  <span class="text-[#24441B] font-black text-2xl">1</span>
-                </div>
-                <div>
-                  <div class="font-black text-[#24441B] text-xl">Jour</div>
-                  <div class="text-[#24441B]/60">De nature</div>
-                </div>
+          <div class="absolute -top-8 -left-8 bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-white/50 transform hover:scale-110 transition-transform">
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center shadow-lg">
+                <span class="text-[#24441B] font-black text-2xl">1</span>
+              </div>
+              <div>
+                <div class="font-black text-[#24441B] text-xl" data-i18n="hero.day"></div>
+                <div class="text-[#24441B]/60" data-i18n="hero.nature"></div>
               </div>
             </div>
-            <div class="absolute -bottom-8 -right-8 bg-[#24441B] text-white rounded-3xl p-6 shadow-2xl transform hover:scale-110 transition-transform">
-              <div class="flex items-center space-x-4">
-                <div class="w-16 h-16 bg-[#F2D04E] rounded-2xl flex items-center justify-center shadow-lg">
-                  <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="font-black text-[#F2D04E] text-xl">4.6/5</div>
-                  <div class="text-gray-300">Excellence</div>
-                </div>
+          </div>
+          <div class="absolute -bottom-8 -right-8 bg-[#24441B] text-white rounded-3xl p-6 shadow-2xl transform hover:scale-110 transition-transform">
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-[#F2D04E] rounded-2xl flex items-center justify-center shadow-lg">
+                <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-black text-[#F2D04E] text-xl">4.6/5</div>
+                <div class="text-gray-300" data-i18n="hero.excellence"></div>
               </div>
             </div>
           </div>
 
-          <!-- Enhanced Gallery Images -->
           <div class="grid grid-cols-2 gap-6 mt-12">
             <div class="relative group overflow-hidden rounded-3xl shadow-xl">
               <img src="https://th.bing.com/th/id/OIP.FAHUExS9LpE3fbZsoVYszgHaEK?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" 
-                   alt="Ourika Valley" 
-                   class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
+                   alt="Ourika Valley" class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
-                <div class="text-sm font-bold mb-1">Matin</div>
-                <div class="text-xs opacity-90">Villages berbères</div>
+                <div class="text-sm font-bold mb-1" data-i18n="hero.morning"></div>
+                <div class="text-xs opacity-90" data-i18n="hero.morningDesc"></div>
               </div>
             </div>
             <div class="relative group overflow-hidden rounded-3xl shadow-xl">
               <img src="https://th.bing.com/th/id/OIP.YqFG7sCFo05UqE1elJ8yWgHaE8?w=247&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" 
-                   alt="Setti Fatma Waterfalls" 
-                   class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
+                   alt="Setti Fatma Waterfalls" class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div class="absolute bottom-4 left-4 text-white">
-                <div class="text-sm font-bold mb-1">Après-midi</div>
-                <div class="text-xs opacity-90">Cascades de Setti Fatma</div>
+                <div class="text-sm font-bold mb-1" data-i18n="hero.afternoon"></div>
+                <div class="text-xs opacity-90" data-i18n="hero.afternoonDesc"></div>
               </div>
             </div>
           </div>
@@ -369,12 +306,9 @@
       </div>
     </div>
 
-    <!-- Enhanced Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
       <div class="flex flex-col items-center space-y-3 group cursor-pointer">
-        <div class="text-sm text-[#F2D04E] font-semibold opacity-80 group-hover:opacity-100 transition-opacity animate-pulse">
-          Découvrir l'aventure
-        </div>
+        <div class="text-sm text-[#F2D04E] font-semibold opacity-80 group-hover:opacity-100 transition-opacity animate-pulse" data-i18n="hero.scroll"></div>
         <div class="relative">
           <div class="w-10 h-16 border-2 border-[#F2D04E]/50 rounded-full flex justify-center items-start pt-3 group-hover:border-[#F2D04E] transition-colors">
             <div class="w-2 h-4 bg-gradient-to-b from-[#F2D04E] to-transparent rounded-full animate-bounce"></div>
@@ -384,705 +318,558 @@
         </div>
       </div>
     </div>
-</section>
+  </section>
 
-<!-- Inclusions/Exclusions Section -->
-<section class="py-20 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
-    <!-- Animated Background Elements -->
+  <!-- Inclusions Section -->
+  <section class="py-20 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
     <div class="absolute inset-0">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div class="absolute top-10 right-1/3 w-2 h-2 bg-[#F2D04E] rounded-full animate-bounce"></div>
-        <div class="absolute bottom-20 left-1/3 w-3 h-3 bg-[#24441B]/30 rounded-full animate-pulse delay-500"></div>
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div class="absolute top-10 right-1/3 w-2 h-2 bg-[#F2D04E] rounded-full animate-bounce"></div>
+      <div class="absolute bottom-20 left-1/3 w-3 h-3 bg-[#24441B]/30 rounded-full animate-pulse delay-500"></div>
     </div>
-
     <div class="container mx-auto px-6 relative z-10">
-        <!-- Enhanced Header -->
-        <div class="text-center mb-20">
-            <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-8 py-4 rounded-full mb-8 border border-[#F2D04E]/30">
-                <svg class="w-6 h-6 text-[#F2D04E] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                </svg>
-                <span class="text-[#24441B] font-bold uppercase tracking-wider">Transparence totale</span>
-            </div>
-            
-            <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-8 leading-tight">
-                Votre journée 
-                <span class="relative">
-                    <span class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">tout compris</span>
-                    <div class="absolute -bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
-                </span>
-            </h2>
-            
-            <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed">
-                Découvrez ce qui est inclus dans votre escapade à la vallée d'Ourika et ce qu'il faut prévoir. 
-                Aucune surprise, que de la transparence.
-            </p>
+      <div class="text-center mb-20">
+        <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-8 py-4 rounded-full mb-8 border border-[#F2D04E]/30">
+          <svg class="w-6 h-6 text-[#F2D04E] mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+          <span class="text-[#24441B] font-bold uppercase tracking-wider" data-i18n="inclusions.headerTag"></span>
         </div>
+        <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-8 leading-tight">
+          <span data-i18n="inclusions.title"></span>
+          <span class="relative">
+            <span class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="inclusions.titleHighlight"></span>
+            <div class="absolute -bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
+          </span>
+        </h2>
+        <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed" data-i18n="inclusions.subtitle"></p>
+      </div>
 
-        <!-- Main Content Grid -->
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-3 gap-8 mb-16">
-                
-                <!-- Included Section -->
-                <div class="lg:col-span-2">
-                    <div class="bg-gradient-to-br from-green-50 to-[#F2D04E]/10 rounded-3xl p-8 border-2 border-green-200/50 relative overflow-hidden shadow-xl">
-                        <!-- Decorative Elements -->
-                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[#F2D04E]/20 to-green-200/20 rounded-full"></div>
-                        <div class="absolute -bottom-5 -left-5 w-20 h-20 bg-gradient-to-tr from-green-200/30 to-[#F2D04E]/20 rounded-full"></div>
-                        
-                        <div class="relative z-10">
-                            <!-- Header -->
-                            <div class="flex items-center justify-between mb-8">
-                                <div class="flex items-center">
-                                    <div class="w-16 h-16 bg-gradient-to-br from-[#24441B] to-green-700 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                                        <svg class="w-8 h-8 text-[#F2D04E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-3xl font-black text-[#24441B] mb-1">Tout inclus</h3>
-                                        <p class="text-green-700 font-semibold">Votre journée sans souci</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] text-[#24441B] px-6 py-3 rounded-2xl font-black text-lg shadow-lg">
-                                    85€ de valeur
-                                </div>
-                            </div>
-
-                            <!-- Features Grid -->
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="space-y-4">
-                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Guide local expert</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Guide francophone pour une immersion culturelle</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                                <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 8a3 3 0 103-3m-3 3a3 3 0 00-3-3m3 3v6m-9 1v-6a3 3 0 013-3 3 3 0 013 3"/>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Transport confortable</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Minibus climatisé aller-retour depuis Marrakech</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Visites guidées</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Villages berbères et cascades de Setti Fatma</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="space-y-4">
-                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Temps libre</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Exploration des marchés ou détente près des cascades</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                                <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-bold text-[#24441B] text-lg mb-2">Boissons non alcoolisées</h4>
-                                            <p class="text-[#24441B]/70 text-sm leading-relaxed">Eau et thé à la menthe offerts pendant la journée</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-8 mb-16">
+          <div class="lg:col-span-2">
+            <div class="bg-gradient-to-br from-green-50 to-[#F2D04E]/10 rounded-3xl p-8 border-2 border-green-200/50 relative overflow-hidden shadow-xl">
+              <div class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[#F2D04E]/20 to-green-200/20 rounded-full"></div>
+              <div class="absolute -bottom-5 -left-5 w-20 h-20 bg-gradient-to-tr from-green-200/30 to-[#F2D04E]/20 rounded-full"></div>
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-8">
+                  <div class="flex items-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#24441B] to-green-700 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                      <svg class="w-8 h-8 text-[#F2D04E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                      </svg>
                     </div>
+                    <div>
+                      <h3 class="text-3xl font-black text-[#24441B] mb-1" data-i18n="inclusions.includedTitle"></h3>
+                      <p class="text-green-700 font-semibold" data-i18n="inclusions.includedSubtitle"></p>
+                    </div>
+                  </div>
+                  
                 </div>
 
-                <!-- Not Included Sidebar -->
-                <div class="lg:col-span-1">
-                    <div class="bg-gradient-to-b from-gray-100 to-gray-50 rounded-3xl p-8 border-2 border-gray-200/50 shadow-xl sticky top-8">
-                        <!-- Header -->
-                        <div class="flex items-center mb-8">
-                            <div class="w-14 h-14 bg-gradient-to-br from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-black text-gray-700 mb-1">À prévoir</h3>
-                                <p class="text-gray-500 font-semibold text-sm">Budget supplémentaire</p>
-                            </div>
-                        </div>
-
-                        <!-- Not Included Items -->
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Vols internationaux</h4>
-                                    <p class="text-xs text-gray-500">Selon votre ville de départ</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Déjeuner</h4>
-                                    <p class="text-xs text-gray-500">Repas au restaurant: 8-15€</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm5 3a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V7zM4 9a1 1 0 011-1h1a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1V9zm10-1a1 1 0 011 1v3a1 1 0 01-1 1h-1a1 1 0 01-1-1V9a1 1 0 011-1h1z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-700 text-sm">Dépenses personnelles</h4>
-                                    <p class="text-xs text-gray-500">Souvenirs, boissons, pourboires</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Budget Info -->
-                        <div class="bg-gradient-to-r from-orange-100 to-yellow-100 p-6 rounded-2xl border-2 border-orange-200/50">
-                            <div class="flex items-center text-orange-700 mb-3">
-                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="font-bold text-lg">Budget conseillé</span>
-                            </div>
-                            <div class="text-2xl font-black text-orange-800 mb-2">20-40€</div>
-                            <p class="text-sm text-orange-600">Pour une journée confortable</p>
-                        </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="space-y-4">
+                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                      <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                        <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusions.item1.title"></h4>
+                        <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusions.item1.desc"></p>
+                      </div>
                     </div>
+                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                      <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                        <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 8a3 3 0 103-3m-3 3a3 3 0 00-3-3m3 3v6m-9 1v-6a3 3 0 013-3 3 3 0 013 3"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusions.item2.title"></h4>
+                        <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusions.item2.desc"></p>
+                      </div>
+                    </div>
+                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                      <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                        <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusions.item3.title"></h4>
+                        <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusions.item3.desc"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="space-y-4">
+                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                      <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                        <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusions.item4.title"></h4>
+                        <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusions.item4.desc"></p>
+                      </div>
+                    </div>
+                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                      <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                        <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusions.item5.title"></h4>
+                        <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusions.item5.desc"></p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Journey Overview Section -->
-<section class="py-20 bg-white relative overflow-hidden">
-        <!-- Subtle Background Elements -->
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-32 right-20 w-64 h-64 bg-[#F2D04E]/5 rounded-full blur-2xl"></div>
-            <div class="absolute bottom-32 left-20 w-80 h-80 bg-[#24441B]/3 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <!-- Clean Header -->
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center bg-[#F2D04E]/10 px-6 py-3 rounded-full mb-8">
-                    <svg class="w-5 h-5 text-[#24441B] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+          </div>
+          <div class="lg:col-span-1">
+            <div class="bg-gradient-to-b from-gray-100 to-gray-50 rounded-3xl p-8 border-2 border-gray-200/50 shadow-xl sticky top-8">
+              <div class="flex items-center mb-8">
+                <div class="w-14 h-14 bg-gradient-to-br from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                  <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-black text-gray-700 mb-1" data-i18n="inclusions.notIncludedTitle"></h3>
+                  <p class="text-gray-500 font-semibold text-sm" data-i18n="inclusions.notIncludedSubtitle"></p>
+                </div>
+              </div>
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
+                  <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z"/>
                     </svg>
-                    <span class="text-[#24441B] font-semibold text-sm">EXCURSION D'UNE JOURNÉE</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-700 text-sm" data-i18n="inclusions.extra1.title"></h4>
+                    <p class="text-xs text-gray-500" data-i18n="inclusions.extra1.desc"></p>
+                  </div>
                 </div>
-                
-                <h1 class="text-6xl font-bold text-[#24441B] mb-6">
-                    Découvrez <span class="text-[#F2D04E]">Ourika</span>
-                </h1>
-                
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Une escapade inoubliable de Marrakech vers la vallée d'Ourika, 
-                    à travers les paysages verdoyants et les villages berbères du Haut Atlas.
-                </p>
+                <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
+                  <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-700 text-sm" data-i18n="inclusions.extra2.title"></h4>
+                    <p class="text-xs text-gray-500" data-i18n="inclusions.extra2.desc"></p>
+                  </div>
+                </div>
+                <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
+                  <div class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm5 3a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V7zM4 9a1 1 0 011-1h1a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1V9zm10-1a1 1 0 011 1v3a1 1 0 01-1 1h-1a1 1 0 01-1-1V9a1 1 0 011-1h1z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-700 text-sm" data-i18n="inclusions.extra3.title"></h4>
+                    <p class="text-xs text-gray-500" data-i18n="inclusions.extra3.desc"></p>
+                  </div>
+                </div>
+              </div>
+             
             </div>
-
-            <!-- Main Content -->
-            <div class="max-w-7xl mx-auto">
-                <!-- Journey Overview Cards -->
-                <div class="grid md:grid-cols-3 gap-8 mb-16">
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">8h00 - 17h00</h3>
-                        <p class="text-gray-600">Journée complète avec transport inclus</p>
-                    </div>
-                    
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#24441B] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">40 km</h3>
-                        <p class="text-gray-600">Route panoramique dans l'Atlas</p>
-                    </div>
-                    
-                    <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[#24441B] mb-2">Tout inclus</h3>
-                        <p class="text-gray-600">Transport + Guide professionnel</p>
-                    </div>
-                </div>
-
-                <!-- Main Journey Section -->
-                <div class="bg-gradient-to-r from-gray-50 to-white rounded-3xl p-12 shadow-xl mb-16">
-                    <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        <!-- Content -->
-                        <div>
-                            <span class="inline-block bg-[#24441B] text-[#F2D04E] px-4 py-2 rounded-full font-semibold text-sm mb-6">
-                                MARRAKECH → OURIKA → MARRAKECH
-                            </span>
-                            
-                            <h2 class="text-4xl font-bold text-[#24441B] mb-6 leading-tight">
-                                Une journée dans la vallée d'Ourika
-                            </h2>
-                            
-                            <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                                Départ matinal de Marrakech pour une escapade dans la vallée d'Ourika, 
-                                un joyau du Haut Atlas. Découvrez des villages berbères authentiques, 
-                                les cascades de Setti Fatma et des paysages verdoyants à couper le souffle.
-                            </p>
-
-                            <!-- Key Highlights -->
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Vallée d'Ourika</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Cascades de Setti Fatma</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Villages berbères</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
-                                    <span class="text-[#24441B] font-medium">Randonnée légère</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Image -->
-                        <div class="relative">
-                            <div class="rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="https://th.bing.com/th/id/OIP.FZSPvOtD8wFPVkxN0p-XZwHaE4?w=284&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" 
-                                     alt="Ourika Valley" 
-                                     class="w-full h-80 object-cover hover:scale-105 transition-transform duration-700">
-                            </div>
-                            <!-- Floating card -->
-                            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-[#F2D04E] rounded-lg flex items-center justify-center mr-3">
-                                        <span class="text-[#24441B] font-bold text-lg">★</span>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-[#24441B]">Authentique</div>
-                                        <div class="text-sm text-gray-600">Culture berbère</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Section -->
-                <div class="mb-16">
-                    <h3 class="text-3xl font-bold text-[#24441B] text-center mb-12">Programme de la journée</h3>
-                    
-                    <div class="max-w-4xl mx-auto">
-                        <div class="space-y-8">
-                            <!-- Timeline Item -->
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">8h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Départ de Marrakech</h4>
-                                    <p class="text-gray-600">Prise en charge à votre hôtel/riad. Début du voyage vers la vallée d'Ourika.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#F2D04E] font-bold">9h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Arrivée dans la vallée d'Ourika</h4>
-                                    <p class="text-gray-600">Visite guidée des villages berbères et exploration des marchés locaux.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">11h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Cascades de Setti Fatma</h4>
-                                    <p class="text-gray-600">Randonnée légère pour découvrir les cascades et les paysages environnants.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#F2D04E] font-bold">13h00</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Déjeuner libre</h4>
-                                    <p class="text-gray-600">Dégustation de spécialités berbères dans un restaurant local.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
-                                    <span class="text-[#24441B] font-bold">14h30</span>
-                                </div>
-                                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
-                                    <h4 class="text-xl font-bold text-[#24441B] mb-2">Retour à Marrakech</h4>
-                                    <p class="text-gray-600">Voyage de retour avec arrivée prévue en fin d'après-midi.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-               
-
-                <!-- CTA Section -->
-                <div class="text-center">
-                    <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] rounded-3xl p-12 shadow-2xl">
-                        <h3 class="text-4xl font-bold text-[#24441B] mb-6">Réservez votre aventure</h3>
-                        <p class="text-[#24441B]/80 text-lg mb-8 max-w-2xl mx-auto">
-                            Vivez une expérience inoubliable et découvrez les trésors cachés du Maroc 
-                            lors de cette excursion exceptionnelle vers la vallée d'Ourika.
-                        </p>
-                        <a href="#reservation">
-                        <button class="bg-[#24441B] text-[#F2D04E] px-10 py-4 rounded-2xl font-bold text-xl hover:scale-105 hover:shadow-xl transition-all duration-300">
-                            RÉSERVER MAINTENANT
-                        </button></a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-</section>
-    <section class="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100" id="reservation">
-    <!-- Animated Background Elements -->
-    <div class="absolute inset-0">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div class="absolute top-10 right-10 w-32 h-32 border border-[#F2D04E]/20 rounded-full animate-spin-slow"></div>
-        <div class="absolute bottom-20 left-20 w-24 h-24 border border-[#24441B]/20 rounded-full animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Section -->
+  <section class="py-20 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-32 right-20 w-64 h-64 bg-[#F2D04E]/5 rounded-full blur-2xl"></div>
+      <div class="absolute bottom-32 left-20 w-80 h-80 bg-[#24441B]/3 rounded-full blur-3xl"></div>
     </div>
     <div class="container mx-auto px-6 relative z-10">
-        <!-- Split Layout: Info + Form -->
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <!-- Left Side - Info & Features -->
-                <div class="lg:sticky lg:top-8">
-                    <!-- Header -->
-                    <div class="mb-12">
-                        <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-[#F2D04E]/30">
-                            <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3 animate-pulse"></div>
-                            <span class="text-[#24441B] font-semibold text-sm uppercase tracking-wider">Réservation Express</span>
-                        </div>
-                        <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-6 leading-tight">
-                            Partez à l'
-                            <span class="relative inline-block">
-                                <span class="relative z-10 bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">aventure</span>
-                                <div class="absolute bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
-                            </span>
-                        </h2>
-                        <p class="text-xl text-[#24441B]/70 leading-relaxed mb-8">
-                            Réservez votre expérience inoubliable dans le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.
-                        </p>
-                    </div>
-                    <!-- Features Grid -->
-                    <div class="space-y-6 mb-12">
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Confirmation instantanée</h3>
-                                <p class="text-[#24441B]/60">Réponse garantie sous 2 heures, même le weekend</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.723-1.745 3.42 3.42 0 010-3.976 3.42 3.42 0 00.723-1.745 3.42 3.42 0 013.138-3.138z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Accompagnement premium</h3>
-                                <p class="text-[#24441B]/60">Guide expert et service personnalisé 24/7</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                                <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-[#24441B] mb-2">Flexibilité totale</h3>
-                                <p class="text-[#24441B]/60">Modification gratuite jusqu'à 48h avant le départ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Price Highlight -->
-                    <div class="bg-gradient-to-r from-[#24441B] to-[#2d5422] rounded-3xl p-8 text-white relative overflow-hidden">
-  <div class="absolute top-0 right-0 w-32 h-32 bg-[#F2D04E]/10 rounded-full -translate-y-16 translate-x-16"></div>
-  <div class="absolute bottom-0 left-0 w-24 h-24 bg-[#F2D04E]/20 rounded-full translate-y-12 -translate-x-12"></div>
-  <div class="relative z-10">
-    <div class="flex items-center justify-between mb-4">
-      <span class="text-[#F2D04E] font-semibold">Points forts du circuit</span>
-      <span class="text-sm opacity-75">Expérience unique</span>
-    </div>
-    <div class="text-2xl font-bold text-[#F2D04E] mb-2">Culture • Désert • Océan</div>
-    <p class="text-sm opacity-80">
-      Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.
-    </p>
-  </div>
-</div>
-
-                </div>
-                <!-- Right Side - Form -->
-                <div class="relative">
-                    <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden relative">
-                        <!-- Form Progress -->
-                        <div class="bg-gradient-to-r from-[#F2D04E]/10 to-[#F2D04E]/5 p-6 border-b border-gray-100">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-2xl font-bold text-[#24441B]">Détails de réservation</h3>
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-2 h-2 bg-[#F2D04E] rounded-full"></div>
-                                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-                                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <form class="p-8 space-y-8">
-                            <!-- Quick Selection -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">1</span>
-                                    Sélection rapide
-                                </h4>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="relative">
-                                        <input type="number" min="1" max="12" id="guests" name="guests" 
-                                               class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium text-center text-2xl"
-                                               placeholder="2" value="2">
-                                        <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
-                                            Voyageurs
-                                        </label>
-                                    </div>
-                                    <div class="relative">
-                                        <input type="date" id="date" name="date" 
-                                               class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium">
-                                        <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
-                                            Date de départ
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Contact Info -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">2</span>
-                                    Vos coordonnées
-                                </h4>
-                                <div class="space-y-6">
-                                    <div class="relative group">
-                                        <input type="text" id="fullname" name="fullname" 
-                                               class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                               placeholder=" ">
-                                        <label for="fullname" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                            Nom complet *
-                                        </label>
-                                        <div class="absolute right-4 top-4 text-[#24441B]/30 group-hover:text-[#F2D04E] transition-colors">
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div class="relative group">
-                                            <input type="email" id="email2" name="email2" 
-                                                   class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                                   placeholder=" ">
-                                            <label for="email2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                                Email *
-                                            </label>
-                                        </div>
-                                        <div class="relative group">
-                                            <input type="tel" id="phone2" name="phone2" 
-                                                   class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" 
-                                                   placeholder=" ">
-                                            <label for="phone2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
-                                                Téléphone *
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Special Requests -->
-                            <div>
-                                <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
-                                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">3</span>
-                                    Demandes spéciales
-                                </h4>
-                                <div class="relative">
-                                    <textarea id="requests" name="requests" rows="4" 
-                                              class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium resize-none" 
-                                              placeholder="Régime alimentaire, anniversaire, demandes particulières..."></textarea>
-                                    <div class="absolute right-4 bottom-4 text-[#24441B]/30">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Submit -->
-                            <div class="pt-4">
-                                <button type="submit" class="w-full bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-6 px-8 rounded-xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-[#F2D04E]/30 transform hover:-translate-y-1 relative overflow-hidden group">
-                                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                                    <div class="flex items-center justify-center space-x-3 relative z-10">
-                                        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                                        </svg>
-                                        <span>Envoyer ma demande</span>
-                                    </div>
-                                </button>
-                                <div class="flex items-center justify-center space-x-4 mt-6 text-sm text-[#24441B]/60">
-                                    <div class="flex items-center space-x-2">
-                                        <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <span>Données sécurisées</span>
-                                    </div>
-                                    <div class="w-px h-4 bg-[#24441B]/20"></div>
-                                    <div class="flex items-center space-x-2">
-                                        <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <span>Sans engagement</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Floating Trust Badge -->
-                    <div class="absolute -bottom-6 -right-6 bg-[#24441B] text-white p-4 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-[#F2D04E]">2h</div>
-                            <div class="text-xs opacity-80">Réponse garantie</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center bg-[#F2D04E]/10 px-6 py-3 rounded-full mb-8">
+          <svg class="w-5 h-5 text-[#24441B] mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-[#24441B] font-semibold text-sm" data-i18n="journey.tag"></span>
         </div>
-    </div>
-    <!-- Custom CSS for slow spin -->
-    <style>
-        @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-            animation: spin-slow 10s linear infinite;
-        }
-    </style>
-</section>
-<div class="bg-gradient-to-r from-[#24441B] via-[#2d5422] to-[#24441B] rounded-3xl p-10 relative overflow-hidden shadow-2xl mt-20 mb-20 w-6/7 mx-auto">
-                <!-- Decorative Elements -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-[#F2D04E]/10 rounded-full -translate-y-32 translate-x-32"></div>
-                <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#F2D04E]/20 rounded-full translate-y-24 -translate-x-24"></div>
-                <div class="relative z-10 text-center text-white">
-                    <div class="max-w-4xl mx-auto">
-                        <h3 class="text-4xl font-black mb-6">
-                            Une question ? Besoin de 
-                            <span class="text-[#F2D04E]">personnaliser</span> ?
-                        </h3>
-                        <p class="text-xl text-white/80 mb-8 leading-relaxed">
-                            Notre équipe d'experts du Sahara est disponible 7j/7 pour adapter votre voyage à vos envies. 
-                            Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !
-                        </p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <a href="/contact.html"><button class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                               Parler à un expert 
-                            </button></a>
-                            <a href="/contact.html"><button class="border-2 border-[#F2D04E] text-[#F2D04E] hover:bg-[#F2D04E] hover:text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg">
-                               Devis personnalisé
-                            </button></a> 
-                        </div>
-                        <div class="flex items-center justify-center mt-8 space-x-8 text-sm">
-                            <div class="flex items-center text-[#F2D04E]/80">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                                </svg>
-                                Réponse garantie sous 2h
-                            </div>
-                            <div class="flex items-center text-[#F2D04E]/80">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                Devis gratuit et sans engagement
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <h1 class="text-6xl font-bold text-[#24441B] mb-6">
+          <span data-i18n="journey.title1"></span> <span class="text-[#F2D04E]" data-i18n="journey.title2"></span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" data-i18n="journey.subtitle"></p>
+      </div>
+
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
             </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="journey.card1.title"></h3>
+            <p class="text-gray-600" data-i18n="journey.card1.desc"></p>
+          </div>
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#24441B] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="journey.card2.title"></h3>
+            <p class="text-gray-600" data-i18n="journey.card2.desc"></p>
+          </div>
+          <div class="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <div class="w-16 h-16 bg-[#F2D04E] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[#24441B] mb-2" data-i18n="journey.card3.title"></h3>
+            <p class="text-gray-600" data-i18n="journey.card3.desc"></p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-gray-50 to-white rounded-3xl p-12 shadow-xl mb-16">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span class="inline-block bg-[#24441B] text-[#F2D04E] px-4 py-2 rounded-full font-semibold text-sm mb-6" data-i18n="journey.route"></span>
+              <h2 class="text-4xl font-bold text-[#24441B] mb-6 leading-tight" data-i18n="journey.mainTitle"></h2>
+              <p class="text-lg text-gray-700 leading-relaxed mb-8" data-i18n="journey.mainDesc"></p>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="journey.highlight1"></span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="journey.highlight2"></span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="journey.highlight3"></span>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3"></div>
+                  <span class="text-[#24441B] font-medium" data-i18n="journey.highlight4"></span>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div class="rounded-2xl overflow-hidden shadow-2xl">
+                <img src="https://th.bing.com/th/id/OIP.FZSPvOtD8wFPVkxN0p-XZwHaE4?w=284&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" 
+                     alt="Ourika Valley" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-700">
+              </div>
+              <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100">
+                <div class="flex items-center">
+                  <div class="w-12 h-12 bg-[#F2D04E] rounded-lg flex items-center justify-center mr-3">
+                    <span class="text-[#24441B] font-bold text-lg">★</span>
+                  </div>
+                  <div>
+                    <div class="font-bold text-[#24441B]" data-i18n="journey.badgeTitle"></div>
+                    <div class="text-sm text-gray-600" data-i18n="journey.badgeDesc"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <h3 class="text-3xl font-bold text-[#24441B] text-center mb-12" data-i18n="journey.timelineTitle"></h3>
+          <div class="max-w-4xl mx-auto">
+            <div class="space-y-8">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">8h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="journey.step1.title"></h4>
+                  <p class="text-gray-600" data-i18n="journey.step1.desc"></p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#F2D04E] font-bold">9h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="journey.step2.title"></h4>
+                  <p class="text-gray-600" data-i18n="journey.step2.desc"></p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">11h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="journey.step3.title"></h4>
+                  <p class="text-gray-600" data-i18n="journey.step3.desc"></p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#24441B] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#F2D04E] font-bold">13h00</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="journey.step4.title"></h4>
+                  <p class="text-gray-600" data-i18n="journey.step4.desc"></p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-20 h-20 bg-[#F2D04E] rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                  <span class="text-[#24441B] font-bold">14h30</span>
+                </div>
+                <div class="flex-grow bg-white border border-gray-100 rounded-xl p-6 shadow-md">
+                  <h4 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="journey.step5.title"></h4>
+                  <p class="text-gray-600" data-i18n="journey.step5.desc"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] rounded-3xl p-12 shadow-2xl">
+            <h3 class="text-4xl font-bold text-[#24441B] mb-6" data-i18n="journey.ctaTitle"></h3>
+            <p class="text-[#24441B]/80 text-lg mb-8 max-w-2xl mx-auto" data-i18n="journey.ctaDesc"></p>
+            <a href="#reservation">
+              <button class="bg-[#24441B] text-[#F2D04E] px-10 py-4 rounded-2xl font-bold text-xl hover:scale-105 hover:shadow-xl transition-all duration-300" data-i18n="journey.ctaBtn"></button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section class="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100" id="reservation">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div class="absolute top-10 right-10 w-32 h-32 border border-[#F2D04E]/20 rounded-full animate-spin-slow"></div>
+      <div class="absolute bottom-20 left-20 w-24 h-24 border border-[#24441B]/20 rounded-full animate-bounce"></div>
+    </div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <div class="lg:sticky lg:top-8">
+            <div class="mb-12">
+              <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-[#F2D04E]/30">
+                <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3 animate-pulse"></div>
+                <span class="text-[#24441B] font-semibold text-sm uppercase tracking-wider" data-i18n="reservation.tag"></span>
+              </div>
+              <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-6 leading-tight">
+                <span data-i18n="reservation.title1"></span>
+                <span class="relative inline-block">
+                  <span class="relative z-10 bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="reservation.title2"></span>
+                  <div class="absolute bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
+                </span>
+              </h2>
+              <p class="text-xl text-[#24441B]/70 leading-relaxed mb-8" data-i18n="reservation.subtitle"></p>
+            </div>
+
+            <div class="space-y-6 mb-12">
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="reservation.feature1.title"></h3>
+                  <p class="text-[#24441B]/60" data-i18n="reservation.feature1.desc"></p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.723-1.745 3.42 3.42 0 010-3.976 3.42 3.42 0 00.723-1.745 3.42 3.42 0 013.138-3.138z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="reservation.feature2.title"></h3>
+                  <p class="text-[#24441B]/60" data-i18n="reservation.feature2.desc"></p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 group">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-7 h-7 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="reservation.feature3.title"></h3>
+                  <p class="text-[#24441B]/60" data-i18n="reservation.feature3.desc"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-[#24441B] to-[#2d5422] rounded-3xl p-8 text-white relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-[#F2D04E]/10 rounded-full -translate-y-16 translate-x-16"></div>
+              <div class="absolute bottom-0 left-0 w-24 h-24 bg-[#F2D04E]/20 rounded-full translate-y-12 -translate-x-12"></div>
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-[#F2D04E] font-semibold" data-i18n="reservation.highlight.tag"></span>
+                  <span class="text-sm opacity-75" data-i18n="reservation.highlight.subtag"></span>
+                </div>
+                <div class="text-2xl font-bold text-[#F2D04E] mb-2" data-i18n="reservation.highlight.title"></div>
+                <p class="text-sm opacity-80" data-i18n="reservation.highlight.desc"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden relative">
+              <div class="bg-gradient-to-r from-[#F2D04E]/10 to-[#F2D04E]/5 p-6 border-b border-gray-100">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-2xl font-bold text-[#24441B]" data-i18n="reservation.form.title"></h3>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-[#F2D04E] rounded-full"></div>
+                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                    <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <form class="p-8 space-y-8">
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">1</span>
+                    <span data-i18n="reservation.form.section1"></span>
+                  </h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="relative">
+                      <input type="number" min="1" max="12" id="guests" name="guests" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium text-center text-2xl" placeholder="2" value="2">
+                      <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm" data-i18n="reservation.form.guests"></label>
+                    </div>
+                    <div class="relative">
+                      <input type="date" id="date" name="date" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium">
+                      <label class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm" data-i18n="reservation.form.date"></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">2</span>
+                    <span data-i18n="reservation.form.section2"></span>
+                  </h4>
+                  <div class="space-y-6">
+                    <div class="relative group">
+                      <input type="text" id="fullname" name="fullname" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" placeholder=" ">
+                      <label for="fullname" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="reservation.form.name"></label>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="relative group">
+                        <input type="email" id="email2" name="email2" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" placeholder=" ">
+                        <label for="email2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="reservation.form.email"></label>
+                      </div>
+                      <div class="relative group">
+                        <input type="tel" id="phone2" name="phone2" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium" placeholder=" ">
+                        <label for="phone2" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="reservation.form.phone"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
+                    <span class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">3</span>
+                    <span data-i18n="reservation.form.section3"></span>
+                  </h4>
+                  <div class="relative">
+                    <textarea id="requests" name="requests" rows="4" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium resize-none" placeholder=" "></textarea>
+                    <label for="requests" class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="reservation.form.requests"></label>
+                  </div>
+                </div>
+
+                <div class="pt-4">
+                  <button type="submit" class="w-full bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-6 px-8 rounded-xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:shadow-[#F2D04E]/30 transform hover:-translate-y-1 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <div class="flex items-center justify-center space-x-3 relative z-10" data-i18n="reservation.form.submit"></div>
+                  </button>
+                  <div class="flex items-center justify-center space-x-4 mt-6 text-sm text-[#24441B]/60">
+                    <div class="flex items-center space-x-2">
+                      <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                      </svg>
+                      <span data-i18n="reservation.form.secure"></span>
+                    </div>
+                    <div class="w-px h-4 bg-[#24441B]/20"></div>
+                    <div class="flex items-center space-x-2">
+                      <svg class="w-4 h-4 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                      </svg>
+                      <span data-i18n="reservation.form.noCommitment"></span>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="absolute -bottom-6 -right-6 bg-[#24441B] text-white p-4 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-[#F2D04E]">2h</div>
+                <div class="text-xs opacity-80" data-i18n="reservation.badge"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="bg-gradient-to-r from-[#24441B] via-[#2d5422] to-[#24441B] rounded-3xl p-10 relative overflow-hidden shadow-2xl mt-20 mb-20 w-6/7 mx-auto">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-[#F2D04E]/10 rounded-full -translate-y-32 translate-x-32"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#F2D04E]/20 rounded-full translate-y-24 -translate-x-24"></div>
+    <div class="relative z-10 text-center text-white">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-4xl font-black mb-6">
+          <span data-i18n="cta.title1"></span>
+          <span class="text-[#F2D04E]" data-i18n="cta.title2"></span> ?
+        </h3>
+        <p class="text-xl text-white/80 mb-8 leading-relaxed" data-i18n="cta.desc"></p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/contact.html" class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1" data-i18n="cta.btn1"></a>
+          <a href="/contact.html" class="border-2 border-[#F2D04E] text-[#F2D04E] hover:bg-[#F2D04E] hover:text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg" data-i18n="cta.btn2"></a>
+        </div>
+        <div class="flex items-center justify-center mt-8 space-x-8 text-sm">
+          <div class="flex items-center text-[#F2D04E]/80">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <span data-i18n="cta.response"></span>
+          </div>
+          <div class="flex items-center text-[#F2D04E]/80">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span data-i18n="cta.quote"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-white pt-16 pb-8">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        <!-- Company Info -->
         <div>
-          <div class=" text-primary px-4 py-2 rounded-lg font-bold text-xl mb-6 inline-block">
+          <div class="text-primary px-4 py-2 rounded-lg font-bold text-xl mb-6 inline-block">
             <a href="/index.html" class="flex items-center">
-          <img src="/images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
-        </a>
+              <img src="../images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours" data-i18n="alt.logo">
+            </a>
           </div>
-          <p class="text-gray-400 mb-6">
-            Votre agence de voyage spécialiste des circuits sur mesure au Maroc depuis plus de 10 ans.
-          </p>
+          <p class="text-gray-400 mb-6" data-i18n="footer.about"></p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-accent transition-colors">
               <i class="fab fa-facebook-f"></i>
@@ -1098,141 +885,599 @@
             </a>
           </div>
         </div>
-        <!-- Quick Links -->
+
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Liens Rapides</h3>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.links.title"></h3>
           <ul class="space-y-2">
-            <li><a href="/index.html" class="text-gray-400 hover:text-accent transition-colors">Accueil</a></li>
-            <li><a href="/about.html" class="text-gray-400 hover:text-accent transition-colors">À propos</a></li>
-            <li><a href="#tours" class="text-gray-400 hover:text-accent transition-colors">Circuits</a></li>
-            <li><a href="/galery.html" class="text-gray-400 hover:text-accent transition-colors">Galerie</a></li>
-            <li><a href="/contact.html" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
+            <li><a href="/index.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.home"></a></li>
+            <li><a href="/about.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.about"></a></li>
+            <li><a href="#tours" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.tours"></a></li>
+            <li><a href="/galery.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.gallery"></a></li>
+            <li><a href="/contact.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.contact"></a></li>
           </ul>
         </div>
-        <!-- Contact Info -->
+
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Contact</h3>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.contact.title"></h3>
           <ul class="space-y-3 text-gray-400">
             <li class="flex items-start">
               <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
-              <span>123 Rue de la Médina, Marrakech, Maroc</span>
+              <span data-i18n="footer.contact.address"></span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-phone mt-1 mr-3 text-accent"></i>
-              <span>+212 5 22 12 34 56</span>
+              <span data-i18n="footer.contact.phone"></span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
-              <span>info@enjoymarrakechtours.com</span>
+              <span data-i18n="footer.contact.email"></span>
             </li>
           </ul>
         </div>
-        <!-- Newsletter -->
+
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">Abonnez-vous</h3>
-          <p class="text-gray-400 mb-4">Recevez nos dernières offres et conseils de voyage par email.</p>
+          <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.newsletter.title"></h3>
+          <p class="text-gray-400 mb-4" data-i18n="footer.newsletter.desc"></p>
           <form class="flex flex-col">
-            <input type="email" placeholder="Votre adresse email" class="bg-gray-800 text-white p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-accent">
-            <button type="submit" class="bg-accent text-primary font-medium py-3 rounded hover:bg-accent/90 transition-colors">S'abonner</button>
+            <input type="email" placeholder="Votre adresse email" class="bg-gray-800 text-white p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-accent" data-i18n-placeholder="footer.newsletter.placeholder">
+            <button type="submit" class="bg-accent text-primary font-medium py-3 rounded hover:bg-accent/90 transition-colors" data-i18n="footer.newsletter.button"></button>
           </form>
         </div>
       </div>
       <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
-        <p>&copy; 2025 Enjoy Marrakech Tours. Tous droits réservés.</p>
+        <p>&copy; 2025 Enjoy Marrakech Tours. <span data-i18n="footer.copyright"></span></p>
       </div>
     </div>
   </footer>
-  <!-- JavaScript for interactivity -->
+
+  <!-- Translation Data & Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get elements
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileToursButton = document.getElementById('mobile-tours-button');
-      const mobileToursContent = document.getElementById('mobile-tours-content');
-      const mobileLanguageButton = document.getElementById('mobile-language-button');
-      const mobileLanguageOptions = document.getElementById('mobile-language-options');
-      // Toggle mobile menu
-      mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
+    // 🌍 Multilingual Data
+    const translations = {
+      fr: {
+        // Nav
+        nav: {
+          home: "Accueil",
+          about: "À propos",
+          packages: "Packages",
+          tours: "Tours",
+          marrakech: "From Marrakech",
+          fes: "From Fes",
+          casablanca: "From Casablanca",
+          gallery: "Galerie",
+          contact: "Contact US"
+        },
+        alt: {
+          logo: "Enjoy Marrakech Tours"
+        },
+        // Hero
+        hero: {
+          title1: "Explorez",
+          title2: "OURIKA",
+          subtitle: "vallée verdoyante",
+          description: "Une journée d'immersion de Marrakech à la vallée d'Ourika. Découvrez les cascades, les villages berbères et les paysages luxuriants.",
+          feature1: "Nature luxuriante",
+          feature2: "Villages berbères",
+          feature3: "Guide local",
+          feature4: "Petit groupe",
+          cta: "Réserver maintenant",
+          confirm: "✨ Confirmation immédiate",
+          flex: "Sans frais cachés • Annulation flexible",
+          location: "Ourika, Maroc",
+          locationTitle: "Vallée d'Ourika",
+          locationDesc: "Un havre de paix et de nature",
+          day: "Jour",
+          nature: "De nature",
+          excellence: "Excellence",
+          morning: "Matin",
+          morningDesc: "Villages berbères",
+          afternoon: "Après-midi",
+          afternoonDesc: "Cascades de Setti Fatma",
+          scroll: "Découvrir l'aventure"
+        },
+        inclusions: {
+          headerTag: "Transparence totale",
+          title: "Votre journée",
+          titleHighlight: "tout compris",
+          subtitle: "Découvrez ce qui est inclus dans votre escapade à la vallée d'Ourika et ce qu'il faut prévoir. Aucune surprise, que de la transparence.",
+          includedTitle: "Tout inclus",
+          includedSubtitle: "Votre journée sans souci",
+          item1: { title: "Guide local expert", desc: "Guide francophone pour une immersion culturelle" },
+          item2: { title: "Transport confortable", desc: "Minibus climatisé aller-retour depuis Marrakech" },
+          item3: { title: "Visites guidées", desc: "Villages berbères et cascades de Setti Fatma" },
+          item4: { title: "Temps libre", desc: "Exploration des marchés ou détente près des cascades" },
+          item5: { title: "Boissons non alcoolisées", desc: "Eau et thé à la menthe offerts pendant la journée" },
+          notIncludedTitle: "À prévoir",
+          notIncludedSubtitle: "Budget supplémentaire",
+          extra1: { title: "Vols internationaux", desc: "Selon votre ville de départ" },
+          extra2: { title: "Déjeuner", desc: "Repas au restaurant: 8-15€" },
+          extra3: { title: "Dépenses personnelles", desc: "Souvenirs, boissons, pourboires" },
+         
+        },
+        journey: {
+          tag: "EXCURSION D'UNE JOURNÉE",
+          title1: "Découvrez",
+          title2: "Ourika",
+          subtitle: "Une escapade inoubliable de Marrakech vers la vallée d'Ourika, à travers les paysages verdoyants et les villages berbères du Haut Atlas.",
+          card1: { title: "8h00 - 17h00", desc: "Journée complète avec transport inclus" },
+          card2: { title: "40 km", desc: "Route panoramique dans l'Atlas" },
+          card3: { title: "Tout inclus", desc: "Transport + Guide professionnel" },
+          route: "MARRAKECH → OURIKA → MARRAKECH",
+          mainTitle: "Une journée dans la vallée d'Ourika",
+          mainDesc: "Départ matinal de Marrakech pour une escapade dans la vallée d'Ourika, un joyau du Haut Atlas. Découvrez des villages berbères authentiques, les cascades de Setti Fatma et des paysages verdoyants à couper le souffle.",
+          highlight1: "Vallée d'Ourika",
+          highlight2: "Cascades de Setti Fatma",
+          highlight3: "Villages berbères",
+          highlight4: "Randonnée légère",
+          badgeTitle: "Authentique",
+          badgeDesc: "Culture berbère",
+          timelineTitle: "Programme de la journée",
+          step1: { title: "Départ de Marrakech", desc: "Prise en charge à votre hôtel/riad. Début du voyage vers la vallée d'Ourika." },
+          step2: { title: "Arrivée dans la vallée d'Ourika", desc: "Visite guidée des villages berbères et exploration des marchés locaux." },
+          step3: { title: "Cascades de Setti Fatma", desc: "Randonnée légère pour découvrir les cascades et les paysages environnants." },
+          step4: { title: "Déjeuner libre", desc: "Dégustation de spécialités berbères dans un restaurant local." },
+          step5: { title: "Retour à Marrakech", desc: "Voyage de retour avec arrivée prévue en fin d'après-midi." },
+          ctaTitle: "Réservez votre aventure",
+          ctaDesc: "Vivez une expérience inoubliable et découvrez les trésors cachés du Maroc lors de cette excursion exceptionnelle vers la vallée d'Ourika.",
+          ctaBtn: "RÉSERVER MAINTENANT"
+        },
+        reservation: {
+          tag: "Réservation Express",
+          title1: "Partez à l'",
+          title2: "aventure",
+          subtitle: "Réservez votre expérience inoubliable dans le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.",
+          feature1: { title: "Confirmation instantanée", desc: "Réponse garantie sous 2 heures, même le weekend" },
+          feature2: { title: "Accompagnement premium", desc: "Guide expert et service personnalisé 24/7" },
+          feature3: { title: "Flexibilité totale", desc: "Modification gratuite jusqu'à 48h avant le départ" },
+          highlight: {
+            tag: "Points forts du circuit",
+            subtag: "Expérience unique",
+            title: "Culture • Désert • Océan",
+            desc: "Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains."
+          },
+          form: {
+            title: "Détails de réservation",
+            section1: "Sélection rapide",
+            guests: "Voyageurs",
+            date: "Date de départ",
+            section2: "Vos coordonnées",
+            name: "Nom complet *",
+            email: "Email *",
+            phone: "Téléphone *",
+            section3: "Demandes spéciales",
+            requests: "Régime alimentaire, anniversaire, demandes particulières...",
+            submit: "Envoyer ma demande",
+            secure: "Données sécurisées",
+            noCommitment: "Sans engagement"
+          },
+          badge: "Réponse garantie"
+        },
+        cta: {
+          title1: "Une question ? Besoin de",
+          title2: "personnaliser",
+          desc: "Notre équipe d'experts du Sahara est disponible 7j/7 pour adapter votre voyage à vos envies. Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !",
+          btn1: "Parler à un expert",
+          btn2: "Devis personnalisé",
+          response: "Réponse garantie sous 2h",
+          quote: "Devis gratuit et sans engagement"
+        },
+        footer: {
+          about: "Votre agence de voyage spécialiste des circuits sur mesure au Maroc depuis plus de 10 ans.",
+          links: { title: "Liens Rapides" },
+          contact: {
+            title: "Contact",
+            address: "123 Rue de la Médina, Marrakech, Maroc",
+            phone: "+212691196491",
+            email: "Enjoymarrakechtour@gmail.com"
+          },
+          newsletter: {
+            title: "Abonnez-vous",
+            desc: "Recevez nos dernières offres et conseils de voyage par email.",
+            placeholder: "Votre adresse email",
+            button: "S'abonner"
+          },
+          copyright: "Tous droits réservés."
+        }
+      },
+      en: {
+        nav: { home: "Home", about: "About", packages: "Packages", tours: "Tours", marrakech: "From Marrakech", fes: "From Fes", casablanca: "From Casablanca", gallery: "Gallery", contact: "Contact US" },
+        alt: { logo: "Enjoy Marrakech Tours" },
+        hero: {
+          title1: "Explore",
+          title2: "OURIKA",
+          subtitle: "lush valley",
+          description: "A full-day immersion from Marrakech to the Ourika Valley. Discover waterfalls, Berber villages, and lush landscapes.",
+          feature1: "Lush Nature",
+          feature2: "Berber Villages",
+          feature3: "Local Guide",
+          feature4: "Small Group",
+          cta: "Book Now",
+          confirm: "✨ Instant Confirmation",
+          flex: "No hidden fees • Flexible cancellation",
+          location: "Ourika, Morocco",
+          locationTitle: "Ourika Valley",
+          locationDesc: "A haven of peace and nature",
+          day: "Day",
+          nature: "Of Nature",
+          excellence: "Excellence",
+          morning: "Morning",
+          morningDesc: "Berber villages",
+          afternoon: "Afternoon",
+          afternoonDesc: "Setti Fatma Waterfalls",
+          scroll: "Discover the adventure"
+        },
+        inclusions: {
+          headerTag: "Full Transparency",
+          title: "Your day",
+          titleHighlight: "all-inclusive",
+          subtitle: "Discover what’s included in your Ourika Valley escape and what to prepare. No surprises — just transparency.",
+          includedTitle: "All Included",
+          includedSubtitle: "A worry-free day",
+          value: "€85 value",
+          item1: { title: "Expert Local Guide", desc: "French-speaking guide for cultural immersion" },
+          item2: { title: "Comfortable Transport", desc: "Air-conditioned minibus, round-trip from Marrakech" },
+          item3: { title: "Guided Visits", desc: "Berber villages and Setti Fatma waterfalls" },
+          item4: { title: "Free Time", desc: "Explore markets or relax near the waterfalls" },
+          item5: { title: "Non-Alcoholic Drinks", desc: "Water and mint tea provided throughout the day" },
+          notIncludedTitle: "To Budget",
+          notIncludedSubtitle: "Additional Expenses",
+          extra1: { title: "International Flights", desc: "Depending on your departure city" },
+          extra2: { title: "Lunch", desc: "Restaurant meal: €8–15" },
+          extra3: { title: "Personal Expenses", desc: "Souvenirs, drinks, tips" },
+          budgetLabel: "Suggested Budget",
+          budgetAmount: "€20–40",
+          budgetDesc: "For a comfortable day"
+        },
+        journey: {
+          tag: "DAY TRIP",
+          title1: "Discover",
+          title2: "Ourika",
+          subtitle: "An unforgettable escape from Marrakech to the Ourika Valley, through lush landscapes and Berber villages in the High Atlas.",
+          card1: { title: "8:00 AM – 5:00 PM", desc: "Full-day tour with transport included" },
+          card2: { title: "40 km", desc: "Panoramic drive through the Atlas Mountains" },
+          card3: { title: "All-inclusive", desc: "Transport + Professional Guide" },
+          route: "MARRAKECH → OURIKA → MARRAKECH",
+          mainTitle: "A Day in the Ourika Valley",
+          mainDesc: "Morning departure from Marrakech for an escape into the Ourika Valley, a jewel of the High Atlas. Discover authentic Berber villages, the Setti Fatma waterfalls, and breathtaking green landscapes.",
+          highlight1: "Ourika Valley",
+          highlight2: "Setti Fatma Waterfalls",
+          highlight3: "Berber Villages",
+          highlight4: "Light Hiking",
+          badgeTitle: "Authentic",
+          badgeDesc: "Berber Culture",
+          timelineTitle: "Daily Program",
+          step1: { title: "Departure from Marrakech", desc: "Pick-up at your hotel/riad. Journey begins toward Ourika Valley." },
+          step2: { title: "Arrival in Ourika Valley", desc: "Guided visit of Berber villages and exploration of local markets." },
+          step3: { title: "Setti Fatma Waterfalls", desc: "Light hike to discover the cascades and surrounding scenery." },
+          step4: { title: "Free Lunch", desc: "Taste Berber specialties at a local restaurant." },
+          step5: { title: "Return to Marrakech", desc: "Return journey with expected arrival in late afternoon." },
+          ctaTitle: "Book Your Adventure",
+          ctaDesc: "Experience an unforgettable journey and uncover Morocco’s hidden treasures on this exceptional excursion to the Ourika Valley.",
+          ctaBtn: "BOOK NOW"
+        },
+        reservation: {
+          tag: "Express Booking",
+          title1: "Embark on the",
+          title2: "adventure",
+          subtitle: "Book your unforgettable Sahara desert experience. Our team is here to create magical memories with you.",
+          feature1: { title: "Instant Confirmation", desc: "Guaranteed response within 2 hours — even on weekends" },
+          feature2: { title: "Premium Support", desc: "Expert guide and personalized 24/7 service" },
+          feature3: { title: "Full Flexibility", desc: "Free changes up to 48h before departure" },
+          highlight: {
+            tag: "Tour Highlights",
+            subtag: "Unique Experience",
+            title: "Culture • Desert • Ocean",
+            desc: "Comfortable transport, hand-picked accommodations, and authentic immersion in Morocco’s landscapes."
+          },
+          form: {
+            title: "Booking Details",
+            section1: "Quick Selection",
+            guests: "Travelers",
+            date: "Departure Date",
+            section2: "Your Contact Info",
+            name: "Full Name *",
+            email: "Email *",
+            phone: "Phone *",
+            section3: "Special Requests",
+            requests: "Dietary needs, birthdays, special requests...",
+            submit: "Send My Request",
+            secure: "Secure Data",
+            noCommitment: "No Obligation"
+          },
+          badge: "Guaranteed Reply"
+        },
+        cta: {
+          title1: "Questions? Need to",
+          title2: "customize",
+          desc: "Our Sahara experts are available 7/7 to tailor your trip to your wishes. Dietary needs, birthdays, special requests — anything is possible!",
+          btn1: "Talk to an Expert",
+          btn2: "Get a Custom Quote",
+          response: "Reply guaranteed within 2h",
+          quote: "Free, no-commitment quote"
+        },
+        footer: {
+          about: "Your travel agency specialized in tailor-made tours across Morocco for over 10 years.",
+          links: { title: "Quick Links" },
+          contact: {
+            title: "Contact",
+            address: "123 Medina Street, Marrakech, Morocco",
+            phone: "+212691196491",
+            email: "Enjoymarrakechtour@gmail.com"
+          },
+          newsletter: {
+            title: "Subscribe",
+            desc: "Get our latest travel offers and tips by email.",
+            placeholder: "Your email address",
+            button: "Subscribe"
+          },
+          copyright: "All rights reserved."
+        }
+      },
+      es: {
+        nav: { home: "Inicio", about: "Acerca de", packages: "Paquetes", tours: "Tours", marrakech: "Desde Marrakech", fes: "Desde Fez", casablanca: "Desde Casablanca", gallery: "Galería", contact: "Contactar" },
+        alt: { logo: "Enjoy Marrakech Tours" },
+        hero: {
+          title1: "Explora",
+          title2: "OURIKA",
+          subtitle: "valle exuberante",
+          description: "Una inmersión de día completo desde Marrakech hasta el valle de Ourika. Descubre cascadas, aldeas bereberes y paisajes exuberantes.",
+          feature1: "Naturaleza exuberante",
+          feature2: "Aldeas bereberes",
+          feature3: "Guía local",
+          feature4: "Grupo pequeño",
+          cta: "Reservar ahora",
+          confirm: "✨ Confirmación instantánea",
+          flex: "Sin costos ocultos • Cancelación flexible",
+          location: "Ourika, Marruecos",
+          locationTitle: "Valle de Ourika",
+          locationDesc: "Un refugio de paz y naturaleza",
+          day: "Día",
+          nature: "De naturaleza",
+          excellence: "Excelencia",
+          morning: "Mañana",
+          morningDesc: "Aldeas bereberes",
+          afternoon: "Tarde",
+          afternoonDesc: "Cascadas de Setti Fatma",
+          scroll: "Descubre la aventura"
+        },
+        inclusions: {
+          headerTag: "Transparencia total",
+          title: "Tu día",
+          titleHighlight: "todo incluido",
+          subtitle: "Descubre lo que incluye tu escapada al valle de Ourika y qué debes preparar. Sin sorpresas, solo transparencia.",
+          includedTitle: "Todo incluido",
+          includedSubtitle: "Un día sin preocupaciones",
+          value: "85€ de valor",
+          item1: { title: "Guía local experto", desc: "Guía francófono para una inmersión cultural" },
+          item2: { title: "Transporte cómodo", desc: "Minibús con aire acondicionado ida y vuelta desde Marrakech" },
+          item3: { title: "Visitas guiadas", desc: "Aldeas bereberes y cascadas de Setti Fatma" },
+          item4: { title: "Tiempo libre", desc: "Exploración de mercados o relajación cerca de las cascadas" },
+          item5: { title: "Bebidas sin alcohol", desc: "Agua y té de menta ofrecidos durante el día" },
+          notIncludedTitle: "A considerar",
+          notIncludedSubtitle: "Gastos adicionales",
+          extra1: { title: "Vuelos internacionales", desc: "Según tu ciudad de origen" },
+          extra2: { title: "Almuerzo", desc: "Comida en restaurante: 8-15€" },
+          extra3: { title: "Gastos personales", desc: "Recuerdos, bebidas, propinas" },
+          budgetLabel: "Presupuesto sugerido",
+          budgetAmount: "20-40€",
+          budgetDesc: "Para un día cómodo"
+        },
+        journey: {
+          tag: "EXCURSIÓN DE UN DÍA",
+          title1: "Descubre",
+          title2: "Ourika",
+          subtitle: "Una escapada inolvidable de Marrakech al valle de Ourika, a través de paisajes exuberantes y aldeas bereberes del Alto Atlas.",
+          card1: { title: "8:00 – 17:00", desc: "Día completo con transporte incluido" },
+          card2: { title: "40 km", desc: "Ruta panorámica por el Atlas" },
+          card3: { title: "Todo incluido", desc: "Transporte + Guía profesional" },
+          route: "MARRAKECH → OURIKA → MARRAKECH",
+          mainTitle: "Un día en el valle de Ourika",
+          mainDesc: "Salida matinal desde Marrakech para una escapada al valle de Ourika, una joya del Alto Atlas. Descubre auténticas aldeas bereberes, las cascadas de Setti Fatma y paisajes exuberantes impresionantes.",
+          highlight1: "Valle de Ourika",
+          highlight2: "Cascadas de Setti Fatma",
+          highlight3: "Aldeas bereberes",
+          highlight4: "Senderismo ligero",
+          badgeTitle: "Auténtico",
+          badgeDesc: "Cultura bereber",
+          timelineTitle: "Programa del día",
+          step1: { title: "Salida de Marrakech", desc: "Recogida en tu hotel/riad. Comienzo del viaje hacia el valle de Ourika." },
+          step2: { title: "Llegada al valle de Ourika", desc: "Visita guiada a aldeas bereberes y exploración de mercados locales." },
+          step3: { title: "Cascadas de Setti Fatma", desc: "Senderismo ligero para descubrir las cascadas y paisajes circundantes." },
+          step4: { title: "Almuerzo libre", desc: "Degustación de especialidades bereberes en un restaurante local." },
+          step5: { title: "Regreso a Marrakech", desc: "Viaje de regreso con llegada prevista a finales de la tarde." },
+          ctaTitle: "Reserva tu aventura",
+          ctaDesc: "Vive una experiencia inolvidable y descubre los tesoros ocultos de Marruecos en esta excursión excepcional al valle de Ourika.",
+          ctaBtn: "RESERVAR AHORA"
+        },
+        reservation: {
+          tag: "Reserva Exprés",
+          title1: "Embárcate en la",
+          title2: "aventura",
+          subtitle: "Reserva tu experiencia inolvidable en el desierto del Sáhara. Nuestro equipo te acompaña para crear recuerdos mágicos.",
+          feature1: { title: "Confirmación instantánea", desc: "Respuesta garantizada en 2 horas, incluso los fines de semana" },
+          feature2: { title: "Atención premium", desc: "Guía experto y servicio personalizado 24/7" },
+          feature3: { title: "Flexibilidad total", desc: "Cambio gratuito hasta 48h antes de la salida" },
+          highlight: {
+            tag: "Puntos fuertes del circuito",
+            subtag: "Experiencia única",
+            title: "Cultura • Desierto • Océano",
+            desc: "Transporte cómodo, alojamientos seleccionados e inmersión auténtica en los paisajes marroquíes."
+          },
+          form: {
+            title: "Detalles de la reserva",
+            section1: "Selección rápida",
+            guests: "Viajeros",
+            date: "Fecha de salida",
+            section2: "Tus datos de contacto",
+            name: "Nombre completo *",
+            email: "Correo electrónico *",
+            phone: "Teléfono *",
+            section3: "Solicitudes especiales",
+            requests: "Dietas, cumpleaños, peticiones especiales...",
+            submit: "Enviar mi solicitud",
+            secure: "Datos seguros",
+            noCommitment: "Sin compromiso"
+          },
+          badge: "Respuesta garantizada"
+        },
+        cta: {
+          title1: "¿Preguntas? ¿Necesitas",
+          title2: "personalizar",
+          desc: "Nuestro equipo de expertos en el Sáhara está disponible 7/7 para adaptar tu viaje a tus deseos. Dietas, cumpleaños, peticiones especiales... ¡todo es posible!",
+          btn1: "Hablar con un experto",
+          btn2: "Presupuesto personalizado",
+          response: "Respuesta garantizada en 2h",
+          quote: "Presupuesto gratuito y sin compromiso"
+        },
+        footer: {
+          about: "Tu agencia de viajes especializada en circuitos a medida en Marruecos desde hace más de 10 años.",
+          links: { title: "Enlaces rápidos" },
+          contact: {
+            title: "Contacto",
+            address: "123 Calle de la Medina, Marrakech, Marruecos",
+            phone: "+212691196491",
+            email: "Enjoymarrakechtour@gmail.com"
+          },
+          newsletter: {
+            title: "Suscríbete",
+            desc: "Recibe nuestras últimas ofertas y consejos de viaje por correo electrónico.",
+            placeholder: "Tu dirección de correo",
+            button: "Suscribirse"
+          },
+          copyright: "Todos los derechos reservados."
+        }
+      }
+    };
+
+    // 🧠 Translation Logic
+    function setLanguage(langCode) {
+      const htmlRoot = document.getElementById('html-root');
+      htmlRoot.setAttribute('lang', langCode);
+      
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const keys = key.split('.');
+        let text = translations[langCode];
+        for (let k of keys) {
+          if (text && typeof text === 'object') text = text[k];
+          else { text = '[MISSING]'; break; }
+        }
+        if (typeof text === 'string') el.textContent = text;
+        else if (typeof text === 'object') {
+          console.warn(`Translation key '${key}' points to object, not string:`, text);
+        }
       });
-      // Toggle tours dropdown in mobile menu
-      mobileToursButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileToursContent.classList.toggle('hidden');
-        // Rotate the chevron icon
-        const chevron = this.querySelector('.fa-chevron-down');
-        chevron.classList.toggle('rotate-180');
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        const keys = key.split('.');
+        let text = translations[langCode];
+        for (let k of keys) {
+          if (text && typeof text === 'object') text = text[k];
+          else { text = '[MISSING]'; break; }
+        }
+        if (typeof text === 'string') el.setAttribute('placeholder', text);
       });
-      // Toggle language options in mobile menu
-      mobileLanguageButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileLanguageOptions.classList.toggle('show');
-        // Rotate the chevron icon
-        const chevron = this.querySelector('.fa-chevron-down');
-        chevron.classList.toggle('rotate-180');
+
+      // Update language indicators
+      document.querySelectorAll('.current-language').forEach(el => {
+        el.textContent = langCode.toUpperCase();
       });
-      // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!mobileMenu.contains(event.target) && 
-            !mobileMenuButton.contains(event.target) &&
-            !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          // Also close any open dropdowns
-          if (!mobileToursContent.classList.contains('hidden')) {
-            mobileToursContent.classList.add('hidden');
-            mobileToursButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
-          }
-          if (mobileLanguageOptions.classList.contains('show')) {
-            mobileLanguageOptions.classList.remove('show');
-            mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
+
+      // Save in localStorage
+      localStorage.setItem('preferredLanguage', langCode);
+    }
+
+    // 🔁 Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Detect user language or use stored preference
+      const savedLang = localStorage.getItem('preferredLanguage');
+      const browserLang = navigator.language.split('-')[0];
+      const defaultLang = savedLang || (['fr','en','es'].includes(browserLang) ? browserLang : 'fr');
+      
+      setLanguage(defaultLang);
+
+      // Language switch handlers
+      function setupLanguageSwitch() {
+        document.querySelectorAll('[data-lang]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const lang = e.target.closest('[data-lang]').getAttribute('data-lang');
+            setLanguage(lang);
+          });
+        });
+      }
+      setupLanguageSwitch();
+
+      
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        
+        // Toggle icon between bars and times
+        const icon = mobileMenuButton.querySelector("i");
+        if (icon) {
+          if (mobileMenu.classList.contains("hidden")) {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          } else {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
           }
         }
       });
-      // Handle language selection in mobile menu
-      const mobileLanguageOptionsList = mobileLanguageOptions.querySelectorAll('.language-option');
-      mobileLanguageOptionsList.forEach(option => {
-        option.addEventListener('click', function() {
-          const languageText = this.textContent.trim();
-          const languageCode = languageText.split(' ')[0];
-          // Update the selected language
-          document.querySelectorAll('.current-language').forEach(el => {
-            el.textContent = languageCode;
-          });
-          // Hide the options
-          mobileLanguageOptions.classList.remove('show');
-          mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
-          // Update active class
-          mobileLanguageOptionsList.forEach(opt => opt.classList.remove('active'));
-          this.classList.add('active');
-        });
+    }
+
+    // Mobile Tours Dropdown
+    const mobileToursButton = document.getElementById("mobile-tours-button");
+    const mobileToursContent = document.getElementById("mobile-tours-content");
+    
+    if (mobileToursButton && mobileToursContent) {
+      mobileToursButton.addEventListener("click", () => {
+        mobileToursContent.classList.toggle("hidden");
+        
+        // Toggle chevron rotation
+        const chevron = mobileToursButton.querySelector(".fa-chevron-down");
+        if (chevron) {
+          chevron.classList.toggle("rotate-180");
+        }
       });
-      // Handle language selection in desktop menu
-      const desktopLanguageOptions = document.querySelectorAll('.language-switcher .language-option');
-      desktopLanguageOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          const languageText = this.textContent.trim();
-          const languageCode = languageText.split(' ')[0];
-          // Update the selected language
-          document.querySelectorAll('.current-language').forEach(el => {
-            el.textContent = languageCode;
-          });
-          // Update active class
-          desktopLanguageOptions.forEach(opt => opt.classList.remove('active'));
-          this.classList.add('active');
-        });
+    }
+
+    // Mobile Language Switcher
+    const mobileLangButton = document.getElementById("mobile-language-button");
+    const mobileLangOptions = document.getElementById("mobile-language-options");
+    
+    if (mobileLangButton && mobileLangOptions) {
+      mobileLangButton.addEventListener("click", () => {
+        mobileLangOptions.classList.toggle("show");
+        
+        // Toggle chevron rotation
+        const chevron = mobileLangButton.querySelector(".fa-chevron-down");
+        if (chevron) {
+          chevron.classList.toggle("rotate-180");
+        }
       });
-      // Navbar scroll effect
-      window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 10) {
-          navbar.classList.remove('navbar-default');
-          navbar.classList.add('navbar-scrolled');
+    }
+
+    // Navbar scroll effect
+    const navbar = document.getElementById("navbar");
+    if (navbar) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("navbar-scrolled");
+          navbar.classList.remove("navbar-default");
         } else {
-          navbar.classList.remove('navbar-scrolled');
-          navbar.classList.add('navbar-default');
+          navbar.classList.remove("navbar-scrolled");
+          navbar.classList.add("navbar-default");
         }
       });
+    }
     });
   </script>
 </body>

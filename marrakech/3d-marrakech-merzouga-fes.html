@@ -6,7 +6,6 @@
     <title>3 Jours Desert : Marrakech - Merzouga - Fes | Enjoy Marrakech Tours</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -79,6 +78,10 @@
         #mobile-language-options.show {
             display: block;
         }
+        /* Hide elements that should be translated by attribute */
+        [data-i18n] {
+            /* This is just a placeholder, actual content is replaced by JS */
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -88,45 +91,45 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <a href="/index.html" class="flex items-center">
-                    <img src="/images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
+                    <img src="../images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
                 </a>
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="/index.html"
                         class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
-                        Accueil
+                        <span data-i18n="nav.home">Accueil</span>
                         <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
                     </a>
                     <a href="/about.html"
                         class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
-                        À propos
+                        <span data-i18n="nav.about">À propos</span>
                         <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
                     </a>
                     <!-- Packages Dropdown -->
                     <div class="relative group">
                         <button class="nav-link text-primary font-medium flex items-center hover:text-accent">
-                            Packages
+                            <span data-i18n="nav.packages">Packages</span>
                             <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
                         </button>
                         <div
                             class="absolute left-0 mt-3 w-52 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-accent/20">
-                            <a href="/tours/marrakech.html"
+                            <a href="../tours/marrakech.html"
                                 class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                                From Marrakech
+                                <span data-i18n="nav.from_marrakech">From Marrakech</span>
                             </a>
                             <a href="/tours/fes.html"
                                 class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                                From Fes
+                                <span data-i18n="nav.from_fes">From Fes</span>
                             </a>
                             <a href="#"
                                 class="block px-5 py-3 text-gray-700 hover:bg-accent/10 transition-colors hover:text-accent">
-                                From Casablanca
+                                <span data-i18n="nav.from_casablanca">From Casablanca</span>
                             </a>
                         </div>
                     </div>
                     <a href="/galery.html"
                         class="nav-link text-primary font-medium hover:text-accent transition-colors flex items-center group">
-                        Galerie
+                        <span data-i18n="nav.gallery">Galerie</span>
                         <span class="w-0 h-0.5 bg-accent group-hover:w-10 transition-all ml-2"></span>
                     </a>
                     <!-- Language Switcher -->
@@ -137,15 +140,15 @@
                         </button>
                         <div
                             class="language-options absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl py-1 border border-accent/20">
-                            <div class="language-option active px-4 py-2 cursor-pointer hover:bg-accent/10">
+                            <div class="language-option active px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="fr">
                                 <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French">
                                 Français
                             </div>
-                            <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10">
+                            <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="en">
                                 <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English">
                                 English
                             </div>
-                            <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10">
+                            <div class="language-option px-4 py-2 cursor-pointer hover:bg-accent/10" data-lang="es">
                                 <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish">
                                 Español
                             </div>
@@ -156,7 +159,7 @@
                 <div>
                     <a href="/contact.html"
                         class="hidden md:block bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-all shadow-md hover:shadow-accent/50">
-                        <i class="fas fa-phone mr-2"></i>Contact US
+                        <i class="fas fa-phone mr-2"></i><span data-i18n="nav.contact">Contact US</span>
                     </a>
                     <button id="mobile-menu-button" class="md:hidden text-primary text-2xl">
                         <i class="fas fa-bars"></i>
@@ -168,29 +171,29 @@
         <div id="mobile-menu" class="hidden md:hidden mt-3">
             <div class="flex flex-col space-y-3 px-4 pb-4 bg-white/95 backdrop-blur-sm rounded-lg mx-4">
                 <a href="/index.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
-                    <i class="fas fa-home mr-3 text-accent"></i>Accueil
+                    <i class="fas fa-home mr-3 text-accent"></i><span data-i18n="nav.home">Accueil</span>
                 </a>
                 <a href="/about.html" class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
-                    <i class="fas fa-info-circle mr-3 text-accent"></i>À propos
+                    <i class="fas fa-info-circle mr-3 text-accent"></i><span data-i18n="nav.about">À propos</span>
                 </a>
                 <!-- Mobile Tours Dropdown -->
                 <div class="mobile-tours-dropdown">
                     <button id="mobile-tours-button"
                         class="text-primary font-medium py-3 flex items-center justify-between w-full border-b border-accent/20">
                         <span class="flex items-center">
-                            <i class="fas fa-route mr-3 text-accent"></i>Circuits
+                            <i class="fas fa-route mr-3 text-accent"></i><span data-i18n="nav.tours">Circuits</span>
                         </span>
                         <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div id="mobile-tours-content" class="pl-7 mt-2 hidden dropdown-content">
-                        <a href="/tours/marrakech.html" class="block py-2 text-gray-600 hover:text-accent">Depuis Marrakech</a>
-                        <a href="/tours/fes.html" class="block py-2 text-gray-600 hover:text-accent">Depuis Fès</a>
-                        <a href="/tours/casablanca.html" class="block py-2 text-gray-600 hover:text-accent">Depuis Casablanca</a>
+                        <a href="../tours/marrakech.html" class="block py-2 text-gray-600 hover:text-accent"><span data-i18n="nav.from_marrakech">Depuis Marrakech</span></a>
+                        <a href="/tours/fes.html" class="block py-2 text-gray-600 hover:text-accent"><span data-i18n="nav.from_fes">Depuis Fès</span></a>
+                        <a href="/tours/casablanca.html" class="block py-2 text-gray-600 hover:text-accent"><span data-i18n="nav.from_casablanca">Depuis Casablanca</span></a>
                     </div>
                 </div>
                 <a href="/galery.html"
                     class="text-primary font-medium py-3 flex items-center border-b border-accent/20">
-                    <i class="fas fa-image mr-3 text-accent"></i>Galerie
+                    <i class="fas fa-image mr-3 text-accent"></i><span data-i18n="nav.gallery">Galerie</span>
                 </a>
                 <!-- Mobile Language -->
                 <div class="language-switcher mt-3 py-2 border-t border-accent/20">
@@ -201,15 +204,15 @@
                         <i class="fas fa-chevron-down ml-2 text-xs"></i>
                     </button>
                     <div id="mobile-language-options" class="language-options mt-2">
-                        <div class="language-option active p-2 hover:bg-accent/10 cursor-pointer">
+                        <div class="language-option active p-2 hover:bg-accent/10 cursor-pointer" data-lang="fr">
                             <img src="https://flagcdn.com/w20/fr.png" class="inline mr-2" alt="French">
                             Français
                         </div>
-                        <div class="language-option p-2 hover:bg-accent/10 cursor-pointer">
+                        <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="en">
                             <img src="https://flagcdn.com/w20/us.png" class="inline mr-2" alt="English">
                             English
                         </div>
-                        <div class="language-option p-2 hover:bg-accent/10 cursor-pointer">
+                        <div class="language-option p-2 hover:bg-accent/10 cursor-pointer" data-lang="es">
                             <img src="https://flagcdn.com/w20/es.png" class="inline mr-2" alt="Spanish">
                             Español
                         </div>
@@ -217,7 +220,7 @@
                 </div>
                 <a href="/contact.html"
                     class="mt-3 bg-accent text-white px-5 py-3 rounded-lg font-medium text-center transition-all hover:bg-accent/90">
-                    <i class="fas fa-calendar-check mr-2"></i>Contactez-nous
+                    <i class="fas fa-calendar-check mr-2"></i><span data-i18n="nav.contact_mobile">Contactez-nous</span>
                 </a>
             </div>
         </div>
@@ -245,21 +248,21 @@
                     <!-- Main Title -->
                     <div class="space-y-8">
                         <h1 class="text-6xl md:text-8xl font-black leading-none">
-                            <span class="block text-white/90 mb-4">Circuit de</span>
+                            <span class="block text-white/90 mb-4" data-i18n="hero.title_part1">Circuit de</span>
                             <span class="block relative mb-6">
                                 <span
-                                    class="bg-gradient-to-r from-[#F2D04E] via-yellow-300 to-[#F2D04E] bg-clip-text text-transparent">
+                                    class="bg-gradient-to-r from-[#F2D04E] via-yellow-300 to-[#F2D04E] bg-clip-text text-transparent" data-i18n="hero.title_days">
                                     3 JOURS
                                 </span>
                                 <div
                                     class="absolute -inset-4 bg-gradient-to-r from-[#F2D04E]/20 to-transparent blur-2xl -z-10 animate-pulse">
                                 </div>
                             </span>
-                            <span class="block text-white/70 text-4xl md:text-5xl font-medium">
+                            <span class="block text-white/70 text-4xl md:text-5xl font-medium" data-i18n="hero.title_route">
                                 Marrakech - Merzouga - Fès
                             </span>
                         </h1>
-                        <p class="text-2xl md:text-3xl text-gray-200 leading-relaxed max-w-2xl">
+                        <p class="text-2xl md:text-3xl text-gray-200 leading-relaxed max-w-2xl" data-i18n="hero.description">
                             Un voyage épique à travers les montagnes de l'Atlas, les gorges du Todra et les dunes dorées du Sahara, jusqu'à la ville impériale de Fès.
                         </p>
                     </div>
@@ -271,14 +274,14 @@
                                 <path
                                     d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
                             </svg>
-                            <span class="font-semibold">Sites UNESCO</span>
+                            <span class="font-semibold" data-i18n="hero.feature_unesco">Sites UNESCO</span>
                         </div>
                         <div
                             class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
                             <svg class="w-5 h-5 mr-3 text-[#F2D04E]" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z" />
                             </svg>
-                            <span class="font-semibold">Camp de Luxe</span>
+                            <span class="font-semibold" data-i18n="hero.feature_luxury">Camp de Luxe</span>
                         </div>
                         <div
                             class="flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all">
@@ -286,12 +289,11 @@
                                 <path
                                     d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                             </svg>
-                            <span class="font-semibold">Guide Expert</span>
+                            <span class="font-semibold" data-i18n="hero.feature_guide">Guide Expert</span>
                         </div>
                     </div>
                     <!-- Enhanced CTA Section -->
                     <div class="flex flex-col sm:flex-row items-start gap-8">
-                        
                         <div class="flex-1 space-y-4">
                             <a href="#reservation">
                             <button
@@ -300,7 +302,7 @@
                                     class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000">
                                 </div>
                                 <span class="flex items-center justify-center relative z-10">
-                                    Réserver maintenant
+                                    <span data-i18n="hero.cta">Réserver maintenant</span>
                                     <svg class="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" fill="none"
                                         stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -310,10 +312,10 @@
                             </button>
                         </a>
                             <div class="text-center space-y-2">
-                                <div class="text-lg text-[#F2D04E] font-semibold">
+                                <div class="text-lg text-[#F2D04E] font-semibold" data-i18n="hero.confirmation">
                                     ✨ Confirmation immédiate
                                 </div>
-                                <div class="text-sm text-gray-300">
+                                <div class="text-sm text-gray-300" data-i18n="hero.disclaimer">
                                     Sans frais cachés • Annulation flexible
                                 </div>
                             </div>
@@ -326,7 +328,7 @@
                     <div class="relative">
                         <div
                             class="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-700">
-                            <img src="/images/Merzouga.jpg"
+                            <img src="../images/Merzouga.jpg"
                                 alt="Dunes du Sahara Merzouga" class="w-full h-[500px] object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
                             </div>
@@ -338,10 +340,10 @@
                                             d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
                                             clip-rule="evenodd" />
                                     </svg>
-                                    <span class="text-lg font-medium">Erg Chebbi, Maroc</span>
+                                    <span class="text-lg font-medium" data-i18n="hero.location">Erg Chebbi, Maroc</span>
                                 </div>
-                                <h3 class="text-3xl font-bold mb-3">Dunes de Merzouga</h3>
-                                <p class="text-lg opacity-90">Le joyau du désert marocain</p>
+                                <h3 class="text-3xl font-bold mb-3" data-i18n="hero.image_title">Dunes de Merzouga</h3>
+                                <p class="text-lg opacity-90" data-i18n="hero.image_subtitle">Le joyau du désert marocain</p>
                             </div>
                         </div>
                         <!-- Enhanced Floating Cards -->
@@ -353,31 +355,31 @@
                                     <span class="text-[#24441B] font-black text-2xl">3</span>
                                 </div>
                                 <div>
-                                    <div class="font-black text-[#24441B] text-xl">Jours</div>
-                                    <div class="text-[#24441B]/60">D'aventure</div>
+                                    <div class="font-black text-[#24441B] text-xl" data-i18n="hero.days_label">Jours</div>
+                                    <div class="text-[#24441B]/60" data-i18n="hero.days_desc">D'aventure</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-6 mt-12">
                         <div class="relative group overflow-hidden rounded-3xl shadow-xl">
-                            <img src="/images/aitbenhaddou.jpg"
+                            <img src="../images/aitbenhaddou.jpg"
                                 alt="Kasbah Ait Benhaddou"
                                 class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div class="absolute bottom-4 left-4 text-white">
-                                <div class="text-sm font-bold mb-1">Jour 1</div>
-                                <div class="text-xs opacity-90">Kasbah UNESCO</div>
+                                <div class="text-sm font-bold mb-1" data-i18n="hero.day1_label">Jour 1</div>
+                                <div class="text-xs opacity-90" data-i18n="hero.day1_desc">Kasbah UNESCO</div>
                             </div>
                         </div>
                         <div class="relative group overflow-hidden rounded-3xl shadow-xl">
-                            <img src="/images/merzouga night.jpg"
+                            <img src="../images/merzouga night.jpg"
                                 alt="Campement désert"
                                 class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div class="absolute bottom-4 left-4 text-white">
-                                <div class="text-sm font-bold mb-1">Nuit magique</div>
-                                <div class="text-xs opacity-90">Camp luxe</div>
+                                <div class="text-sm font-bold mb-1" data-i18n="hero.night_label">Nuit magique</div>
+                                <div class="text-xs opacity-90" data-i18n="hero.night_desc">Camp luxe</div>
                             </div>
                         </div>
                     </div>
@@ -400,262 +402,110 @@
             </div>
         </div>
     </section>
-    <!-- Inclusions/Exclusions Section -->
     <section class="py-20 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
-        <!-- Animated Background Elements -->
-        <div class="absolute inset-0">
-            <div
-                class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/5 to-transparent rounded-full blur-3xl animate-pulse">
+    <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#F2D04E]/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div class="absolute top-10 right-1/3 w-2 h-2 bg-[#F2D04E] rounded-full animate-bounce"></div>
+        <div class="absolute bottom-20 left-1/3 w-3 h-3 bg-[#24441B]/30 rounded-full animate-pulse delay-500"></div>
+    </div>
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-20">
+            <div class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-8 py-4 rounded-full mb-8 border border-[#F2D04E]/30">
+                <svg class="w-6 h-6 text-[#F2D04E] mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+                <span class="text-[#24441B] font-bold uppercase tracking-wider" data-i18n="inclusion.transparency">Transparence totale</span>
             </div>
-            <div
-                class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-[#24441B]/5 to-transparent rounded-full blur-3xl animate-pulse delay-1000">
-            </div>
-            <div class="absolute top-10 right-1/3 w-2 h-2 bg-[#F2D04E] rounded-full animate-bounce"></div>
-            <div class="absolute bottom-20 left-1/3 w-3 h-3 bg-[#24441B]/30 rounded-full animate-pulse delay-500"></div>
-        </div>
-        <div class="container mx-auto px-6 relative z-10">
-            <!-- Enhanced Header -->
-            <div class="text-center mb-20">
-                <div
-                    class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-8 py-4 rounded-full mb-8 border border-[#F2D04E]/30">
-                    <svg class="w-6 h-6 text-[#F2D04E] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                    </svg>
-                    <span class="text-[#24441B] font-bold uppercase tracking-wider">Transparence totale</span>
-                </div>
-                <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-8 leading-tight">
-                    Votre voyage
-                    <span class="relative">
-                        <span class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">tout
-                            compris</span>
-                        <div
-                            class="absolute -bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg">
-                        </div>
-                    </span>
-                </h2>
-                <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed">
-                    Découvrez exactement ce qui est inclus dans votre aventure et ce qu'il faut prévoir en plus.
-                    Aucune surprise, que de la transparence.
-                </p>
-            </div>
-            <!-- Main Content Grid -->
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-3 gap-8 mb-16">
-                    <!-- Included Section -->
-                    <div class="lg:col-span-2">
-                        <div
-                            class="bg-gradient-to-br from-green-50 to-[#F2D04E]/10 rounded-3xl p-8 border-2 border-green-200/50 relative overflow-hidden shadow-xl">
-                            <!-- Decorative Elements -->
-                            <div
-                                class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[#F2D04E]/20 to-green-200/20 rounded-full">
+            <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-8 leading-tight">
+                <span data-i18n="inclusion.title_main">Votre journée</span>
+                <span class="relative">
+                    <span class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="inclusion.title">tout compris</span>
+                    <div class="absolute -bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg"></div>
+                </span>
+            </h2>
+            <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed" data-i18n="inclusion.subtitle">
+                Découvrez ce qui est inclus dans votre escapade à Ait Ben Haddou et ce qu'il faut prévoir.
+                                <div class="flex items-center">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-[#24441B] to-green-700 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                                        <svg class="w-8 h-8 text-[#F2D04E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-3xl font-black text-[#24441B] mb-1" data-i18n="inclusion.included">Tout inclus</h3>
+                                        <p class="text-green-700 font-semibold" data-i18n="inclusion.included_sub">Votre journée sans souci</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div
-                                class="absolute -bottom-5 -left-5 w-20 h-20 bg-gradient-to-tr from-green-200/30 to-[#F2D04E]/20 rounded-full">
-                            </div>
-                            <div class="relative z-10">
-                                <!-- Header -->
-                                <div class="flex items-center justify-between mb-8">
-                                    <div class="flex items-center">
-                                        <div
-                                            class="w-16 h-16 bg-gradient-to-br from-[#24441B] to-green-700 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                                            <svg class="w-8 h-8 text-[#F2D04E]" fill="none" stroke="currentColor"
-                                                viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                                    d="M5 13l4 4L19 7"></path>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="text-3xl font-black text-[#24441B] mb-1">Tout inclus</h3>
-                                            <p class="text-green-700 font-semibold">Votre aventure sans souci</p>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.guide">Guide expert privé</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.guide_desc">Guide francophone certifié pour une immersion historique</p>
                                         </div>
                                     </div>
-                                    <div
-                                        class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] text-[#24441B] px-6 py-3 rounded-2xl font-black text-lg shadow-lg">
-                                        500€ de valeur
-                                    </div>
-                                </div>
-                                <!-- Features Grid -->
-                                <div class="grid md:grid-cols-2 gap-6">
-                                    <div class="space-y-4">
-                                        <div
-                                            class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                            <div
-                                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                                <svg class="w-6 h-6 text-[#24441B]" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-[#24441B] text-lg mb-2">Hébergements</h4>
-                                                <p class="text-[#24441B]/70 text-sm leading-relaxed">Riad authentique + Hôtel 4* + Camp de luxe dans le désert</p>
-                                            </div>
+                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 8a3 3 0 103-3m-3 3a3 3 0 00-3-3m3 3v6m-9 1v-6a3 3 0 013-3 3 3 0 013 3"/>
+                                            </svg>
                                         </div>
-                                        <div
-                                            class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                            <div
-                                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                                <svg class="w-6 h-6 text-[#24441B]" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-[#24441B] text-lg mb-2">Guide Expert</h4>
-                                                <p class="text-[#24441B]/70 text-sm leading-relaxed">Guide francophone privé et expérimenté pour tout le circuit</p>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                            <div
-                                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                                <svg class="w-6 h-6 text-[#24441B]" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-[#24441B] text-lg mb-2">Transport</h4>
-                                                <p class="text-[#24441B]/70 text-sm leading-relaxed">4x4 climatisé privé avec chauffeur expérimenté, essence et péages inclus</p>
-                                            </div>
+                                        <div>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.transport">Transport premium</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.transport_desc">4x4 climatisé aller-retour depuis Marrakech</p>
                                         </div>
                                     </div>
-                                    <div class="space-y-4">
-                                        <div
-                                            class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                            <div
-                                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                                <svg class="w-6 h-6 text-[#24441B]" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-[#24441B] text-lg mb-2">Petits-déjeuners</h4>
-                                                <p class="text-[#24441B]/70 text-sm leading-relaxed">Servis chaque matin dans votre hébergement</p>
-                                            </div>
+                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                            </svg>
                                         </div>
-                                        <div
-                                            class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                            <div
-                                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                                <svg class="w-6 h-6 text-[#24441B]" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-[#24441B] text-lg mb-2">Expériences Uniques</h4>
-                                                <p class="text-[#24441B]/70 text-sm leading-relaxed">Balade à dos de dromadaire, coucher et lever de soleil sur les dunes, dîner berbère sous les étoiles</p>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
-                                            <div
-                                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
-                                                <svg class="w-6 h-6 text-[#24441B]" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
-                                                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-bold text-[#24441B] text-lg mb-2">Entrées & Visites</h4>
-                                                <p class="text-[#24441B]/70 text-sm leading-relaxed">Tous les sites mentionnés dans l'itinéraire (Kasbahs, Gorges)</p>
-                                            </div>
+                                        <div>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.visits">Visites guidées</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.visits_desc">Kasbah UNESCO et village historique</p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Not Included Sidebar -->
-                    <div class="lg:col-span-1">
-                        <div
-                            class="bg-gradient-to-b from-gray-100 to-gray-50 rounded-3xl p-8 border-2 border-gray-200/50 shadow-xl sticky top-8">
-                            <!-- Header -->
-                            <div class="flex items-center mb-8">
-                                <div
-                                    class="w-14 h-14 bg-gradient-to-br from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-black text-gray-700 mb-1">À prévoir</h3>
-                                    <p class="text-gray-500 font-semibold text-sm">Budget supplémentaire</p>
-                                </div>
-                            </div>
-                            <!-- Not Included Items -->
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                    <div
-                                        class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z" />
-                                        </svg>
+                                <div class="space-y-4">
+                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.free_time">Temps libre</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.free_time_desc">Explorez le village ou les boutiques locales</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-700 text-sm">Vols internationaux</h4>
-                                        <p class="text-xs text-gray-500">Selon votre ville de départ</p>
+                                    <div class="group flex items-start bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white/80 hover:bg-white/80 hover:shadow-lg transition-all duration-300">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shadow-md">
+                                            <svg class="w-6 h-6 text-[#24441B]" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-[#24441B] text-lg mb-2" data-i18n="inclusion.drinks">Boissons non alcoolisées</h4>
+                                            <p class="text-[#24441B]/70 text-sm leading-relaxed" data-i18n="inclusion.drinks_desc">Eau et thé à la menthe offerts pendant la journée</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                    <div
-                                        class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                            <path
-                                                d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-700 text-sm">Repas principaux</h4>
-                                        <p class="text-xs text-gray-500">Déjeuners et dîners: 20-35€/repas</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start bg-white/80 p-4 rounded-xl border border-gray-200/50">
-                                    <div
-                                        class="w-8 h-8 bg-gray-400 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                            <path
-                                                d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm5 3a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V7zM4 9a1 1 0 011-1h1a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1V9zm10-1a1 1 0 011 1v3a1 1 0 01-1 1h-1a1 1 0 01-1-1V9a1 1 0 011-1h1z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-700 text-sm">Dépenses personnelles</h4>
-                                        <p class="text-xs text-gray-500">Boissons, pourboires, souvenirs</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Budget Info -->
-                            <div
-                                class="bg-gradient-to-r from-orange-100 to-yellow-100 p-6 rounded-2xl border-2 border-orange-200/50">
-                                <div class="flex items-center text-orange-700 mb-3">
-                                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span class="font-bold text-lg">Budget conseillé</span>
-                                </div>
-                                <div class="text-2xl font-black text-orange-800 mb-2">150-200€</div>
-                                <p class="text-sm text-orange-600">Pour 3 jours de confort total</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Enhanced CTA Section -->
             </div>
         </div>
-    </section>
+    </div>
+</section>
     <section class="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0">
@@ -671,22 +521,22 @@
                     class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-[#F2D04E]/30">
                     <svg class="w-5 h-5 text-[#F2D04E] mr-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.45L11 9.586V6z"
                             clip-rule="evenodd" />
                     </svg>
-                    <span class="text-[#24441B] font-semibold uppercase tracking-wider text-sm">Votre Aventure</span>
+                    <span class="text-[#24441B] font-semibold uppercase tracking-wider text-sm" data-i18n="itinerary.header_tag">Votre Aventure</span>
                 </div>
                 <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-6 leading-tight">
-                    3 Jours d'
+                    <span data-i18n="itinerary.title_main">3 Jours d'</span>
                     <span class="relative">
                         <span
-                            class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">Évasion</span>
+                            class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="itinerary.title_adventure">Évasion</span>
                         <div
                             class="absolute -bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform -rotate-1 rounded-lg">
                         </div>
                     </span>
                 </h2>
-                <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed mb-8">
+                <p class="text-xl text-[#24441B]/70 max-w-3xl mx-auto leading-relaxed mb-8" data-i18n="itinerary.description">
                     Un voyage soigneusement orchestré à travers les paysages les plus spectaculaires du Maroc,
                     de Marrakech aux dunes dorées du Sahara, jusqu'à la ville impériale de Fès.
                 </p>
@@ -697,7 +547,7 @@
                             class="w-16 h-16 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center mb-3 shadow-lg">
                             <span class="text-2xl font-black text-[#24441B]">3</span>
                         </div>
-                        <div class="text-sm font-semibold text-[#24441B]">Jours</div>
+                        <div class="text-sm font-semibold text-[#24441B]" data-i18n="itinerary.days_label">Jours</div>
                     </div>
                     <div class="flex-1 h-px bg-gradient-to-r from-transparent via-[#F2D04E]/50 to-transparent max-w-xs">
                     </div>
@@ -710,7 +560,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <div class="text-sm font-semibold text-[#24441B]">Sites</div>
+                        <div class="text-sm font-semibold text-[#24441B]" data-i18n="itinerary.sites_label">Sites</div>
                     </div>
                     <div class="flex-1 h-px bg-gradient-to-r from-transparent via-[#F2D04E]/50 to-transparent max-w-xs">
                     </div>
@@ -719,7 +569,7 @@
                             class="w-16 h-16 bg-gradient-to-br from-[#F2D04E] to-[#e0c03c] rounded-2xl flex items-center justify-center mb-3 shadow-lg">
                             <span class="text-xl">⭐</span>
                         </div>
-                        <div class="text-sm font-semibold text-[#24441B]">Souvenirs</div>
+                        <div class="text-sm font-semibold text-[#24441B]" data-i18n="itinerary.memories_label">Souvenirs</div>
                     </div>
                 </div>
             </div>
@@ -747,7 +597,7 @@
                                     <div class="relative z-10">
                                         <div class="flex items-center justify-between mb-4">
                                             <span
-                                                class="bg-[#F2D04E] text-[#24441B] px-4 py-2 rounded-full font-bold text-sm">JOUR
+                                                class="bg-[#F2D04E] text-[#24441B] px-4 py-2 rounded-full font-bold text-sm" data-i18n="itinerary.day1_badge">JOUR
                                                 1</span>
                                             <div class="flex items-center text-[#24441B]/60 text-sm">
                                                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -755,31 +605,31 @@
                                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
                                                         clip-rule="evenodd" />
                                                 </svg>
-                                                8h de route
+                                                <span data-i18n="itinerary.day1_duration">8h de route</span>
                                             </div>
                                         </div>
-                                        <h3 class="text-2xl font-bold text-[#24441B] mb-4">
+                                        <h3 class="text-2xl font-bold text-[#24441B] mb-4" data-i18n="itinerary.day1_title">
                                             Marrakech - Ait Benhaddou - Ouarzazate - Vallée des Roses - Boumalne Dades
                                         </h3>
-                                        <p class="text-[#24441B]/70 leading-relaxed mb-6">
+                                        <p class="text-[#24441B]/70 leading-relaxed mb-6" data-i18n="itinerary.day1_desc">
                                             Départ matinal de Marrakech. Traversée des montagnes de l'Atlas via le col de Tizi’n Tichka (2260m) avec arrêts panoramiques. Visite de la célèbre Kasbah d’Ait Benhaddou, site classé UNESCO et décor de nombreux films. Continuation vers Ouarzazate, la "Hollywood du Maroc", puis traversée de la Vallée des Roses. Nuit à Boumalne Dades.
                                         </p>
                                         <div class="space-y-3">
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Passage du col de Tizi n'Tichka
+                                                <span data-i18n="itinerary.day1_point1">Passage du col de Tizi n'Tichka</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Visite de la Kasbah d'Ait Benhaddou (UNESCO)
+                                                <span data-i18n="itinerary.day1_point2">Visite de la Kasbah d'Ait Benhaddou (UNESCO)</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Découverte d'Ouarzazate et de la Vallée des Roses
+                                                <span data-i18n="itinerary.day1_point3">Découverte d'Ouarzazate et de la Vallée des Roses</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Nuit à Boumalne Dades
+                                                <span data-i18n="itinerary.day1_point4">Nuit à Boumalne Dades</span>
                                             </div>
                                         </div>
                                     </div>
@@ -794,12 +644,12 @@
                             <div class="relative">
                                 <div
                                     class="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                                    <img src="/images/aitbenhaddou.jpg" alt="Kasbah Ait Benhaddou"
+                                    <img src="../images/aitbenhaddou.jpg" alt="Kasbah Ait Benhaddou"
                                         class="w-full h-80 object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                     <div class="absolute bottom-6 left-6 text-white">
-                                        <div class="text-lg font-bold">Kasbah Ait Benhaddou</div>
-                                        <div class="text-sm opacity-80">Site UNESCO</div>
+                                        <div class="text-lg font-bold" data-i18n="itinerary.day1_img_title">Kasbah Ait Benhaddou</div>
+                                        <div class="text-sm opacity-80" data-i18n="itinerary.day1_img_subtitle">Site UNESCO</div>
                                     </div>
                                 </div>
                             </div>
@@ -812,12 +662,12 @@
                             <div class="relative lg:order-1">
                                 <div
                                     class="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                                    <img src="/images/Merzouga.jpg" alt="Désert Merzouga"
+                                    <img src="../images/Merzouga.jpg" alt="Désert Merzouga"
                                         class="w-full h-80 object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                     <div class="absolute bottom-6 left-6 text-white">
-                                        <div class="text-lg font-bold">Dunes de Merzouga</div>
-                                        <div class="text-sm opacity-80">Sahara Desert</div>
+                                        <div class="text-lg font-bold" data-i18n="itinerary.day2_img_title">Dunes de Merzouga</div>
+                                        <div class="text-sm opacity-80" data-i18n="itinerary.day2_img_subtitle">Sahara Desert</div>
                                     </div>
                                 </div>
                             </div>
@@ -840,37 +690,37 @@
                                     <div class="relative z-10">
                                         <div class="flex items-center justify-between mb-4">
                                             <span
-                                                class="bg-gradient-to-r from-[#24441B] to-[#2d5422] text-white px-4 py-2 rounded-full font-bold text-sm">JOUR
+                                                class="bg-gradient-to-r from-[#24441B] to-[#2d5422] text-white px-4 py-2 rounded-full font-bold text-sm" data-i18n="itinerary.day2_badge">JOUR
                                                 2</span>
                                             <div class="flex items-center text-[#24441B]/60 text-sm">
                                                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                                     <path d="M10 2L3 7v11a2 2 0 002 2h4v-6h4v6h4a2 2 0 002-2V7l-7-5z" />
                                                 </svg>
-                                                Nuit au désert
+                                                <span data-i18n="itinerary.day2_night">Nuit au désert</span>
                                             </div>
                                         </div>
-                                        <h3 class="text-2xl font-bold text-[#24441B] mb-4">
+                                        <h3 class="text-2xl font-bold text-[#24441B] mb-4" data-i18n="itinerary.day2_title">
                                             Boumalne Dades - Gorges du Todra - Tinjdad - Merzouga - Balade à Dromadaire
                                         </h3>
-                                        <p class="text-[#24441B]/70 leading-relaxed mb-6">
+                                        <p class="text-[#24441B]/70 leading-relaxed mb-6" data-i18n="itinerary.day2_desc">
                                             Départ vers les Gorges du Todra, un canyon spectaculaire de 300 mètres de hauteur. Après le déjeuner à Tinjdad, continuation vers Merzouga. À l'approche des dunes, vous troquerez la voiture pour un dromadaire et traverserez les dunes dorées jusqu'au camp de luxe pour admirer le coucher de soleil. Nuit sous les étoiles dans un camp berbère de luxe.
                                         </p>
                                         <div class="space-y-3">
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Découverte des Gorges du Todra
+                                                <span data-i18n="itinerary.day2_point1">Découverte des Gorges du Todra</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Arrivée à Merzouga, porte du désert
+                                                <span data-i18n="itinerary.day2_point2">Arrivée à Merzouga, porte du désert</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Balade à dos de dromadaire au coucher du soleil
+                                                <span data-i18n="itinerary.day2_point3">Balade à dos de dromadaire au coucher du soleil</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Nuit en camp de luxe dans les dunes
+                                                <span data-i18n="itinerary.day2_point4">Nuit en camp de luxe dans les dunes</span>
                                             </div>
                                         </div>
                                     </div>
@@ -895,38 +745,38 @@
                                     <div class="relative z-10">
                                         <div class="flex items-center justify-between mb-4">
                                             <span
-                                                class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] text-[#24441B] px-4 py-2 rounded-full font-bold text-sm">JOUR
+                                                class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] text-[#24441B] px-4 py-2 rounded-full font-bold text-sm" data-i18n="itinerary.day3_badge">JOUR
                                                 3</span>
                                             <div class="flex items-center text-[#24441B]/60 text-sm">
                                                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                                     <path
                                                         d="M12 3v10.586l-4-4L6.586 11 12 16.414 17.414 11 16 9.586l-4 4V3z" />
                                                 </svg>
-                                                Route vers Fès
+                                                <span data-i18n="itinerary.day3_direction">Route vers Fès</span>
                                             </div>
                                         </div>
-                                        <h3 class="text-2xl font-bold text-[#24441B] mb-4">
+                                        <h3 class="text-2xl font-bold text-[#24441B] mb-4" data-i18n="itinerary.day3_title">
                                             Merzouga - Vallée du Ziz - Midelt - Ifrane - Fès
                                         </h3>
-                                        <p class="text-[#24441B]/70 leading-relaxed mb-6">
+                                        <p class="text-[#24441B]/70 leading-relaxed mb-6" data-i18n="itinerary.day3_desc">
                                             Lever tôt pour admirer le magnifique lever de soleil sur les dunes. Petit-déjeuner au camp, puis retour en 4x4. Traversée de la vallée du Ziz avec ses palmeraies. Déjeuner à Midelt, la capitale de la pomme. Passage par Ifrane, surnommée la "Suisse marocaine". Arrivée en fin d'après-midi à Fès, où vous serez déposé à votre hébergement.
                                         </p>
                                         <div class="space-y-3">
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Lever de soleil sur les dunes d'Erg Chebbi
+                                                <span data-i18n="itinerary.day3_point1">Lever de soleil sur les dunes d'Erg Chebbi</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Traversée de la Vallée du Ziz et arrêt à Midelt
+                                                <span data-i18n="itinerary.day3_point2">Traversée de la Vallée du Ziz et arrêt à Midelt</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Passage par Ifrane, ville aux allures européennes
+                                                <span data-i18n="itinerary.day3_point3">Passage par Ifrane, ville aux allures européennes</span>
                                             </div>
                                             <div class="flex items-center text-sm text-[#24441B]/80">
                                                 <div class="w-2 h-2 bg-[#F2D04E] rounded-full mr-3"></div>
-                                                Arrivée à Fès en fin de journée
+                                                <span data-i18n="itinerary.day3_point4">Arrivée à Fès en fin de journée</span>
                                             </div>
                                         </div>
                                     </div>
@@ -945,8 +795,8 @@
                                         alt="Ifrane Morocco" class="w-full h-80 object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                     <div class="absolute bottom-6 left-6 text-white">
-                                        <div class="text-lg font-bold">Ifrane</div>
-                                        <div class="text-sm opacity-80">La Suisse marocaine</div>
+                                        <div class="text-lg font-bold" data-i18n="itinerary.day3_img_title">Ifrane</div>
+                                        <div class="text-sm opacity-80" data-i18n="itinerary.day3_img_subtitle">La Suisse marocaine</div>
                                     </div>
                                 </div>
                             </div>
@@ -981,20 +831,20 @@
                             <div
                                 class="inline-flex items-center bg-[#F2D04E]/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-[#F2D04E]/30">
                                 <div class="w-3 h-3 bg-[#F2D04E] rounded-full mr-3 animate-pulse"></div>
-                                <span class="text-[#24441B] font-semibold text-sm uppercase tracking-wider">Réservation
+                                <span class="text-[#24441B] font-semibold text-sm uppercase tracking-wider" data-i18n="booking.header_tag">Réservation
                                     Express</span>
                             </div>
                             <h2 class="text-5xl md:text-6xl font-black text-[#24441B] mb-6 leading-tight">
-                                Partez à l'
+                                <span data-i18n="booking.title_main">Partez à l'</span>
                                 <span class="relative inline-block">
                                     <span
-                                        class="relative z-10 bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent">aventure</span>
+                                        class="relative z-10 bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] bg-clip-text text-transparent" data-i18n="booking.title_adventure">aventure</span>
                                     <div
                                         class="absolute bottom-2 left-0 right-0 h-4 bg-[#F2D04E]/30 transform rotate-1 rounded-lg">
                                     </div>
                                 </span>
                             </h2>
-                            <p class="text-xl text-[#24441B]/70 leading-relaxed mb-8">
+                            <p class="text-xl text-[#24441B]/70 leading-relaxed mb-8" data-i18n="booking.description">
                                 Réservez votre expérience inoubliable de Marrakech à Fès via le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.
                             </p>
                         </div>
@@ -1010,8 +860,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-[#24441B] mb-2">Confirmation instantanée</h3>
-                                    <p class="text-[#24441B]/60">Réponse garantie sous 2 heures, même le weekend</p>
+                                    <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="booking.feature1_title">Confirmation instantanée</h3>
+                                    <p class="text-[#24441B]/60" data-i18n="booking.feature1_desc">Réponse garantie sous 2 heures, même le weekend</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4 group">
@@ -1023,8 +873,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-[#24441B] mb-2">Accompagnement premium</h3>
-                                    <p class="text-[#24441B]/60">Guide expert et service personnalisé 24/7</p>
+                                    <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="booking.feature2_title">Accompagnement premium</h3>
+                                    <p class="text-[#24441B]/60" data-i18n="booking.feature2_desc">Guide expert et service personnalisé 24/7</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4 group">
@@ -1037,8 +887,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-[#24441B] mb-2">Flexibilité totale</h3>
-                                    <p class="text-[#24441B]/60">Modification gratuite jusqu'à 48h avant le départ</p>
+                                    <h3 class="text-xl font-bold text-[#24441B] mb-2" data-i18n="booking.feature3_title">Flexibilité totale</h3>
+                                    <p class="text-[#24441B]/60" data-i18n="booking.feature3_desc">Modification gratuite jusqu'à 48h avant le départ</p>
                                 </div>
                             </div>
                         </div>
@@ -1048,16 +898,15 @@
   <div class="absolute bottom-0 left-0 w-24 h-24 bg-[#F2D04E]/20 rounded-full translate-y-12 -translate-x-12"></div>
   <div class="relative z-10">
     <div class="flex items-center justify-between mb-4">
-      <span class="text-[#F2D04E] font-semibold">Points forts du circuit</span>
-      <span class="text-sm opacity-75">Expérience unique</span>
+      <span class="text-[#F2D04E] font-semibold" data-i18n="booking.highlight_tag">Points forts du circuit</span>
+      <span class="text-sm opacity-75" data-i18n="booking.highlight_type">Expérience unique</span>
     </div>
-    <div class="text-2xl font-bold text-[#F2D04E] mb-2">Culture • Désert • Océan</div>
-    <p class="text-sm opacity-80">
+    <div class="text-2xl font-bold text-[#F2D04E] mb-2" data-i18n="booking.highlight_features">Culture • Désert • Océan</div>
+    <p class="text-sm opacity-80" data-i18n="booking.highlight_desc">
       Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.
     </p>
   </div>
 </div>
-
                     </div>
                     <!-- Right Side - Form -->
                     <div class="relative">
@@ -1065,7 +914,7 @@
                             <!-- Form Progress -->
                             <div class="bg-gradient-to-r from-[#F2D04E]/10 to-[#F2D04E]/5 p-6 border-b border-gray-100">
                                 <div class="flex items-center justify-between">
-                                    <h3 class="text-2xl font-bold text-[#24441B]">Détails de réservation</h3>
+                                    <h3 class="text-2xl font-bold text-[#24441B]" data-i18n="booking.form_title">Détails de réservation</h3>
                                     <div class="flex items-center space-x-2">
                                         <div class="w-2 h-2 bg-[#F2D04E] rounded-full"></div>
                                         <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
@@ -1079,7 +928,7 @@
                                     <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
                                         <span
                                             class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">1</span>
-                                        Sélection rapide
+                                        <span data-i18n="booking.form_section1">Sélection rapide</span>
                                     </h4>
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="relative">
@@ -1087,7 +936,7 @@
                                                 class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium text-center text-2xl"
                                                 placeholder="1" value="1">
                                             <label
-                                                class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
+                                                class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm" data-i18n="booking.form_guests_label">
                                                 Voyageurs
                                             </label>
                                         </div>
@@ -1095,7 +944,7 @@
                                             <input type="date" id="date" name="date"
                                                 class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all bg-gray-50 focus:bg-white text-[#24441B] font-medium">
                                             <label
-                                                class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm">
+                                                class="absolute -top-2 left-4 bg-white px-2 text-[#24441B] font-medium text-sm" data-i18n="booking.form_date_label">
                                                 Date de départ
                                             </label>
                                         </div>
@@ -1106,7 +955,7 @@
                                     <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
                                         <span
                                             class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">2</span>
-                                        Vos coordonnées
+                                        <span data-i18n="booking.form_section2">Vos coordonnées</span>
                                     </h4>
                                     <div class="space-y-6">
                                         <div class="relative group">
@@ -1114,7 +963,7 @@
                                                 class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium"
                                                 placeholder=" ">
                                             <label for="fullname"
-                                                class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
+                                                class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="booking.form_name_label">
                                                 Nom complet *
                                             </label>
                                             <div
@@ -1132,7 +981,7 @@
                                                     class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium"
                                                     placeholder=" ">
                                                 <label for="email2"
-                                                    class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
+                                                    class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="booking.form_email_label">
                                                     Email *
                                                 </label>
                                             </div>
@@ -1141,7 +990,7 @@
                                                     class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#F2D04E] transition-all peer bg-gray-50 focus:bg-white text-[#24441B] font-medium"
                                                     placeholder=" ">
                                                 <label for="phone2"
-                                                    class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold">
+                                                    class="absolute left-6 top-4 text-[#24441B]/60 transition-all duration-300 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:text-[#F2D04E] peer-focus:font-semibold peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-[#F2D04E] peer-[:not(:placeholder-shown)]:font-semibold" data-i18n="booking.form_phone_label">
                                                     Téléphone *
                                                 </label>
                                             </div>
@@ -1153,7 +1002,7 @@
                                     <h4 class="text-lg font-semibold text-[#24441B] mb-4 flex items-center">
                                         <span
                                             class="w-6 h-6 bg-[#F2D04E] rounded-full text-[#24441B] text-sm font-bold flex items-center justify-center mr-3">3</span>
-                                        Demandes spéciales
+                                        <span data-i18n="booking.form_section3">Demandes spéciales</span>
                                     </h4>
                                     <div class="relative">
                                         <textarea id="requests" name="requests" rows="4"
@@ -1180,7 +1029,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                             </svg>
-                                            <span>Envoyer ma demande</span>
+                                            <span data-i18n="booking.form_cta">Envoyer ma demande</span>
                                         </div>
                                     </button>
                                     <div
@@ -1191,7 +1040,7 @@
                                                     d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <span>Données sécurisées</span>
+                                            <span data-i18n="booking.form_security">Données sécurisées</span>
                                         </div>
                                         <div class="w-px h-4 bg-[#24441B]/20"></div>
                                         <div class="flex items-center space-x-2">
@@ -1200,7 +1049,7 @@
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <span>Sans engagement</span>
+                                            <span data-i18n="booking.form_no_commit">Sans engagement</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1211,7 +1060,7 @@
                             class="absolute -bottom-6 -right-6 bg-[#24441B] text-white p-4 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform">
                             <div class="text-center">
                                 <div class="text-2xl font-bold text-[#F2D04E]">2h</div>
-                                <div class="text-xs opacity-80">Réponse garantie</div>
+                                <div class="text-xs opacity-80" data-i18n="booking.trust_badge">Réponse garantie</div>
                             </div>
                         </div>
                     </div>
@@ -1242,21 +1091,21 @@
         <div class="relative z-10 text-center text-white">
             <div class="max-w-4xl mx-auto">
                 <h3 class="text-4xl font-black mb-6">
-                    Une question ? Besoin de
-                    <span class="text-[#F2D04E]">personnaliser</span> ?
+                    <span data-i18n="cta.main_question">Une question ? Besoin de</span>
+                    <span class="text-[#F2D04E]" data-i18n="cta.customize">personnaliser</span> ?
                 </h3>
-                <p class="text-xl text-white/80 mb-8 leading-relaxed">
+                <p class="text-xl text-white/80 mb-8 leading-relaxed" data-i18n="cta.description">
                     Notre équipe d'experts est disponible 7j/7 pour adapter votre voyage à vos envies.
                     Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <button
                         class="bg-gradient-to-r from-[#F2D04E] to-[#e0c03c] hover:from-[#e0c03c] hover:to-[#F2D04E] text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                        <a href="/contact.html">Parler à un expert</a>
+                        <a href="/contact.html" data-i18n="cta.button1">Parler à un expert</a>
                     </button>
                     <button
                         class="border-2 border-[#F2D04E] text-[#F2D04E] hover:bg-[#F2D04E] hover:text-[#24441B] font-bold py-4 px-8 rounded-2xl transition-all duration-300 text-lg">
-                        <a href="/contact.html">Devis personnalisé</a>
+                        <a href="/contact.html" data-i18n="cta.button2">Devis personnalisé</a>
                     </button>
                 </div>
                 <div class="flex items-center justify-center mt-8 space-x-8 text-sm">
@@ -1265,7 +1114,7 @@
                             <path
                                 d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                         </svg>
-                        Réponse garantie sous 2h
+                        <span data-i18n="cta.guarantee">Réponse garantie sous 2h</span>
                     </div>
                     <div class="flex items-center text-[#F2D04E]/80">
                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -1273,7 +1122,7 @@
                                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                 clip-rule="evenodd" />
                         </svg>
-                        Devis gratuit et sans engagement
+                        <span data-i18n="cta.free_quote">Devis gratuit et sans engagement</span>
                     </div>
                 </div>
             </div>
@@ -1287,10 +1136,10 @@
                 <div>
                     <div class=" text-primary px-4 py-2 rounded-lg font-bold text-xl mb-6 inline-block">
                         <a href="/index.html" class="flex items-center">
-                            <img src="/images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
+                            <img src="../images/logo.png" class="h-16 w-auto" alt="Enjoy Marrakech Tours">
                         </a>
                     </div>
-                    <p class="text-gray-400 mb-6">
+                    <p class="text-gray-400 mb-6" data-i18n="footer.description">
                         Votre agence de voyage spécialiste des circuits sur mesure au Maroc depuis plus de 10 ans.
                     </p>
                     <div class="flex space-x-4">
@@ -1310,22 +1159,22 @@
                 </div>
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Liens Rapides</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.links_title">Liens Rapides</h3>
                     <ul class="space-y-2">
-                        <li><a href="/index.html" class="text-gray-400 hover:text-accent transition-colors">Accueil</a>
+                        <li><a href="/index.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.home">Accueil</a>
                         </li>
-                        <li><a href="/about.html" class="text-gray-400 hover:text-accent transition-colors">À propos</a>
+                        <li><a href="/about.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.about">À propos</a>
                         </li>
-                        <li><a href="#tours" class="text-gray-400 hover:text-accent transition-colors">Circuits</a></li>
-                        <li><a href="/galery.html" class="text-gray-400 hover:text-accent transition-colors">Galerie</a>
+                        <li><a href="#tours" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.tours">Circuits</a></li>
+                        <li><a href="/galery.html" class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.gallery">Galerie</a>
                         </li>
                         <li><a href="/contact.html"
-                                class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
+                                class="text-gray-400 hover:text-accent transition-colors" data-i18n="nav.contact">Contact</a></li>
                     </ul>
                 </div>
                 <!-- Contact Info -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Contact</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.contact_title">Contact</h3>
                     <ul class="space-y-3 text-gray-400">
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
@@ -1333,23 +1182,23 @@
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-phone mt-1 mr-3 text-accent"></i>
-                            <span>+212 5 22 12 34 56</span>
+                            <span>+212691196491</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
-                            <span>info@enjoymarrakechtours.com</span>
+                            <span>Enjoymarrakechtour@gmail.com</span>
                         </li>
                     </ul>
                 </div>
                 <!-- Newsletter -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Abonnez-vous</h3>
-                    <p class="text-gray-400 mb-4">Recevez nos dernières offres et conseils de voyage par email.</p>
+                    <h3 class="text-xl font-bold mb-4 text-white" data-i18n="footer.newsletter_title">Abonnez-vous</h3>
+                    <p class="text-gray-400 mb-4" data-i18n="footer.newsletter_desc">Recevez nos dernières offres et conseils de voyage par email.</p>
                     <form class="flex flex-col">
                         <input type="email" placeholder="Votre adresse email"
                             class="bg-gray-800 text-white p-3 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-accent">
                         <button type="submit"
-                            class="bg-accent text-primary font-medium py-3 rounded hover:bg-accent/90 transition-colors">S'abonner</button>
+                            class="bg-accent text-primary font-medium py-3 rounded hover:bg-accent/90 transition-colors" data-i18n="footer.newsletter_cta">S'abonner</button>
                     </form>
                 </div>
             </div>
@@ -1361,17 +1210,469 @@
     <!-- JavaScript for interactivity -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Get elements
+            // --- Language Switcher Functionality ---
+            const languageOptionsDesktop = document.querySelectorAll('.language-switcher .language-option');
+            const languageOptionsMobile = document.querySelectorAll('#mobile-language-options .language-option');
+            const currentLanguageElements = document.querySelectorAll('.current-language');
+            const allLanguageOptionElements = [...languageOptionsDesktop, ...languageOptionsMobile];
+
+            // --- Translation Data (Mock) ---
+            // In a real application, this would likely be loaded from external JSON files.
+            const translations = {
+                fr: {
+                    // Navigation
+                    'nav.home': 'Accueil',
+                    'nav.about': 'À propos',
+                    'nav.packages': 'Packages',
+                    'nav.from_marrakech': 'Depuis Marrakech',
+                    'nav.from_fes': 'Depuis Fès',
+                    'nav.from_casablanca': 'Depuis Casablanca',
+                    'nav.gallery': 'Galerie',
+                    'nav.contact': 'Contact US',
+                    'nav.contact_mobile': 'Contactez-nous',
+                    'nav.tours': 'Circuits',
+                    // Hero
+                    'hero.title_part1': 'Circuit de',
+                    'hero.title_days': '3 JOURS',
+                    'hero.title_route': 'Marrakech - Merzouga - Fès',
+                    'hero.description': 'Un voyage épique à travers les montagnes de l\'Atlas, les gorges du Todra et les dunes dorées du Sahara, jusqu\'à la ville impériale de Fès.',
+                    'hero.feature_unesco': 'Sites UNESCO',
+                    'hero.feature_luxury': 'Camp de Luxe',
+                    'hero.feature_guide': 'Guide Expert',
+                    'hero.cta': 'Réserver maintenant',
+                    'hero.confirmation': '✨ Confirmation immédiate',
+                    'hero.disclaimer': 'Sans frais cachés • Annulation flexible',
+                    'hero.location': 'Erg Chebbi, Maroc',
+                    'hero.image_title': 'Dunes de Merzouga',
+                    'hero.image_subtitle': 'Le joyau du désert marocain',
+                    'hero.days_label': 'Jours',
+                    'hero.days_desc': 'D\'aventure',
+                    'hero.day1_label': 'Jour 1',
+                    'hero.day1_desc': 'Kasbah UNESCO',
+                    'hero.night_label': 'Nuit magique',
+                    'hero.night_desc': 'Camp luxe',
+                    // Inclusions
+                    'inclusion.transparency': 'Transparence totale',
+                    'inclusion.title_main': 'Votre journée',
+                    'inclusion.title': 'tout compris',
+                    'inclusion.subtitle': 'Découvrez ce qui est inclus dans votre escapade à Ait Ben Haddou et ce qu\'il faut prévoir.',
+                    'inclusion.included': 'Tout inclus',
+                    'inclusion.included_sub': 'Votre journée sans souci',
+                    'inclusion.guide': 'Guide expert privé',
+                    'inclusion.guide_desc': 'Guide francophone certifié pour une immersion historique',
+                    'inclusion.transport': 'Transport premium',
+                    'inclusion.transport_desc': '4x4 climatisé aller-retour depuis Marrakech',
+                    'inclusion.visits': 'Visites guidées',
+                    'inclusion.visits_desc': 'Kasbah UNESCO et village historique',
+                    'inclusion.free_time': 'Temps libre',
+                    'inclusion.free_time_desc': 'Explorez le village ou les boutiques locales',
+                    'inclusion.drinks': 'Boissons non alcoolisées',
+                    'inclusion.drinks_desc': 'Eau et thé à la menthe offerts pendant la journée',
+                    // Itinerary
+                    'itinerary.header_tag': 'Votre Aventure',
+                    'itinerary.title_main': '3 Jours d\'',
+                    'itinerary.title_adventure': 'Évasion',
+                    'itinerary.description': 'Un voyage soigneusement orchestré à travers les paysages les plus spectaculaires du Maroc, de Marrakech aux dunes dorées du Sahara, jusqu\'à la ville impériale de Fès.',
+                    'itinerary.days_label': 'Jours',
+                    'itinerary.sites_label': 'Sites',
+                    'itinerary.memories_label': 'Souvenirs',
+                    'itinerary.day1_badge': 'JOUR 1',
+                    'itinerary.day1_duration': '8h de route',
+                    'itinerary.day1_title': 'Marrakech - Ait Benhaddou - Ouarzazate - Vallée des Roses - Boumalne Dades',
+                    'itinerary.day1_desc': 'Départ matinal de Marrakech. Traversée des montagnes de l\'Atlas via le col de Tizi’n Tichka (2260m) avec arrêts panoramiques. Visite de la célèbre Kasbah d’Ait Benhaddou, site classé UNESCO et décor de nombreux films. Continuation vers Ouarzazate, la "Hollywood du Maroc", puis traversée de la Vallée des Roses. Nuit à Boumalne Dades.',
+                    'itinerary.day1_point1': 'Passage du col de Tizi n\'Tichka',
+                    'itinerary.day1_point2': 'Visite de la Kasbah d\'Ait Benhaddou (UNESCO)',
+                    'itinerary.day1_point3': 'Découverte d\'Ouarzazate et de la Vallée des Roses',
+                    'itinerary.day1_point4': 'Nuit à Boumalne Dades',
+                    'itinerary.day1_img_title': 'Kasbah Ait Benhaddou',
+                    'itinerary.day1_img_subtitle': 'Site UNESCO',
+                    'itinerary.day2_badge': 'JOUR 2',
+                    'itinerary.day2_night': 'Nuit au désert',
+                    'itinerary.day2_title': 'Boumalne Dades - Gorges du Todra - Tinjdad - Merzouga - Balade à Dromadaire',
+                    'itinerary.day2_desc': 'Départ vers les Gorges du Todra, un canyon spectaculaire de 300 mètres de hauteur. Après le déjeuner à Tinjdad, continuation vers Merzouga. À l\'approche des dunes, vous troquerez la voiture pour un dromadaire et traverserez les dunes dorées jusqu\'au camp de luxe pour admirer le coucher de soleil. Nuit sous les étoiles dans un camp berbère de luxe.',
+                    'itinerary.day2_point1': 'Découverte des Gorges du Todra',
+                    'itinerary.day2_point2': 'Arrivée à Merzouga, porte du désert',
+                    'itinerary.day2_point3': 'Balade à dos de dromadaire au coucher du soleil',
+                    'itinerary.day2_point4': 'Nuit en camp de luxe dans les dunes',
+                    'itinerary.day2_img_title': 'Dunes de Merzouga',
+                    'itinerary.day2_img_subtitle': 'Sahara Desert',
+                    'itinerary.day3_badge': 'JOUR 3',
+                    'itinerary.day3_direction': 'Route vers Fès',
+                    'itinerary.day3_title': 'Merzouga - Vallée du Ziz - Midelt - Ifrane - Fès',
+                    'itinerary.day3_desc': 'Lever tôt pour admirer le magnifique lever de soleil sur les dunes. Petit-déjeuner au camp, puis retour en 4x4. Traversée de la vallée du Ziz avec ses palmeraies. Déjeuner à Midelt, la capitale de la pomme. Passage par Ifrane, surnommée la "Suisse marocaine". Arrivée en fin d\'après-midi à Fès, où vous serez déposé à votre hébergement.',
+                    'itinerary.day3_point1': 'Lever de soleil sur les dunes d\'Erg Chebbi',
+                    'itinerary.day3_point2': 'Traversée de la Vallée du Ziz et arrêt à Midelt',
+                    'itinerary.day3_point3': 'Passage par Ifrane, ville aux allures européennes',
+                    'itinerary.day3_point4': 'Arrivée à Fès en fin de journée',
+                    'itinerary.day3_img_title': 'Ifrane',
+                    'itinerary.day3_img_subtitle': 'La Suisse marocaine',
+                    // Booking
+                    'booking.header_tag': 'Réservation Express',
+                    'booking.title_main': 'Partez à l\'',
+                    'booking.title_adventure': 'aventure',
+                    'booking.description': 'Réservez votre expérience inoubliable de Marrakech à Fès via le désert du Sahara. Notre équipe vous accompagne pour créer des souvenirs magiques.',
+                    'booking.feature1_title': 'Confirmation instantanée',
+                    'booking.feature1_desc': 'Réponse garantie sous 2 heures, même le weekend',
+                    'booking.feature2_title': 'Accompagnement premium',
+                    'booking.feature2_desc': 'Guide expert et service personnalisé 24/7',
+                    'booking.feature3_title': 'Flexibilité totale',
+                    'booking.feature3_desc': 'Modification gratuite jusqu\'à 48h avant le départ',
+                    'booking.highlight_tag': 'Points forts du circuit',
+                    'booking.highlight_type': 'Expérience unique',
+                    'booking.highlight_features': 'Culture • Désert • Océan',
+                    'booking.highlight_desc': 'Transport confortable, hébergements sélectionnés et immersion authentique dans les paysages marocains.',
+                    'booking.form_title': 'Détails de réservation',
+                    'booking.form_section1': 'Sélection rapide',
+                    'booking.form_guests_label': 'Voyageurs',
+                    'booking.form_date_label': 'Date de départ',
+                    'booking.form_section2': 'Vos coordonnées',
+                    'booking.form_name_label': 'Nom complet *',
+                    'booking.form_email_label': 'Email *',
+                    'booking.form_phone_label': 'Téléphone *',
+                    'booking.form_section3': 'Demandes spéciales',
+                    'booking.form_cta': 'Envoyer ma demande',
+                    'booking.form_security': 'Données sécurisées',
+                    'booking.form_no_commit': 'Sans engagement',
+                    'booking.trust_badge': 'Réponse garantie',
+                    // CTA
+                    'cta.main_question': 'Une question ? Besoin de',
+                    'cta.customize': 'personnaliser',
+                    'cta.description': 'Notre équipe d\'experts est disponible 7j/7 pour adapter votre voyage à vos envies. Régimes alimentaires, anniversaires, demandes spéciales... tout est possible !',
+                    'cta.button1': 'Parler à un expert',
+                    'cta.button2': 'Devis personnalisé',
+                    'cta.guarantee': 'Réponse garantie sous 2h',
+                    'cta.free_quote': 'Devis gratuit et sans engagement',
+                    // Footer
+                    'footer.description': 'Votre agence de voyage spécialiste des circuits sur mesure au Maroc depuis plus de 10 ans.',
+                    'footer.links_title': 'Liens Rapides',
+                    'footer.contact_title': 'Contact',
+                    'footer.newsletter_title': 'Abonnez-vous',
+                    'footer.newsletter_desc': 'Recevez nos dernières offres et conseils de voyage par email.',
+                    'footer.newsletter_cta': 'S\'abonner'
+                },
+                en: {
+                    // Navigation
+                    'nav.home': 'Home',
+                    'nav.about': 'About',
+                    'nav.packages': 'Packages',
+                    'nav.from_marrakech': 'From Marrakech',
+                    'nav.from_fes': 'From Fes',
+                    'nav.from_casablanca': 'From Casablanca',
+                    'nav.gallery': 'Gallery',
+                    'nav.contact': 'Contact US',
+                    'nav.contact_mobile': 'Contact Us',
+                    'nav.tours': 'Tours',
+                    // Hero
+                    'hero.title_part1': 'Trip of',
+                    'hero.title_days': '3 DAYS',
+                    'hero.title_route': 'Marrakech - Merzouga - Fes',
+                    'hero.description': 'An epic journey through the Atlas Mountains, Todra Gorges, and the golden dunes of the Sahara, ending in the imperial city of Fes.',
+                    'hero.feature_unesco': 'UNESCO Sites',
+                    'hero.feature_luxury': 'Luxury Camp',
+                    'hero.feature_guide': 'Expert Guide',
+                    'hero.cta': 'Book Now',
+                    'hero.confirmation': '✨ Instant Confirmation',
+                    'hero.disclaimer': 'No hidden fees • Flexible cancellation',
+                    'hero.location': 'Erg Chebbi, Morocco',
+                    'hero.image_title': 'Merzouga Dunes',
+                    'hero.image_subtitle': 'The Jewel of the Moroccan Desert',
+                    'hero.days_label': 'Days',
+                    'hero.days_desc': 'Of Adventure',
+                    'hero.day1_label': 'Day 1',
+                    'hero.day1_desc': 'UNESCO Kasbah',
+                    'hero.night_label': 'Magical Night',
+                    'hero.night_desc': 'Luxury Camp',
+                    // Inclusions
+                    'inclusion.transparency': 'Full Transparency',
+                    'inclusion.title_main': 'Your Day',
+                    'inclusion.title': 'All Inclusive',
+                    'inclusion.subtitle': 'Discover what is included in your Ait Ben Haddou excursion and what to expect.',
+                    'inclusion.included': 'All Included',
+                    'inclusion.included_sub': 'Your Worry-Free Day',
+                    'inclusion.guide': 'Private Expert Guide',
+                    'inclusion.guide_desc': 'Certified French-speaking guide for historical immersion',
+                    'inclusion.transport': 'Premium Transport',
+                    'inclusion.transport_desc': 'Air-conditioned 4x4 round-trip from Marrakech',
+                    'inclusion.visits': 'Guided Tours',
+                    'inclusion.visits_desc': 'UNESCO Kasbah and historical village',
+                    'inclusion.free_time': 'Free Time',
+                    'inclusion.free_time_desc': 'Explore the village or local shops',
+                    'inclusion.drinks': 'Non-alcoholic Drinks',
+                    'inclusion.drinks_desc': 'Water and mint tea offered throughout the day',
+                    // Itinerary
+                    'itinerary.header_tag': 'Your Adventure',
+                    'itinerary.title_main': '3 Days of',
+                    'itinerary.title_adventure': 'Escape',
+                    'itinerary.description': 'A carefully orchestrated journey through Morocco\'s most spectacular landscapes, from Marrakech to the golden dunes of the Sahara, ending at the imperial city of Fes.',
+                    'itinerary.days_label': 'Days',
+                    'itinerary.sites_label': 'Sites',
+                    'itinerary.memories_label': 'Memories',
+                    'itinerary.day1_badge': 'DAY 1',
+                    'itinerary.day1_duration': '8h drive',
+                    'itinerary.day1_title': 'Marrakech - Ait Benhaddou - Ouarzazate - Roses Valley - Boumalne Dades',
+                    'itinerary.day1_desc': 'Early morning departure from Marrakech. Cross the Atlas Mountains via Tizi’n Tichka Pass (2260m) with panoramic stops. Visit the famous UNESCO-listed Ait Benhaddou Kasbah, a setting for many films. Continue to Ouarzazate, the "Hollywood of Morocco", then cross the Roses Valley. Overnight in Boumalne Dades.',
+                    'itinerary.day1_point1': 'Crossing Tizi n\'Tichka Pass',
+                    'itinerary.day1_point2': 'Visit Ait Benhaddou Kasbah (UNESCO)',
+                    'itinerary.day1_point3': 'Discover Ouarzazate and Roses Valley',
+                    'itinerary.day1_point4': 'Overnight in Boumalne Dades',
+                    'itinerary.day1_img_title': 'Ait Benhaddou Kasbah',
+                    'itinerary.day1_img_subtitle': 'UNESCO Site',
+                    'itinerary.day2_badge': 'DAY 2',
+                    'itinerary.day2_night': 'Desert Night',
+                    'itinerary.day2_title': 'Boumalne Dades - Todra Gorges - Tinjdad - Merzouga - Camel Ride',
+                    'itinerary.day2_desc': 'Depart for Todra Gorges, a spectacular canyon 300 meters high. After lunch in Tinjdad, continue to Merzouga. As you approach the dunes, trade the car for a camel and cross the golden dunes to the luxury camp to watch the sunset. Spend the night under the stars in a luxury Berber camp.',
+                    'itinerary.day2_point1': 'Discover Todra Gorges',
+                    'itinerary.day2_point2': 'Arrive at Merzouga, the gateway to the desert',
+                    'itinerary.day2_point3': 'Sunset camel ride',
+                    'itinerary.day2_point4': 'Night in luxury camp in the dunes',
+                    'itinerary.day2_img_title': 'Merzouga Dunes',
+                    'itinerary.day2_img_subtitle': 'Sahara Desert',
+                    'itinerary.day3_badge': 'DAY 3',
+                    'itinerary.day3_direction': 'Route to Fes',
+                    'itinerary.day3_title': 'Merzouga - Ziz Valley - Midelt - Ifrane - Fes',
+                    'itinerary.day3_desc': 'Early morning to admire the beautiful sunrise over the dunes. Breakfast at the camp, then return by 4x4. Cross the Ziz Valley with its palm groves. Lunch in Midelt, the apple capital. Stop by Ifrane, known as "Switzerland of Morocco". Arrive in Fes in the late afternoon, where you will be dropped off at your accommodation.',
+                    'itinerary.day3_point1': 'Sunrise over Erg Chebbi dunes',
+                    'itinerary.day3_point2': 'Crossing Ziz Valley and stop in Midelt',
+                    'itinerary.day3_point3': 'Pass by Ifrane, the European-style town',
+                    'itinerary.day3_point4': 'Arrival in Fes in the evening',
+                    'itinerary.day3_img_title': 'Ifrane',
+                    'itinerary.day3_img_subtitle': 'The Swiss Morocco',
+                    // Booking
+                    'booking.header_tag': 'Express Booking',
+                    'booking.title_main': 'Embark on an',
+                    'booking.title_adventure': 'adventure',
+                    'booking.description': 'Book your unforgettable experience from Marrakech to Fes via the Sahara Desert. Our team will accompany you to create magical memories.',
+                    'booking.feature1_title': 'Instant Confirmation',
+                    'booking.feature1_desc': 'Guaranteed response within 2 hours, even on weekends',
+                    'booking.feature2_title': 'Premium Service',
+                    'booking.feature2_desc': 'Expert guide and personalized 24/7 service',
+                    'booking.feature3_title': 'Full Flexibility',
+                    'booking.feature3_desc': 'Free modification up to 48h before departure',
+                    'booking.highlight_tag': 'Tour highlights',
+                    'booking.highlight_type': 'Unique Experience',
+                    'booking.highlight_features': 'Culture • Desert • Ocean',
+                    'booking.highlight_desc': 'Comfortable transport, selected accommodations, and authentic immersion in Moroccan landscapes.',
+                    'booking.form_title': 'Booking Details',
+                    'booking.form_section1': 'Quick Selection',
+                    'booking.form_guests_label': 'Travelers',
+                    'booking.form_date_label': 'Departure Date',
+                    'booking.form_section2': 'Your Contact Info',
+                    'booking.form_name_label': 'Full Name *',
+                    'booking.form_email_label': 'Email *',
+                    'booking.form_phone_label': 'Phone *',
+                    'booking.form_section3': 'Special Requests',
+                    'booking.form_cta': 'Send My Request',
+                    'booking.form_security': 'Secure Data',
+                    'booking.form_no_commit': 'No Obligation',
+                    'booking.trust_badge': 'Guaranteed Response',
+                    // CTA
+                    'cta.main_question': 'A question? Need to',
+                    'cta.customize': 'customize',
+                    'cta.description': 'Our team of experts is available 7 days a week to tailor your trip to your wishes. Dietary requirements, birthdays, special requests... anything is possible!',
+                    'cta.button1': 'Talk to an Expert',
+                    'cta.button2': 'Custom Quote',
+                    'cta.guarantee': 'Guaranteed response within 2h',
+                    'cta.free_quote': 'Free and no obligation quote',
+                    // Footer
+                    'footer.description': 'Your travel agency specializing in custom tours in Morocco for over 10 years.',
+                    'footer.links_title': 'Quick Links',
+                    'footer.contact_title': 'Contact',
+                    'footer.newsletter_title': 'Subscribe',
+                    'footer.newsletter_desc': 'Receive our latest offers and travel tips by email.',
+                    'footer.newsletter_cta': 'Subscribe'
+                },
+                es: {
+                    // Navigation
+                    'nav.home': 'Inicio',
+                    'nav.about': 'Acerca de',
+                    'nav.packages': 'Paquetes',
+                    'nav.from_marrakech': 'Desde Marrakech',
+                    'nav.from_fes': 'Desde Fes',
+                    'nav.from_casablanca': 'Desde Casablanca',
+                    'nav.gallery': 'Galería',
+                    'nav.contact': 'Contáctenos',
+                    'nav.contact_mobile': 'Contáctanos',
+                    'nav.tours': 'Tours',
+                    // Hero
+                    'hero.title_part1': 'Excursión de',
+                    'hero.title_days': '3 DÍAS',
+                    'hero.title_route': 'Marrakech - Merzouga - Fes',
+                    'hero.description': 'Un viaje épico a través de las montañas del Atlas, los desfiladeros del Todra y las dunas doradas del Sáhara, hasta la ciudad imperial de Fes.',
+                    'hero.feature_unesco': 'Sitios UNESCO',
+                    'hero.feature_luxury': 'Campamento de Lujo',
+                    'hero.feature_guide': 'Guía Experto',
+                    'hero.cta': 'Reservar Ahora',
+                    'hero.confirmation': '✨ Confirmación Instantánea',
+                    'hero.disclaimer': 'Sin cargos ocultos • Cancelación flexible',
+                    'hero.location': 'Erg Chebbi, Marruecos',
+                    'hero.image_title': 'Dunas de Merzouga',
+                    'hero.image_subtitle': 'La Joya del Desierto Marroquí',
+                    'hero.days_label': 'Días',
+                    'hero.days_desc': 'De Aventura',
+                    'hero.day1_label': 'Día 1',
+                    'hero.day1_desc': 'Kasbah UNESCO',
+                    'hero.night_label': 'Noche Mágica',
+                    'hero.night_desc': 'Campamento de Lujo',
+                    // Inclusions
+                    'inclusion.transparency': 'Transparencia Total',
+                    'inclusion.title_main': 'Tu Día',
+                    'inclusion.title': 'Todo Incluido',
+                    'inclusion.subtitle': 'Descubre qué está incluido en tu excursión a Ait Ben Haddou y qué esperar.',
+                    'inclusion.included': 'Todo Incluido',
+                    'inclusion.included_sub': 'Tu Día Sin Preocupaciones',
+                    'inclusion.guide': 'Guía Experto Privado',
+                    'inclusion.guide_desc': 'Guía certificado francófono para una inmersión histórica',
+                    'inclusion.transport': 'Transporte Premium',
+                    'inclusion.transport_desc': '4x4 climatizado ida y vuelta desde Marrakech',
+                    'inclusion.visits': 'Visitas Guiadas',
+                    'inclusion.visits_desc': 'Kasbah UNESCO y pueblo histórico',
+                    'inclusion.free_time': 'Tiempo Libre',
+                    'inclusion.free_time_desc': 'Explora el pueblo o las tiendas locales',
+                    'inclusion.drinks': 'Bebidas No Alcohólicas',
+                    'inclusion.drinks_desc': 'Agua y té de menta ofrecidos durante el día',
+                    // Itinerary
+                    'itinerary.header_tag': 'Tu Aventura',
+                    'itinerary.title_main': '3 Días de',
+                    'itinerary.title_adventure': 'Escape',
+                    'itinerary.description': 'Un viaje cuidadosamente orquestado a través de los paisajes más espectaculares de Marruecos, desde Marrakech hasta las dunas doradas del Sáhara, hasta la ciudad imperial de Fes.',
+                    'itinerary.days_label': 'Días',
+                    'itinerary.sites_label': 'Sitios',
+                    'itinerary.memories_label': 'Recuerdos',
+                    'itinerary.day1_badge': 'DÍA 1',
+                    'itinerary.day1_duration': '8h de viaje',
+                    'itinerary.day1_title': 'Marrakech - Ait Benhaddou - Ouarzazate - Valle de las Rosas - Boumalne Dades',
+                    'itinerary.day1_desc': 'Salida temprana de Marrakech. Atravesamos las montañas del Atlas por el paso de Tizi’n Tichka (2260m) con paradas panorámicas. Visita la famosa Kasbah de Ait Benhaddou, sitio declarado Patrimonio de la Humanidad por la UNESCO y escenario de muchas películas. Continuamos hacia Ouarzazate, la "Hollywood marroquí", y atravesamos el Valle de las Rosas. Noche en Boumalne Dades.',
+                    'itinerary.day1_point1': 'Cruce del paso Tizi n\'Tichka',
+                    'itinerary.day1_point2': 'Visita a la Kasbah de Ait Benhaddou (UNESCO)',
+                    'itinerary.day1_point3': 'Descubrimiento de Ouarzazate y el Valle de las Rosas',
+                    'itinerary.day1_point4': 'Noche en Boumalne Dades',
+                    'itinerary.day1_img_title': 'Kasbah Ait Benhaddou',
+                    'itinerary.day1_img_subtitle': 'Sitio UNESCO',
+                    'itinerary.day2_badge': 'DÍA 2',
+                    'itinerary.day2_night': 'Noche en el Desierto',
+                    'itinerary.day2_title': 'Boumalne Dades - Desfiladeros del Todra - Tinjdad - Merzouga - Paseo en Camello',
+                    'itinerary.day2_desc': 'Salida hacia los Desfiladeros del Todra, un cañón espectacular de 300 metros de altura. Después del almuerzo en Tinjdad, continuamos hacia Merzouga. Al acercarnos a las dunas, cambiaremos el coche por un camello y cruzaremos las dunas doradas hasta el campamento de lujo para admirar la puesta de sol. Pernoctamos bajo las estrellas en un campamento bereber de lujo.',
+                    'itinerary.day2_point1': 'Descubrimiento de los Desfiladeros del Todra',
+                    'itinerary.day2_point2': 'Llegada a Merzouga, la puerta del desierto',
+                    'itinerary.day2_point3': 'Paseo en camello al atardecer',
+                    'itinerary.day2_point4': 'Noche en campamento de lujo en las dunas',
+                    'itinerary.day2_img_title': 'Dunas de Merzouga',
+                    'itinerary.day2_img_subtitle': 'Desierto del Sáhara',
+                    'itinerary.day3_badge': 'DÍA 3',
+                    'itinerary.day3_direction': 'Ruta hacia Fes',
+                    'itinerary.day3_title': 'Merzouga - Valle del Ziz - Midelt - Ifrane - Fes',
+                    'itinerary.day3_desc': 'Madrugamos para admirar la hermosa salida del sol sobre las dunas. Desayuno en el campamento, luego regresamos en 4x4. Atravesamos el valle del Ziz con sus palmerales. Almuerzo en Midelt, la capital de la manzana. Pasamos por Ifrane, apodada la "Suiza marroquí". Llegada a Fes por la tarde, donde se le dejará en su alojamiento.',
+                    'itinerary.day3_point1': 'Salida del sol sobre las dunas de Erg Chebbi',
+                    'itinerary.day3_point2': 'Atravesando el Valle del Ziz y parada en Midelt',
+                    'itinerary.day3_point3': 'Paso por Ifrane, ciudad con aires europeos',
+                    'itinerary.day3_point4': 'Llegada a Fes por la tarde',
+                    'itinerary.day3_img_title': 'Ifrane',
+                    'itinerary.day3_img_subtitle': 'La Suiza marroquí',
+                    // Booking
+                    'booking.header_tag': 'Reserva Exprés',
+                    'booking.title_main': 'Embarca en una',
+                    'booking.title_adventure': 'aventura',
+                    'booking.description': 'Reserve su experiencia inolvidable de Marrakech a Fes a través del desierto del Sáhara. Nuestro equipo le acompañará para crear recuerdos mágicos.',
+                    'booking.feature1_title': 'Confirmación Instantánea',
+                    'booking.feature1_desc': 'Respuesta garantizada en 2 horas, incluso los fines de semana',
+                    'booking.feature2_title': 'Servicio Premium',
+                    'booking.feature2_desc': 'Guía experto y servicio personalizado 24/7',
+                    'booking.feature3_title': 'Flexibilidad Total',
+                    'booking.feature3_desc': 'Modificación gratuita hasta 48h antes de la salida',
+                    'booking.highlight_tag': 'Puntos fuertes del tour',
+                    'booking.highlight_type': 'Experiencia Única',
+                    'booking.highlight_features': 'Cultura • Desierto • Océano',
+                    'booking.highlight_desc': 'Transporte cómodo, alojamientos seleccionados e inmersión auténtica en los paisajes marroquíes.',
+                    'booking.form_title': 'Detalles de la Reserva',
+                    'booking.form_section1': 'Selección Rápida',
+                    'booking.form_guests_label': 'Viajeros',
+                    'booking.form_date_label': 'Fecha de Salida',
+                    'booking.form_section2': 'Tus Datos de Contacto',
+                    'booking.form_name_label': 'Nombre Completo *',
+                    'booking.form_email_label': 'Email *',
+                    'booking.form_phone_label': 'Teléfono *',
+                    'booking.form_section3': 'Peticiones Especiales',
+                    'booking.form_cta': 'Enviar Mi Solicitud',
+                    'booking.form_security': 'Datos Seguros',
+                    'booking.form_no_commit': 'Sin Compromiso',
+                    'booking.trust_badge': 'Respuesta Garantizada',
+                    // CTA
+                    'cta.main_question': '¿Una pregunta? ¿Necesitas',
+                    'cta.customize': 'personalizar',
+                    'cta.description': 'Nuestro equipo de expertos está disponible 7 días a la semana para adaptar tu viaje a tus deseos. Requisitos dietéticos, cumpleaños, peticiones especiales... ¡todo es posible!',
+                    'cta.button1': 'Habla con un Experto',
+                    'cta.button2': 'Presupuesto Personalizado',
+                    'cta.guarantee': 'Respuesta garantizada en 2h',
+                    'cta.free_quote': 'Presupuesto gratuito y sin compromiso',
+                    // Footer
+                    'footer.description': 'Tu agencia de viajes especializada en tours personalizados en Marruecos desde hace más de 10 años.',
+                    'footer.links_title': 'Enlaces Rápidos',
+                    'footer.contact_title': 'Contacto',
+                    'footer.newsletter_title': 'Suscríbete',
+                    'footer.newsletter_desc': 'Recibe nuestras últimas ofertas y consejos de viaje por correo electrónico.',
+                    'footer.newsletter_cta': 'Suscribirse'
+                }
+            };
+
+            // --- Translation Function ---
+            function translatePage(langCode) {
+                const langData = translations[langCode] || translations['fr']; // Default to French if language not found
+
+                // Update elements with data-i18n attribute
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    const text = langData[key] || translations['fr'][key] || key; // Fallback to French or key itself
+                    element.textContent = text;
+                });
+
+                // Update the displayed language code
+                currentLanguageElements.forEach(el => {
+                    el.textContent = langCode.toUpperCase();
+                });
+
+                // Update the active class for language options
+                allLanguageOptionElements.forEach(option => {
+                    if (option.getAttribute('data-lang') === langCode) {
+                        option.classList.add('active');
+                    } else {
+                        option.classList.remove('active');
+                    }
+                });
+
+                // Store the selected language in localStorage
+                localStorage.setItem('preferredLanguage', langCode);
+            }
+
+            // --- Event Listeners for Language Options ---
+            allLanguageOptionElements.forEach(option => {
+                option.addEventListener('click', function() {
+                    const selectedLang = this.getAttribute('data-lang');
+                    if (selectedLang) {
+                        translatePage(selectedLang);
+                    }
+                });
+            });
+
+            // --- Initialize Language on Page Load ---
+            // Check for stored preference, otherwise default to 'fr'
+            const storedLang = localStorage.getItem('preferredLanguage');
+            const initialLang = storedLang || 'fr';
+            translatePage(initialLang); // Apply the initial language
+
+
+            // --- Existing Mobile Menu Functionality ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileToursButton = document.getElementById('mobile-tours-button');
             const mobileToursContent = document.getElementById('mobile-tours-content');
             const mobileLanguageButton = document.getElementById('mobile-language-button');
             const mobileLanguageOptions = document.getElementById('mobile-language-options');
+
             // Toggle mobile menu
             mobileMenuButton.addEventListener('click', function () {
                 mobileMenu.classList.toggle('hidden');
             });
+
             // Toggle tours dropdown in mobile menu
             mobileToursButton.addEventListener('click', function (e) {
                 e.stopPropagation();
@@ -1380,6 +1681,7 @@
                 const chevron = this.querySelector('.fa-chevron-down');
                 chevron.classList.toggle('rotate-180');
             });
+
             // Toggle language options in mobile menu
             mobileLanguageButton.addEventListener('click', function (e) {
                 e.stopPropagation();
@@ -1388,6 +1690,7 @@
                 const chevron = this.querySelector('.fa-chevron-down');
                 chevron.classList.toggle('rotate-180');
             });
+
             // Close menu when clicking outside
             document.addEventListener('click', function (event) {
                 if (!mobileMenu.contains(event.target) &&
@@ -1405,39 +1708,7 @@
                     }
                 }
             });
-            // Handle language selection in mobile menu
-            const mobileLanguageOptionsList = mobileLanguageOptions.querySelectorAll('.language-option');
-            mobileLanguageOptionsList.forEach(option => {
-                option.addEventListener('click', function () {
-                    const languageText = this.textContent.trim();
-                    const languageCode = languageText.split(' ')[0];
-                    // Update the selected language
-                    document.querySelectorAll('.current-language').forEach(el => {
-                        el.textContent = languageCode;
-                    });
-                    // Hide the options
-                    mobileLanguageOptions.classList.remove('show');
-                    mobileLanguageButton.querySelector('.fa-chevron-down').classList.remove('rotate-180');
-                    // Update active class
-                    mobileLanguageOptionsList.forEach(opt => opt.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-            // Handle language selection in desktop menu
-            const desktopLanguageOptions = document.querySelectorAll('.language-switcher .language-option');
-            desktopLanguageOptions.forEach(option => {
-                option.addEventListener('click', function () {
-                    const languageText = this.textContent.trim();
-                    const languageCode = languageText.split(' ')[0];
-                    // Update the selected language
-                    document.querySelectorAll('.current-language').forEach(el => {
-                        el.textContent = languageCode;
-                    });
-                    // Update active class
-                    desktopLanguageOptions.forEach(opt => opt.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
+
             // Navbar scroll effect
             window.addEventListener('scroll', () => {
                 const navbar = document.getElementById('navbar');
